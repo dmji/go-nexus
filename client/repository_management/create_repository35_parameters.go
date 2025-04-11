@@ -15,7 +15,7 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"nexus/models"
+	"github.com/dmji/go-nexus/models"
 )
 
 // NewCreateRepository35Params creates a new CreateRepository35Params object,

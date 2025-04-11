@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"nexus/models"
+	"github.com/dmji/go-nexus/models"
 )
 
 // Get2Reader is a Reader for the Get2 structure.

@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"nexus/models"
+	"github.com/dmji/go-nexus/models"
 )
 
 // Read1Reader is a Reader for the Read1 structure.

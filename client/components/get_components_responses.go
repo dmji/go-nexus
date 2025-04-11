@@ -13,7 +13,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"nexus/models"
+	"github.com/dmji/go-nexus/models"
 )
 
 // GetComponentsReader is a Reader for the GetComponents structure.

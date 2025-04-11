@@ -1,4 +1,4 @@
-module nexus
+module github.com/dmji/go-nexus
 
 go 1.24.1
 
