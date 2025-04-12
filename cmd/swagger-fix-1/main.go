@@ -15,7 +15,7 @@ import (
 
 func main() {
 	inputFile := flag.String("input", "../../swagger.json", "Input JSON file")
-	outputFile := flag.String("output", "output.json", "Output JSON file")
+	outputFile := flag.String("output", "swagger.json", "Output JSON file")
 	flag.Parse()
 
 	inputData, err := os.ReadFile(*inputFile)
@@ -73,7 +73,8 @@ func processOrdered(data interface{}, grandParent, parent string) interface{} {
 		_, hasOperationId := v.Get("operationId")
 
 		if hasSummary && hasOperationId {
-			v.Set("operationId", toCamelCase(parent+" "+formatPath(grandParent)))
+			body := formatPath(grandParent)
+			v.Set("operationId", toCamelCase(parent+" "+body))
 		}
 
 		for pair := v.Oldest(); pair != nil; pair = pair.Next() {
@@ -90,6 +91,41 @@ func processOrdered(data interface{}, grandParent, parent string) interface{} {
 	default:
 		return data
 	}
+}
+
+func cleanString(s string) string {
+	stopWords := map[string]bool{
+		// Артикли
+		"a": true, "an": true, "the": true,
+
+		// Предлоги и союзы
+		"by": true, "of": true, "in": true, "on": true, "at": true,
+		"for": true, "or": true, "as": true,
+		"with": true, "from": true, "into": true, "via": true, "per": true,
+
+		// Другие служебные слова
+		"is": true, "it": true, "its": true, "but": true, "nor": true,
+		"not": true, "up": true, "out": true, "so": true, "yet": true,
+		"if": true, "off": true, "etc": true, "que": true,
+	}
+
+	words := strings.Fields(s)
+	var result []string
+
+	for _, word := range words {
+		lowerWord := strings.ToLower(word)
+
+		// Сохраняем слово если:
+		// 1. Его нет в списке стоп-слов
+		// 2. Это параметр вида "by paramName" (сохраняем только paramName)
+		if !stopWords[lowerWord] && !strings.HasPrefix(lowerWord, "by ") {
+			result = append(result, word)
+		} else {
+			fmt.Printf("Word: '%s' removed from '%s'\n", word, s)
+		}
+	}
+
+	return strings.Join(result, " ")
 }
 
 func getStringFromOrderedMap(om *orderedmap.OrderedMap[string, interface{}], key string) (string, bool) {
@@ -148,23 +184,45 @@ func exitWithError(msg string) {
 }
 
 func formatPath(path string) string {
-	// Удаляем версию API и начальные/конечные слэши
-	trimmed := strings.TrimPrefix(path, "/v1/")
-	trimmed = strings.TrimPrefix(trimmed, "/")
-	trimmed = strings.TrimSuffix(trimmed, "/")
+	// Удаляем начальные/конечные слэши и разбиваем на сегменты
+	trimmed := strings.Trim(path, "/")
+	segments := strings.Split(trimmed, "/")
 
-	parts := strings.Split(trimmed, "/")
+	// Пропускаем первый сегмент
+	if len(segments) > 1 {
+		segments = segments[1:]
+	} else {
+		return "" // Если меньше двух сегментов - возвращаем пустую строку
+	}
+
 	var result []string
-
-	for _, part := range parts {
+	for _, segment := range segments {
 		// Обрабатываем path parameters
-		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			param := strings.TrimSuffix(strings.TrimPrefix(part, "{"), "}")
-			result = append(result, "by "+param)
+		if strings.HasPrefix(segment, "{") && strings.HasSuffix(segment, "}") {
+			param := strings.TrimSuffix(strings.TrimPrefix(segment, "{"), "}")
+			result = append(result, "by "+toSnakeCase(param))
 		} else {
-			result = append(result, part)
+			result = append(result, segment)
 		}
 	}
 
 	return strings.Join(result, " ")
+}
+
+func toSnakeCase(s string) string {
+	// Вставляем подчёркивание перед заглавными буквами (кроме первого символа)
+	reg := regexp.MustCompile("([a-z0-9])([A-Z])")
+	snake := reg.ReplaceAllString(s, "${1}_${2}")
+
+	// Заменяем все неалфавитно-цифровые символы на подчёркивания
+	reg = regexp.MustCompile(`[\W\-]+`)
+	snake = reg.ReplaceAllString(snake, "_")
+
+	// Приводим к нижнему регистру и убираем лишние подчёркивания
+	snake = strings.ToLower(snake)
+	snake = strings.Trim(snake, "_")
+
+	// Убираем последовательные подчёркивания
+	reg = regexp.MustCompile(`_{2,}`)
+	return reg.ReplaceAllString(snake, "_")
 }

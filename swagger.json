@@ -227,7 +227,7 @@
           "System: Nodes"
         ],
         "summary": "Get information about all nodes",
-        "operationId": "GetBetaSystemInformation",
+        "operationId": "GetSystemInformation",
         "produces": [
           "application/json"
         ],
@@ -1360,7 +1360,7 @@
           "Repository Management"
         ],
         "summary": "Schedule a 'Repair - Rebuild repository search' Task. Hosted or proxy repositories only.",
-        "operationId": "PostRepositoriesByRepositorynameRebuildIndex",
+        "operationId": "PostRepositoriesByRepositoryNameRebuildIndex",
         "consumes": [
           "application/json"
         ],
@@ -1401,7 +1401,7 @@
           "Repository Management"
         ],
         "summary": "Get repository details",
-        "operationId": "GetRepositoriesByRepositoryname",
+        "operationId": "GetRepositoriesByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -1440,7 +1440,7 @@
           "Repository Management"
         ],
         "summary": "Delete repository of any format",
-        "operationId": "DeleteRepositoriesByRepositoryname",
+        "operationId": "DeleteRepositoriesByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -1478,7 +1478,7 @@
           "Repository Management"
         ],
         "summary": "Invalidate repository cache. Proxy or group repositories only.",
-        "operationId": "PostRepositoriesByRepositorynameInvalidateCache",
+        "operationId": "PostRepositoriesByRepositoryNameInvalidateCache",
         "consumes": [
           "application/json"
         ],
@@ -1518,7 +1518,7 @@
         "tags": [
           "Repository Management"
         ],
-        "summary": "List repositories",
+        "summary": "List repository settins",
         "operationId": "GetRepositorysettings",
         "consumes": [
           "application/json"
@@ -3110,7 +3110,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a repository view type privilege.",
-        "operationId": "PutSecurityPrivilegesRepositoryViewByPrivilegename",
+        "operationId": "PutSecurityPrivilegesRepositoryViewByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -3153,7 +3153,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a repository admin type privilege.",
-        "operationId": "PutSecurityPrivilegesRepositoryAdminByPrivilegename",
+        "operationId": "PutSecurityPrivilegesRepositoryAdminByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -3196,7 +3196,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a repository content selector type privilege.",
-        "operationId": "PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename",
+        "operationId": "PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -3644,7 +3644,7 @@
           "Security management: users"
         ],
         "summary": "Update an existing user.",
-        "operationId": "PutSecurityUsersByUserid",
+        "operationId": "PutSecurityUsersByUserId",
         "consumes": [
           "application/json"
         ],
@@ -3685,7 +3685,7 @@
           "Security management: users"
         ],
         "summary": "Delete a user.",
-        "operationId": "DeleteSecurityUsersByUserid",
+        "operationId": "DeleteSecurityUsersByUserId",
         "consumes": [
           "application/json"
         ],
@@ -3726,7 +3726,7 @@
           "Security management: users"
         ],
         "summary": "Change a user's password.",
-        "operationId": "PutSecurityUsersByUseridChangePassword",
+        "operationId": "PutSecurityUsersByUserIdChangePassword",
         "consumes": [
           "text/plain"
         ],
@@ -3769,7 +3769,7 @@
           "Security management: privileges"
         ],
         "summary": "Retrieve a privilege by name.",
-        "operationId": "GetSecurityPrivilegesByPrivilegename",
+        "operationId": "GetSecurityPrivilegesByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -3805,7 +3805,7 @@
           "Security management: privileges"
         ],
         "summary": "Delete a privilege by name.",
-        "operationId": "DeleteSecurityPrivilegesByPrivilegename",
+        "operationId": "DeleteSecurityPrivilegesByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -3840,7 +3840,7 @@
           "Security management: privileges"
         ],
         "summary": "Update an application type privilege.",
-        "operationId": "PutSecurityPrivilegesApplicationByPrivilegename",
+        "operationId": "PutSecurityPrivilegesApplicationByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -3883,7 +3883,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a wildcard type privilege.",
-        "operationId": "PutSecurityPrivilegesWildcardByPrivilegename",
+        "operationId": "PutSecurityPrivilegesWildcardByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -4456,7 +4456,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesAptHostedByRepositoryname",
+        "operationId": "GetRepositoriesAptHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4485,7 +4485,7 @@
           "Repository Management"
         ],
         "summary": "Update APT hosted repository",
-        "operationId": "PutRepositoriesAptHostedByRepositoryname",
+        "operationId": "PutRepositoriesAptHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4571,7 +4571,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesAptProxyByRepositoryname",
+        "operationId": "GetRepositoriesAptProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4600,7 +4600,7 @@
           "Repository Management"
         ],
         "summary": "Update APT proxy repository",
-        "operationId": "PutRepositoriesAptProxyByRepositoryname",
+        "operationId": "PutRepositoriesAptProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4683,7 +4683,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesMavenGroupByRepositoryname",
+        "operationId": "GetRepositoriesMavenGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4712,7 +4712,7 @@
           "Repository Management"
         ],
         "summary": "Update Maven group repository",
-        "operationId": "PutRepositoriesMavenGroupByRepositoryname",
+        "operationId": "PutRepositoriesMavenGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4792,7 +4792,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesMavenHostedByRepositoryname",
+        "operationId": "GetRepositoriesMavenHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4821,7 +4821,7 @@
           "Repository Management"
         ],
         "summary": "Update Maven hosted repository",
-        "operationId": "PutRepositoriesMavenHostedByRepositoryname",
+        "operationId": "PutRepositoriesMavenHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4901,7 +4901,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesMavenProxyByRepositoryname",
+        "operationId": "GetRepositoriesMavenProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -4930,7 +4930,7 @@
           "Repository Management"
         ],
         "summary": "Update Maven proxy repository",
-        "operationId": "PutRepositoriesMavenProxyByRepositoryname",
+        "operationId": "PutRepositoriesMavenProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5010,7 +5010,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRawGroupByRepositoryname",
+        "operationId": "GetRepositoriesRawGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5039,7 +5039,7 @@
           "Repository Management"
         ],
         "summary": "Update raw group repository",
-        "operationId": "PutRepositoriesRawGroupByRepositoryname",
+        "operationId": "PutRepositoriesRawGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5119,7 +5119,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRawHostedByRepositoryname",
+        "operationId": "GetRepositoriesRawHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5148,7 +5148,7 @@
           "Repository Management"
         ],
         "summary": "Update raw hosted repository",
-        "operationId": "PutRepositoriesRawHostedByRepositoryname",
+        "operationId": "PutRepositoriesRawHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5228,7 +5228,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRawProxyByRepositoryname",
+        "operationId": "GetRepositoriesRawProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5257,7 +5257,7 @@
           "Repository Management"
         ],
         "summary": "Update raw proxy repository",
-        "operationId": "PutRepositoriesRawProxyByRepositoryname",
+        "operationId": "PutRepositoriesRawProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -5302,7 +5302,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a script type privilege.",
-        "operationId": "PutSecurityPrivilegesScriptByPrivilegename",
+        "operationId": "PutSecurityPrivilegesScriptByPrivilegeName",
         "consumes": [
           "application/json"
         ],
@@ -5994,7 +5994,7 @@
           "Blob store"
         ],
         "summary": "Get the project regions by project's id",
-        "operationId": "GetBlobstoresGoogleRegionsByProjectid",
+        "operationId": "GetBlobstoresGoogleRegionsByProjectId",
         "consumes": [
           "application/json"
         ],
@@ -6038,7 +6038,7 @@
           "Blob store"
         ],
         "summary": "Convert a blob store to a group blob store",
-        "operationId": "PostBlobstoresGroupConvertByNameByNewnamefororiginal",
+        "operationId": "PostBlobstoresGroupConvertByNameByNewNameForOriginal",
         "consumes": [
           "application/json"
         ],
@@ -6310,7 +6310,7 @@
           "Repository Management"
         ],
         "summary": "Enable repository health check. Proxy repositories only.",
-        "operationId": "PostRepositoriesByRepositorynameHealthCheck",
+        "operationId": "PostRepositoriesByRepositoryNameHealthCheck",
         "parameters": [
           {
             "name": "repositoryName",
@@ -6343,7 +6343,7 @@
           "Repository Management"
         ],
         "summary": "Disable repository health check. Proxy repositories only.",
-        "operationId": "DeleteRepositoriesByRepositorynameHealthCheck",
+        "operationId": "DeleteRepositoriesByRepositoryNameHealthCheck",
         "parameters": [
           {
             "name": "repositoryName",
@@ -6776,7 +6776,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesCargoGroupByRepositoryname",
+        "operationId": "GetRepositoriesCargoGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -6805,7 +6805,7 @@
           "Repository Management"
         ],
         "summary": "Update cargo group repository",
-        "operationId": "PutRepositoriesCargoGroupByRepositoryname",
+        "operationId": "PutRepositoriesCargoGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -6885,7 +6885,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesCargoHostedByRepositoryname",
+        "operationId": "GetRepositoriesCargoHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -6914,7 +6914,7 @@
           "Repository Management"
         ],
         "summary": "Update cargo hosted repository",
-        "operationId": "PutRepositoriesCargoHostedByRepositoryname",
+        "operationId": "PutRepositoriesCargoHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -6994,7 +6994,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesCargoProxyByRepositoryname",
+        "operationId": "GetRepositoriesCargoProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7023,7 +7023,7 @@
           "Repository Management"
         ],
         "summary": "Update cargo proxy repository",
-        "operationId": "PutRepositoriesCargoProxyByRepositoryname",
+        "operationId": "PutRepositoriesCargoProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7106,7 +7106,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesCocoapodsProxyByRepositoryname",
+        "operationId": "GetRepositoriesCocoapodsProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7135,7 +7135,7 @@
           "Repository Management"
         ],
         "summary": "Update Cocoapods proxy repository",
-        "operationId": "PutRepositoriesCocoapodsProxyByRepositoryname",
+        "operationId": "PutRepositoriesCocoapodsProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7215,7 +7215,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesComposerProxyByRepositoryname",
+        "operationId": "GetRepositoriesComposerProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7244,7 +7244,7 @@
           "Repository Management"
         ],
         "summary": "Update composer proxy repository",
-        "operationId": "PutRepositoriesComposerProxyByRepositoryname",
+        "operationId": "PutRepositoriesComposerProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7324,7 +7324,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesConanGroupByRepositoryname",
+        "operationId": "GetRepositoriesConanGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7353,7 +7353,7 @@
           "Repository Management"
         ],
         "summary": "Update Conan group repository",
-        "operationId": "PutRepositoriesConanGroupByRepositoryname",
+        "operationId": "PutRepositoriesConanGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7433,7 +7433,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesConanHostedByRepositoryname",
+        "operationId": "GetRepositoriesConanHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7462,7 +7462,7 @@
           "Repository Management"
         ],
         "summary": "Update Conan hosted repository",
-        "operationId": "PutRepositoriesConanHostedByRepositoryname",
+        "operationId": "PutRepositoriesConanHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7548,7 +7548,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesConanProxyByRepositoryname",
+        "operationId": "GetRepositoriesConanProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7577,7 +7577,7 @@
           "Repository Management"
         ],
         "summary": "Update Conan proxy repository",
-        "operationId": "PutRepositoriesConanProxyByRepositoryname",
+        "operationId": "PutRepositoriesConanProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7663,7 +7663,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesCondaProxyByRepositoryname",
+        "operationId": "GetRepositoriesCondaProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7692,7 +7692,7 @@
           "Repository Management"
         ],
         "summary": "Update conda proxy repository",
-        "operationId": "PutRepositoriesCondaProxyByRepositoryname",
+        "operationId": "PutRepositoriesCondaProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7772,7 +7772,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesDockerGroupByRepositoryname",
+        "operationId": "GetRepositoriesDockerGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7801,7 +7801,7 @@
           "Repository Management"
         ],
         "summary": "Update Docker group repository",
-        "operationId": "PutRepositoriesDockerGroupByRepositoryname",
+        "operationId": "PutRepositoriesDockerGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7884,7 +7884,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesDockerHostedByRepositoryname",
+        "operationId": "GetRepositoriesDockerHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7913,7 +7913,7 @@
           "Repository Management"
         ],
         "summary": "Update Docker hosted repository",
-        "operationId": "PutRepositoriesDockerHostedByRepositoryname",
+        "operationId": "PutRepositoriesDockerHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -7996,7 +7996,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesDockerProxyByRepositoryname",
+        "operationId": "GetRepositoriesDockerProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8025,7 +8025,7 @@
           "Repository Management"
         ],
         "summary": "Update Docker proxy repository",
-        "operationId": "PutRepositoriesDockerProxyByRepositoryname",
+        "operationId": "PutRepositoriesDockerProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8108,7 +8108,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesGitlfsHostedByRepositoryname",
+        "operationId": "GetRepositoriesGitlfsHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8137,7 +8137,7 @@
           "Repository Management"
         ],
         "summary": "Update Git LFS hosted repository",
-        "operationId": "PutRepositoriesGitlfsHostedByRepositoryname",
+        "operationId": "PutRepositoriesGitlfsHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8220,7 +8220,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesGoGroupByRepositoryname",
+        "operationId": "GetRepositoriesGoGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8249,7 +8249,7 @@
           "Repository Management"
         ],
         "summary": "Update a Go group repository",
-        "operationId": "PutRepositoriesGoGroupByRepositoryname",
+        "operationId": "PutRepositoriesGoGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8335,7 +8335,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesGoProxyByRepositoryname",
+        "operationId": "GetRepositoriesGoProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8364,7 +8364,7 @@
           "Repository Management"
         ],
         "summary": "Update a Go proxy repository",
-        "operationId": "PutRepositoriesGoProxyByRepositoryname",
+        "operationId": "PutRepositoriesGoProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8450,7 +8450,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesHelmHostedByRepositoryname",
+        "operationId": "GetRepositoriesHelmHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8479,7 +8479,7 @@
           "Repository Management"
         ],
         "summary": "Update Helm hosted repository",
-        "operationId": "PutRepositoriesHelmHostedByRepositoryname",
+        "operationId": "PutRepositoriesHelmHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8562,7 +8562,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesHelmProxyByRepositoryname",
+        "operationId": "GetRepositoriesHelmProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8591,7 +8591,7 @@
           "Repository Management"
         ],
         "summary": "Update Helm proxy repository",
-        "operationId": "PutRepositoriesHelmProxyByRepositoryname",
+        "operationId": "PutRepositoriesHelmProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8671,7 +8671,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesHuggingfaceProxyByRepositoryname",
+        "operationId": "GetRepositoriesHuggingfaceProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8700,7 +8700,7 @@
           "Repository Management"
         ],
         "summary": "Update huggingface proxy repository",
-        "operationId": "PutRepositoriesHuggingfaceProxyByRepositoryname",
+        "operationId": "PutRepositoriesHuggingfaceProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8780,7 +8780,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesNpmGroupByRepositoryname",
+        "operationId": "GetRepositoriesNpmGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8809,7 +8809,7 @@
           "Repository Management"
         ],
         "summary": "Update npm group repository",
-        "operationId": "PutRepositoriesNpmGroupByRepositoryname",
+        "operationId": "PutRepositoriesNpmGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8889,7 +8889,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesNpmHostedByRepositoryname",
+        "operationId": "GetRepositoriesNpmHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8918,7 +8918,7 @@
           "Repository Management"
         ],
         "summary": "Update npm hosted repository",
-        "operationId": "PutRepositoriesNpmHostedByRepositoryname",
+        "operationId": "PutRepositoriesNpmHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -8998,7 +8998,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesNpmProxyByRepositoryname",
+        "operationId": "GetRepositoriesNpmProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9027,7 +9027,7 @@
           "Repository Management"
         ],
         "summary": "Update npm proxy repository",
-        "operationId": "PutRepositoriesNpmProxyByRepositoryname",
+        "operationId": "PutRepositoriesNpmProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9107,7 +9107,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesNugetGroupByRepositoryname",
+        "operationId": "GetRepositoriesNugetGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9136,7 +9136,7 @@
           "Repository Management"
         ],
         "summary": "Update NuGet group repository",
-        "operationId": "PutRepositoriesNugetGroupByRepositoryname",
+        "operationId": "PutRepositoriesNugetGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9216,7 +9216,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesNugetHostedByRepositoryname",
+        "operationId": "GetRepositoriesNugetHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9245,7 +9245,7 @@
           "Repository Management"
         ],
         "summary": "Update NuGet hosted repository",
-        "operationId": "PutRepositoriesNugetHostedByRepositoryname",
+        "operationId": "PutRepositoriesNugetHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9325,7 +9325,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesNugetProxyByRepositoryname",
+        "operationId": "GetRepositoriesNugetProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9354,7 +9354,7 @@
           "Repository Management"
         ],
         "summary": "Update NuGet proxy repository",
-        "operationId": "PutRepositoriesNugetProxyByRepositoryname",
+        "operationId": "PutRepositoriesNugetProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9437,7 +9437,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesP2ProxyByRepositoryname",
+        "operationId": "GetRepositoriesP2ProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9466,7 +9466,7 @@
           "Repository Management"
         ],
         "summary": "Update p2 proxy repository",
-        "operationId": "PutRepositoriesP2ProxyByRepositoryname",
+        "operationId": "PutRepositoriesP2ProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9546,7 +9546,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesPypiGroupByRepositoryname",
+        "operationId": "GetRepositoriesPypiGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9575,7 +9575,7 @@
           "Repository Management"
         ],
         "summary": "Update PyPI group repository",
-        "operationId": "PutRepositoriesPypiGroupByRepositoryname",
+        "operationId": "PutRepositoriesPypiGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9655,7 +9655,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesPypiHostedByRepositoryname",
+        "operationId": "GetRepositoriesPypiHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9684,7 +9684,7 @@
           "Repository Management"
         ],
         "summary": "Update PyPI hosted repository",
-        "operationId": "PutRepositoriesPypiHostedByRepositoryname",
+        "operationId": "PutRepositoriesPypiHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9764,7 +9764,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesPypiProxyByRepositoryname",
+        "operationId": "GetRepositoriesPypiProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9793,7 +9793,7 @@
           "Repository Management"
         ],
         "summary": "Update PyPI proxy repository",
-        "operationId": "PutRepositoriesPypiProxyByRepositoryname",
+        "operationId": "PutRepositoriesPypiProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9876,7 +9876,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRGroupByRepositoryname",
+        "operationId": "GetRepositoriesRGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9905,7 +9905,7 @@
           "Repository Management"
         ],
         "summary": "Update R group repository",
-        "operationId": "PutRepositoriesRGroupByRepositoryname",
+        "operationId": "PutRepositoriesRGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -9988,7 +9988,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRHostedByRepositoryname",
+        "operationId": "GetRepositoriesRHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10017,7 +10017,7 @@
           "Repository Management"
         ],
         "summary": "Update R hosted repository",
-        "operationId": "PutRepositoriesRHostedByRepositoryname",
+        "operationId": "PutRepositoriesRHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10100,7 +10100,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRProxyByRepositoryname",
+        "operationId": "GetRepositoriesRProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10129,7 +10129,7 @@
           "Repository Management"
         ],
         "summary": "Update R proxy repository",
-        "operationId": "PutRepositoriesRProxyByRepositoryname",
+        "operationId": "PutRepositoriesRProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10212,7 +10212,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRubygemsGroupByRepositoryname",
+        "operationId": "GetRepositoriesRubygemsGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10241,7 +10241,7 @@
           "Repository Management"
         ],
         "summary": "Update RubyGems group repository",
-        "operationId": "PutRepositoriesRubygemsGroupByRepositoryname",
+        "operationId": "PutRepositoriesRubygemsGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10321,7 +10321,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRubygemsHostedByRepositoryname",
+        "operationId": "GetRepositoriesRubygemsHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10350,7 +10350,7 @@
           "Repository Management"
         ],
         "summary": "Update RubyGems hosted repository",
-        "operationId": "PutRepositoriesRubygemsHostedByRepositoryname",
+        "operationId": "PutRepositoriesRubygemsHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10430,7 +10430,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesRubygemsProxyByRepositoryname",
+        "operationId": "GetRepositoriesRubygemsProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10459,7 +10459,7 @@
           "Repository Management"
         ],
         "summary": "Update RubyGems proxy repository",
-        "operationId": "PutRepositoriesRubygemsProxyByRepositoryname",
+        "operationId": "PutRepositoriesRubygemsProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10539,7 +10539,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesYumGroupByRepositoryname",
+        "operationId": "GetRepositoriesYumGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10568,7 +10568,7 @@
           "Repository Management"
         ],
         "summary": "Update Yum group repository",
-        "operationId": "PutRepositoriesYumGroupByRepositoryname",
+        "operationId": "PutRepositoriesYumGroupByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10648,7 +10648,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesYumHostedByRepositoryname",
+        "operationId": "GetRepositoriesYumHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10677,7 +10677,7 @@
           "Repository Management"
         ],
         "summary": "Update Yum hosted repository",
-        "operationId": "PutRepositoriesYumHostedByRepositoryname",
+        "operationId": "PutRepositoriesYumHostedByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10757,7 +10757,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "operationId": "GetRepositoriesYumProxyByRepositoryname",
+        "operationId": "GetRepositoriesYumProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],
@@ -10786,7 +10786,7 @@
           "Repository Management"
         ],
         "summary": "Update Yum proxy repository",
-        "operationId": "PutRepositoriesYumProxyByRepositoryname",
+        "operationId": "PutRepositoriesYumProxyByRepositoryName",
         "consumes": [
           "application/json"
         ],

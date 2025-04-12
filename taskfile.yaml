@@ -5,4 +5,8 @@ tasks:
     cmds:
       - task --list-all
 
-  regen: swagger generate client
+  regen:
+    cmds:
+      - rm -rf client
+      - rm -rf models
+      - swagger generate client
