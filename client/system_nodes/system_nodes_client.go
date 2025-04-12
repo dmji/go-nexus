@@ -58,7 +58,7 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	DeleteSystemNode(params *DeleteSystemNodeParams, opts ...ClientOption) error
 
-	GetBetaSystemInformation(params *GetBetaSystemInformationParams, opts ...ClientOption) (*GetBetaSystemInformationOK, error)
+	GetSystemInformation(params *GetSystemInformationParams, opts ...ClientOption) (*GetSystemInformationOK, error)
 
 	GetSystemNode(params *GetSystemNodeParams, opts ...ClientOption) (*GetSystemNodeOK, error)
 
@@ -97,22 +97,22 @@ func (a *Client) DeleteSystemNode(params *DeleteSystemNodeParams, opts ...Client
 }
 
 /*
-GetBetaSystemInformation gets information about all nodes
+GetSystemInformation gets information about all nodes
 */
-func (a *Client) GetBetaSystemInformation(params *GetBetaSystemInformationParams, opts ...ClientOption) (*GetBetaSystemInformationOK, error) {
+func (a *Client) GetSystemInformation(params *GetSystemInformationParams, opts ...ClientOption) (*GetSystemInformationOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetBetaSystemInformationParams()
+		params = NewGetSystemInformationParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetBetaSystemInformation",
+		ID:                 "GetSystemInformation",
 		Method:             "GET",
 		PathPattern:        "/beta/system/information",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetBetaSystemInformationReader{formats: a.formats},
+		Reader:             &GetSystemInformationReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -124,13 +124,13 @@ func (a *Client) GetBetaSystemInformation(params *GetBetaSystemInformationParams
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetBetaSystemInformationOK)
+	success, ok := result.(*GetSystemInformationOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetBetaSystemInformation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSystemInformation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -80,36 +80,36 @@ func WithContentTypeTextPlain(r *runtime.ClientOperation) {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteSecurityUsersByUserid(params *DeleteSecurityUsersByUseridParams, opts ...ClientOption) error
+	DeleteSecurityUsersByUserID(params *DeleteSecurityUsersByUserIDParams, opts ...ClientOption) error
 
 	GetSecurityUsers(params *GetSecurityUsersParams, opts ...ClientOption) (*GetSecurityUsersOK, error)
 
 	PostSecurityUsers(params *PostSecurityUsersParams, opts ...ClientOption) (*PostSecurityUsersOK, error)
 
-	PutSecurityUsersByUserid(params *PutSecurityUsersByUseridParams, opts ...ClientOption) error
+	PutSecurityUsersByUserID(params *PutSecurityUsersByUserIDParams, opts ...ClientOption) error
 
-	PutSecurityUsersByUseridChangePassword(params *PutSecurityUsersByUseridChangePasswordParams, opts ...ClientOption) error
+	PutSecurityUsersByUserIDChangePassword(params *PutSecurityUsersByUserIDChangePasswordParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeleteSecurityUsersByUserid deletes a user
+DeleteSecurityUsersByUserID deletes a user
 */
-func (a *Client) DeleteSecurityUsersByUserid(params *DeleteSecurityUsersByUseridParams, opts ...ClientOption) error {
+func (a *Client) DeleteSecurityUsersByUserID(params *DeleteSecurityUsersByUserIDParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteSecurityUsersByUseridParams()
+		params = NewDeleteSecurityUsersByUserIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteSecurityUsersByUserid",
+		ID:                 "DeleteSecurityUsersByUserId",
 		Method:             "DELETE",
 		PathPattern:        "/v1/security/users/{userId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteSecurityUsersByUseridReader{formats: a.formats},
+		Reader:             &DeleteSecurityUsersByUserIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -201,22 +201,22 @@ func (a *Client) PostSecurityUsers(params *PostSecurityUsersParams, opts ...Clie
 }
 
 /*
-PutSecurityUsersByUserid updates an existing user
+PutSecurityUsersByUserID updates an existing user
 */
-func (a *Client) PutSecurityUsersByUserid(params *PutSecurityUsersByUseridParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityUsersByUserID(params *PutSecurityUsersByUserIDParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityUsersByUseridParams()
+		params = NewPutSecurityUsersByUserIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityUsersByUserid",
+		ID:                 "PutSecurityUsersByUserId",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/users/{userId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityUsersByUseridReader{formats: a.formats},
+		Reader:             &PutSecurityUsersByUserIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -232,22 +232,22 @@ func (a *Client) PutSecurityUsersByUserid(params *PutSecurityUsersByUseridParams
 }
 
 /*
-PutSecurityUsersByUseridChangePassword changes a user s password
+PutSecurityUsersByUserIDChangePassword changes a user s password
 */
-func (a *Client) PutSecurityUsersByUseridChangePassword(params *PutSecurityUsersByUseridChangePasswordParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityUsersByUserIDChangePassword(params *PutSecurityUsersByUserIDChangePasswordParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityUsersByUseridChangePasswordParams()
+		params = NewPutSecurityUsersByUserIDChangePasswordParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityUsersByUseridChangePassword",
+		ID:                 "PutSecurityUsersByUserIdChangePassword",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/users/{userId}/change-password",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"text/plain"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityUsersByUseridChangePasswordReader{formats: a.formats},
+		Reader:             &PutSecurityUsersByUserIDChangePasswordReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

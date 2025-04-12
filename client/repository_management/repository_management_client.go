@@ -56,103 +56,103 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteRepositoriesByRepositoryname(params *DeleteRepositoriesByRepositorynameParams, opts ...ClientOption) (*DeleteRepositoriesByRepositorynameNoContent, error)
+	DeleteRepositoriesByRepositoryName(params *DeleteRepositoriesByRepositoryNameParams, opts ...ClientOption) (*DeleteRepositoriesByRepositoryNameNoContent, error)
 
-	DeleteRepositoriesByRepositorynameHealthCheck(params *DeleteRepositoriesByRepositorynameHealthCheckParams, opts ...ClientOption) (*DeleteRepositoriesByRepositorynameHealthCheckNoContent, error)
+	DeleteRepositoriesByRepositoryNameHealthCheck(params *DeleteRepositoriesByRepositoryNameHealthCheckParams, opts ...ClientOption) (*DeleteRepositoriesByRepositoryNameHealthCheckNoContent, error)
 
 	GetRepositories(params *GetRepositoriesParams, opts ...ClientOption) (*GetRepositoriesOK, error)
 
-	GetRepositoriesAptHostedByRepositoryname(params *GetRepositoriesAptHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesAptHostedByRepositorynameOK, error)
+	GetRepositoriesAptHostedByRepositoryName(params *GetRepositoriesAptHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesAptHostedByRepositoryNameOK, error)
 
-	GetRepositoriesAptProxyByRepositoryname(params *GetRepositoriesAptProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesAptProxyByRepositorynameOK, error)
+	GetRepositoriesAptProxyByRepositoryName(params *GetRepositoriesAptProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesAptProxyByRepositoryNameOK, error)
 
-	GetRepositoriesByRepositoryname(params *GetRepositoriesByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesByRepositorynameOK, error)
+	GetRepositoriesByRepositoryName(params *GetRepositoriesByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesByRepositoryNameOK, error)
 
-	GetRepositoriesCargoGroupByRepositoryname(params *GetRepositoriesCargoGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCargoGroupByRepositorynameOK, error)
+	GetRepositoriesCargoGroupByRepositoryName(params *GetRepositoriesCargoGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCargoGroupByRepositoryNameOK, error)
 
-	GetRepositoriesCargoHostedByRepositoryname(params *GetRepositoriesCargoHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCargoHostedByRepositorynameOK, error)
+	GetRepositoriesCargoHostedByRepositoryName(params *GetRepositoriesCargoHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCargoHostedByRepositoryNameOK, error)
 
-	GetRepositoriesCargoProxyByRepositoryname(params *GetRepositoriesCargoProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCargoProxyByRepositorynameOK, error)
+	GetRepositoriesCargoProxyByRepositoryName(params *GetRepositoriesCargoProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCargoProxyByRepositoryNameOK, error)
 
-	GetRepositoriesCocoapodsProxyByRepositoryname(params *GetRepositoriesCocoapodsProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCocoapodsProxyByRepositorynameOK, error)
+	GetRepositoriesCocoapodsProxyByRepositoryName(params *GetRepositoriesCocoapodsProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCocoapodsProxyByRepositoryNameOK, error)
 
-	GetRepositoriesComposerProxyByRepositoryname(params *GetRepositoriesComposerProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesComposerProxyByRepositorynameOK, error)
+	GetRepositoriesComposerProxyByRepositoryName(params *GetRepositoriesComposerProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesComposerProxyByRepositoryNameOK, error)
 
-	GetRepositoriesConanGroupByRepositoryname(params *GetRepositoriesConanGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesConanGroupByRepositorynameOK, error)
+	GetRepositoriesConanGroupByRepositoryName(params *GetRepositoriesConanGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesConanGroupByRepositoryNameOK, error)
 
-	GetRepositoriesConanHostedByRepositoryname(params *GetRepositoriesConanHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesConanHostedByRepositorynameOK, error)
+	GetRepositoriesConanHostedByRepositoryName(params *GetRepositoriesConanHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesConanHostedByRepositoryNameOK, error)
 
-	GetRepositoriesConanProxyByRepositoryname(params *GetRepositoriesConanProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesConanProxyByRepositorynameOK, error)
+	GetRepositoriesConanProxyByRepositoryName(params *GetRepositoriesConanProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesConanProxyByRepositoryNameOK, error)
 
-	GetRepositoriesCondaProxyByRepositoryname(params *GetRepositoriesCondaProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCondaProxyByRepositorynameOK, error)
+	GetRepositoriesCondaProxyByRepositoryName(params *GetRepositoriesCondaProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCondaProxyByRepositoryNameOK, error)
 
-	GetRepositoriesDockerGroupByRepositoryname(params *GetRepositoriesDockerGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesDockerGroupByRepositorynameOK, error)
+	GetRepositoriesDockerGroupByRepositoryName(params *GetRepositoriesDockerGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesDockerGroupByRepositoryNameOK, error)
 
-	GetRepositoriesDockerHostedByRepositoryname(params *GetRepositoriesDockerHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesDockerHostedByRepositorynameOK, error)
+	GetRepositoriesDockerHostedByRepositoryName(params *GetRepositoriesDockerHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesDockerHostedByRepositoryNameOK, error)
 
-	GetRepositoriesDockerProxyByRepositoryname(params *GetRepositoriesDockerProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesDockerProxyByRepositorynameOK, error)
+	GetRepositoriesDockerProxyByRepositoryName(params *GetRepositoriesDockerProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesDockerProxyByRepositoryNameOK, error)
 
-	GetRepositoriesGitlfsHostedByRepositoryname(params *GetRepositoriesGitlfsHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesGitlfsHostedByRepositorynameOK, error)
+	GetRepositoriesGitlfsHostedByRepositoryName(params *GetRepositoriesGitlfsHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesGitlfsHostedByRepositoryNameOK, error)
 
-	GetRepositoriesGoGroupByRepositoryname(params *GetRepositoriesGoGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesGoGroupByRepositorynameOK, error)
+	GetRepositoriesGoGroupByRepositoryName(params *GetRepositoriesGoGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesGoGroupByRepositoryNameOK, error)
 
-	GetRepositoriesGoProxyByRepositoryname(params *GetRepositoriesGoProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesGoProxyByRepositorynameOK, error)
+	GetRepositoriesGoProxyByRepositoryName(params *GetRepositoriesGoProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesGoProxyByRepositoryNameOK, error)
 
-	GetRepositoriesHelmHostedByRepositoryname(params *GetRepositoriesHelmHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesHelmHostedByRepositorynameOK, error)
+	GetRepositoriesHelmHostedByRepositoryName(params *GetRepositoriesHelmHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesHelmHostedByRepositoryNameOK, error)
 
-	GetRepositoriesHelmProxyByRepositoryname(params *GetRepositoriesHelmProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesHelmProxyByRepositorynameOK, error)
+	GetRepositoriesHelmProxyByRepositoryName(params *GetRepositoriesHelmProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesHelmProxyByRepositoryNameOK, error)
 
-	GetRepositoriesHuggingfaceProxyByRepositoryname(params *GetRepositoriesHuggingfaceProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesHuggingfaceProxyByRepositorynameOK, error)
+	GetRepositoriesHuggingfaceProxyByRepositoryName(params *GetRepositoriesHuggingfaceProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesHuggingfaceProxyByRepositoryNameOK, error)
 
-	GetRepositoriesMavenGroupByRepositoryname(params *GetRepositoriesMavenGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesMavenGroupByRepositorynameOK, error)
+	GetRepositoriesMavenGroupByRepositoryName(params *GetRepositoriesMavenGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesMavenGroupByRepositoryNameOK, error)
 
-	GetRepositoriesMavenHostedByRepositoryname(params *GetRepositoriesMavenHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesMavenHostedByRepositorynameOK, error)
+	GetRepositoriesMavenHostedByRepositoryName(params *GetRepositoriesMavenHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesMavenHostedByRepositoryNameOK, error)
 
-	GetRepositoriesMavenProxyByRepositoryname(params *GetRepositoriesMavenProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesMavenProxyByRepositorynameOK, error)
+	GetRepositoriesMavenProxyByRepositoryName(params *GetRepositoriesMavenProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesMavenProxyByRepositoryNameOK, error)
 
-	GetRepositoriesNpmGroupByRepositoryname(params *GetRepositoriesNpmGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNpmGroupByRepositorynameOK, error)
+	GetRepositoriesNpmGroupByRepositoryName(params *GetRepositoriesNpmGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNpmGroupByRepositoryNameOK, error)
 
-	GetRepositoriesNpmHostedByRepositoryname(params *GetRepositoriesNpmHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNpmHostedByRepositorynameOK, error)
+	GetRepositoriesNpmHostedByRepositoryName(params *GetRepositoriesNpmHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNpmHostedByRepositoryNameOK, error)
 
-	GetRepositoriesNpmProxyByRepositoryname(params *GetRepositoriesNpmProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNpmProxyByRepositorynameOK, error)
+	GetRepositoriesNpmProxyByRepositoryName(params *GetRepositoriesNpmProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNpmProxyByRepositoryNameOK, error)
 
-	GetRepositoriesNugetGroupByRepositoryname(params *GetRepositoriesNugetGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNugetGroupByRepositorynameOK, error)
+	GetRepositoriesNugetGroupByRepositoryName(params *GetRepositoriesNugetGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNugetGroupByRepositoryNameOK, error)
 
-	GetRepositoriesNugetHostedByRepositoryname(params *GetRepositoriesNugetHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNugetHostedByRepositorynameOK, error)
+	GetRepositoriesNugetHostedByRepositoryName(params *GetRepositoriesNugetHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNugetHostedByRepositoryNameOK, error)
 
-	GetRepositoriesNugetProxyByRepositoryname(params *GetRepositoriesNugetProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNugetProxyByRepositorynameOK, error)
+	GetRepositoriesNugetProxyByRepositoryName(params *GetRepositoriesNugetProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNugetProxyByRepositoryNameOK, error)
 
-	GetRepositoriesP2ProxyByRepositoryname(params *GetRepositoriesP2ProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesP2ProxyByRepositorynameOK, error)
+	GetRepositoriesP2ProxyByRepositoryName(params *GetRepositoriesP2ProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesP2ProxyByRepositoryNameOK, error)
 
-	GetRepositoriesPypiGroupByRepositoryname(params *GetRepositoriesPypiGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesPypiGroupByRepositorynameOK, error)
+	GetRepositoriesPypiGroupByRepositoryName(params *GetRepositoriesPypiGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesPypiGroupByRepositoryNameOK, error)
 
-	GetRepositoriesPypiHostedByRepositoryname(params *GetRepositoriesPypiHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesPypiHostedByRepositorynameOK, error)
+	GetRepositoriesPypiHostedByRepositoryName(params *GetRepositoriesPypiHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesPypiHostedByRepositoryNameOK, error)
 
-	GetRepositoriesPypiProxyByRepositoryname(params *GetRepositoriesPypiProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesPypiProxyByRepositorynameOK, error)
+	GetRepositoriesPypiProxyByRepositoryName(params *GetRepositoriesPypiProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesPypiProxyByRepositoryNameOK, error)
 
-	GetRepositoriesRGroupByRepositoryname(params *GetRepositoriesRGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRGroupByRepositorynameOK, error)
+	GetRepositoriesRGroupByRepositoryName(params *GetRepositoriesRGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRGroupByRepositoryNameOK, error)
 
-	GetRepositoriesRHostedByRepositoryname(params *GetRepositoriesRHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRHostedByRepositorynameOK, error)
+	GetRepositoriesRHostedByRepositoryName(params *GetRepositoriesRHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRHostedByRepositoryNameOK, error)
 
-	GetRepositoriesRProxyByRepositoryname(params *GetRepositoriesRProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRProxyByRepositorynameOK, error)
+	GetRepositoriesRProxyByRepositoryName(params *GetRepositoriesRProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRProxyByRepositoryNameOK, error)
 
-	GetRepositoriesRawGroupByRepositoryname(params *GetRepositoriesRawGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRawGroupByRepositorynameOK, error)
+	GetRepositoriesRawGroupByRepositoryName(params *GetRepositoriesRawGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRawGroupByRepositoryNameOK, error)
 
-	GetRepositoriesRawHostedByRepositoryname(params *GetRepositoriesRawHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRawHostedByRepositorynameOK, error)
+	GetRepositoriesRawHostedByRepositoryName(params *GetRepositoriesRawHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRawHostedByRepositoryNameOK, error)
 
-	GetRepositoriesRawProxyByRepositoryname(params *GetRepositoriesRawProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRawProxyByRepositorynameOK, error)
+	GetRepositoriesRawProxyByRepositoryName(params *GetRepositoriesRawProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRawProxyByRepositoryNameOK, error)
 
-	GetRepositoriesRubygemsGroupByRepositoryname(params *GetRepositoriesRubygemsGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRubygemsGroupByRepositorynameOK, error)
+	GetRepositoriesRubygemsGroupByRepositoryName(params *GetRepositoriesRubygemsGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRubygemsGroupByRepositoryNameOK, error)
 
-	GetRepositoriesRubygemsHostedByRepositoryname(params *GetRepositoriesRubygemsHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRubygemsHostedByRepositorynameOK, error)
+	GetRepositoriesRubygemsHostedByRepositoryName(params *GetRepositoriesRubygemsHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRubygemsHostedByRepositoryNameOK, error)
 
-	GetRepositoriesRubygemsProxyByRepositoryname(params *GetRepositoriesRubygemsProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRubygemsProxyByRepositorynameOK, error)
+	GetRepositoriesRubygemsProxyByRepositoryName(params *GetRepositoriesRubygemsProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRubygemsProxyByRepositoryNameOK, error)
 
-	GetRepositoriesYumGroupByRepositoryname(params *GetRepositoriesYumGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesYumGroupByRepositorynameOK, error)
+	GetRepositoriesYumGroupByRepositoryName(params *GetRepositoriesYumGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesYumGroupByRepositoryNameOK, error)
 
-	GetRepositoriesYumHostedByRepositoryname(params *GetRepositoriesYumHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesYumHostedByRepositorynameOK, error)
+	GetRepositoriesYumHostedByRepositoryName(params *GetRepositoriesYumHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesYumHostedByRepositoryNameOK, error)
 
-	GetRepositoriesYumProxyByRepositoryname(params *GetRepositoriesYumProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesYumProxyByRepositorynameOK, error)
+	GetRepositoriesYumProxyByRepositoryName(params *GetRepositoriesYumProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesYumProxyByRepositoryNameOK, error)
 
 	GetRepositorysettings(params *GetRepositorysettingsParams, opts ...ClientOption) (*GetRepositorysettingsOK, error)
 
@@ -160,11 +160,11 @@ type ClientService interface {
 
 	PostRepositoriesAptProxy(params *PostRepositoriesAptProxyParams, opts ...ClientOption) (*PostRepositoriesAptProxyCreated, error)
 
-	PostRepositoriesByRepositorynameHealthCheck(params *PostRepositoriesByRepositorynameHealthCheckParams, opts ...ClientOption) (*PostRepositoriesByRepositorynameHealthCheckNoContent, error)
+	PostRepositoriesByRepositoryNameHealthCheck(params *PostRepositoriesByRepositoryNameHealthCheckParams, opts ...ClientOption) (*PostRepositoriesByRepositoryNameHealthCheckNoContent, error)
 
-	PostRepositoriesByRepositorynameInvalidateCache(params *PostRepositoriesByRepositorynameInvalidateCacheParams, opts ...ClientOption) (*PostRepositoriesByRepositorynameInvalidateCacheNoContent, error)
+	PostRepositoriesByRepositoryNameInvalidateCache(params *PostRepositoriesByRepositoryNameInvalidateCacheParams, opts ...ClientOption) (*PostRepositoriesByRepositoryNameInvalidateCacheNoContent, error)
 
-	PostRepositoriesByRepositorynameRebuildIndex(params *PostRepositoriesByRepositorynameRebuildIndexParams, opts ...ClientOption) (*PostRepositoriesByRepositorynameRebuildIndexNoContent, error)
+	PostRepositoriesByRepositoryNameRebuildIndex(params *PostRepositoriesByRepositoryNameRebuildIndexParams, opts ...ClientOption) (*PostRepositoriesByRepositoryNameRebuildIndexNoContent, error)
 
 	PostRepositoriesCargoGroup(params *PostRepositoriesCargoGroupParams, opts ...ClientOption) (*PostRepositoriesCargoGroupCreated, error)
 
@@ -252,116 +252,116 @@ type ClientService interface {
 
 	PostRepositoriesYumProxy(params *PostRepositoriesYumProxyParams, opts ...ClientOption) (*PostRepositoriesYumProxyCreated, error)
 
-	PutRepositoriesAptHostedByRepositoryname(params *PutRepositoriesAptHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesAptHostedByRepositorynameNoContent, error)
+	PutRepositoriesAptHostedByRepositoryName(params *PutRepositoriesAptHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesAptHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesAptProxyByRepositoryname(params *PutRepositoriesAptProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesAptProxyByRepositorynameNoContent, error)
+	PutRepositoriesAptProxyByRepositoryName(params *PutRepositoriesAptProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesAptProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesCargoGroupByRepositoryname(params *PutRepositoriesCargoGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCargoGroupByRepositorynameNoContent, error)
+	PutRepositoriesCargoGroupByRepositoryName(params *PutRepositoriesCargoGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCargoGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesCargoHostedByRepositoryname(params *PutRepositoriesCargoHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCargoHostedByRepositorynameNoContent, error)
+	PutRepositoriesCargoHostedByRepositoryName(params *PutRepositoriesCargoHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCargoHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesCargoProxyByRepositoryname(params *PutRepositoriesCargoProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCargoProxyByRepositorynameNoContent, error)
+	PutRepositoriesCargoProxyByRepositoryName(params *PutRepositoriesCargoProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCargoProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesCocoapodsProxyByRepositoryname(params *PutRepositoriesCocoapodsProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCocoapodsProxyByRepositorynameNoContent, error)
+	PutRepositoriesCocoapodsProxyByRepositoryName(params *PutRepositoriesCocoapodsProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCocoapodsProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesComposerProxyByRepositoryname(params *PutRepositoriesComposerProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesComposerProxyByRepositorynameNoContent, error)
+	PutRepositoriesComposerProxyByRepositoryName(params *PutRepositoriesComposerProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesComposerProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesConanGroupByRepositoryname(params *PutRepositoriesConanGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesConanGroupByRepositorynameNoContent, error)
+	PutRepositoriesConanGroupByRepositoryName(params *PutRepositoriesConanGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesConanGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesConanHostedByRepositoryname(params *PutRepositoriesConanHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesConanHostedByRepositorynameNoContent, error)
+	PutRepositoriesConanHostedByRepositoryName(params *PutRepositoriesConanHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesConanHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesConanProxyByRepositoryname(params *PutRepositoriesConanProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesConanProxyByRepositorynameNoContent, error)
+	PutRepositoriesConanProxyByRepositoryName(params *PutRepositoriesConanProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesConanProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesCondaProxyByRepositoryname(params *PutRepositoriesCondaProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCondaProxyByRepositorynameNoContent, error)
+	PutRepositoriesCondaProxyByRepositoryName(params *PutRepositoriesCondaProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCondaProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesDockerGroupByRepositoryname(params *PutRepositoriesDockerGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesDockerGroupByRepositorynameNoContent, error)
+	PutRepositoriesDockerGroupByRepositoryName(params *PutRepositoriesDockerGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesDockerGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesDockerHostedByRepositoryname(params *PutRepositoriesDockerHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesDockerHostedByRepositorynameNoContent, error)
+	PutRepositoriesDockerHostedByRepositoryName(params *PutRepositoriesDockerHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesDockerHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesDockerProxyByRepositoryname(params *PutRepositoriesDockerProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesDockerProxyByRepositorynameNoContent, error)
+	PutRepositoriesDockerProxyByRepositoryName(params *PutRepositoriesDockerProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesDockerProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesGitlfsHostedByRepositoryname(params *PutRepositoriesGitlfsHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesGitlfsHostedByRepositorynameNoContent, error)
+	PutRepositoriesGitlfsHostedByRepositoryName(params *PutRepositoriesGitlfsHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesGitlfsHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesGoGroupByRepositoryname(params *PutRepositoriesGoGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesGoGroupByRepositorynameNoContent, error)
+	PutRepositoriesGoGroupByRepositoryName(params *PutRepositoriesGoGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesGoGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesGoProxyByRepositoryname(params *PutRepositoriesGoProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesGoProxyByRepositorynameNoContent, error)
+	PutRepositoriesGoProxyByRepositoryName(params *PutRepositoriesGoProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesGoProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesHelmHostedByRepositoryname(params *PutRepositoriesHelmHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesHelmHostedByRepositorynameNoContent, error)
+	PutRepositoriesHelmHostedByRepositoryName(params *PutRepositoriesHelmHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesHelmHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesHelmProxyByRepositoryname(params *PutRepositoriesHelmProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesHelmProxyByRepositorynameNoContent, error)
+	PutRepositoriesHelmProxyByRepositoryName(params *PutRepositoriesHelmProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesHelmProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesHuggingfaceProxyByRepositoryname(params *PutRepositoriesHuggingfaceProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesHuggingfaceProxyByRepositorynameNoContent, error)
+	PutRepositoriesHuggingfaceProxyByRepositoryName(params *PutRepositoriesHuggingfaceProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesHuggingfaceProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesMavenGroupByRepositoryname(params *PutRepositoriesMavenGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesMavenGroupByRepositorynameNoContent, error)
+	PutRepositoriesMavenGroupByRepositoryName(params *PutRepositoriesMavenGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesMavenGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesMavenHostedByRepositoryname(params *PutRepositoriesMavenHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesMavenHostedByRepositorynameNoContent, error)
+	PutRepositoriesMavenHostedByRepositoryName(params *PutRepositoriesMavenHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesMavenHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesMavenProxyByRepositoryname(params *PutRepositoriesMavenProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesMavenProxyByRepositorynameNoContent, error)
+	PutRepositoriesMavenProxyByRepositoryName(params *PutRepositoriesMavenProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesMavenProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesNpmGroupByRepositoryname(params *PutRepositoriesNpmGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNpmGroupByRepositorynameNoContent, error)
+	PutRepositoriesNpmGroupByRepositoryName(params *PutRepositoriesNpmGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNpmGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesNpmHostedByRepositoryname(params *PutRepositoriesNpmHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNpmHostedByRepositorynameNoContent, error)
+	PutRepositoriesNpmHostedByRepositoryName(params *PutRepositoriesNpmHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNpmHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesNpmProxyByRepositoryname(params *PutRepositoriesNpmProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNpmProxyByRepositorynameNoContent, error)
+	PutRepositoriesNpmProxyByRepositoryName(params *PutRepositoriesNpmProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNpmProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesNugetGroupByRepositoryname(params *PutRepositoriesNugetGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNugetGroupByRepositorynameNoContent, error)
+	PutRepositoriesNugetGroupByRepositoryName(params *PutRepositoriesNugetGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNugetGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesNugetHostedByRepositoryname(params *PutRepositoriesNugetHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNugetHostedByRepositorynameNoContent, error)
+	PutRepositoriesNugetHostedByRepositoryName(params *PutRepositoriesNugetHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNugetHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesNugetProxyByRepositoryname(params *PutRepositoriesNugetProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNugetProxyByRepositorynameNoContent, error)
+	PutRepositoriesNugetProxyByRepositoryName(params *PutRepositoriesNugetProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNugetProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesP2ProxyByRepositoryname(params *PutRepositoriesP2ProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesP2ProxyByRepositorynameNoContent, error)
+	PutRepositoriesP2ProxyByRepositoryName(params *PutRepositoriesP2ProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesP2ProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesPypiGroupByRepositoryname(params *PutRepositoriesPypiGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesPypiGroupByRepositorynameNoContent, error)
+	PutRepositoriesPypiGroupByRepositoryName(params *PutRepositoriesPypiGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesPypiGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesPypiHostedByRepositoryname(params *PutRepositoriesPypiHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesPypiHostedByRepositorynameNoContent, error)
+	PutRepositoriesPypiHostedByRepositoryName(params *PutRepositoriesPypiHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesPypiHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesPypiProxyByRepositoryname(params *PutRepositoriesPypiProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesPypiProxyByRepositorynameNoContent, error)
+	PutRepositoriesPypiProxyByRepositoryName(params *PutRepositoriesPypiProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesPypiProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesRGroupByRepositoryname(params *PutRepositoriesRGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRGroupByRepositorynameNoContent, error)
+	PutRepositoriesRGroupByRepositoryName(params *PutRepositoriesRGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesRHostedByRepositoryname(params *PutRepositoriesRHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRHostedByRepositorynameNoContent, error)
+	PutRepositoriesRHostedByRepositoryName(params *PutRepositoriesRHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesRProxyByRepositoryname(params *PutRepositoriesRProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRProxyByRepositorynameNoContent, error)
+	PutRepositoriesRProxyByRepositoryName(params *PutRepositoriesRProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesRawGroupByRepositoryname(params *PutRepositoriesRawGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRawGroupByRepositorynameNoContent, error)
+	PutRepositoriesRawGroupByRepositoryName(params *PutRepositoriesRawGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRawGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesRawHostedByRepositoryname(params *PutRepositoriesRawHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRawHostedByRepositorynameNoContent, error)
+	PutRepositoriesRawHostedByRepositoryName(params *PutRepositoriesRawHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRawHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesRawProxyByRepositoryname(params *PutRepositoriesRawProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRawProxyByRepositorynameNoContent, error)
+	PutRepositoriesRawProxyByRepositoryName(params *PutRepositoriesRawProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRawProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesRubygemsGroupByRepositoryname(params *PutRepositoriesRubygemsGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRubygemsGroupByRepositorynameNoContent, error)
+	PutRepositoriesRubygemsGroupByRepositoryName(params *PutRepositoriesRubygemsGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRubygemsGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesRubygemsHostedByRepositoryname(params *PutRepositoriesRubygemsHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRubygemsHostedByRepositorynameNoContent, error)
+	PutRepositoriesRubygemsHostedByRepositoryName(params *PutRepositoriesRubygemsHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRubygemsHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesRubygemsProxyByRepositoryname(params *PutRepositoriesRubygemsProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRubygemsProxyByRepositorynameNoContent, error)
+	PutRepositoriesRubygemsProxyByRepositoryName(params *PutRepositoriesRubygemsProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRubygemsProxyByRepositoryNameNoContent, error)
 
-	PutRepositoriesYumGroupByRepositoryname(params *PutRepositoriesYumGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesYumGroupByRepositorynameNoContent, error)
+	PutRepositoriesYumGroupByRepositoryName(params *PutRepositoriesYumGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesYumGroupByRepositoryNameNoContent, error)
 
-	PutRepositoriesYumHostedByRepositoryname(params *PutRepositoriesYumHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesYumHostedByRepositorynameNoContent, error)
+	PutRepositoriesYumHostedByRepositoryName(params *PutRepositoriesYumHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesYumHostedByRepositoryNameNoContent, error)
 
-	PutRepositoriesYumProxyByRepositoryname(params *PutRepositoriesYumProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesYumProxyByRepositorynameNoContent, error)
+	PutRepositoriesYumProxyByRepositoryName(params *PutRepositoriesYumProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesYumProxyByRepositoryNameNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeleteRepositoriesByRepositoryname deletes repository of any format
+DeleteRepositoriesByRepositoryName deletes repository of any format
 */
-func (a *Client) DeleteRepositoriesByRepositoryname(params *DeleteRepositoriesByRepositorynameParams, opts ...ClientOption) (*DeleteRepositoriesByRepositorynameNoContent, error) {
+func (a *Client) DeleteRepositoriesByRepositoryName(params *DeleteRepositoriesByRepositoryNameParams, opts ...ClientOption) (*DeleteRepositoriesByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteRepositoriesByRepositorynameParams()
+		params = NewDeleteRepositoriesByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteRepositoriesByRepositoryname",
+		ID:                 "DeleteRepositoriesByRepositoryName",
 		Method:             "DELETE",
 		PathPattern:        "/v1/repositories/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteRepositoriesByRepositorynameReader{formats: a.formats},
+		Reader:             &DeleteRepositoriesByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -373,33 +373,33 @@ func (a *Client) DeleteRepositoriesByRepositoryname(params *DeleteRepositoriesBy
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteRepositoriesByRepositorynameNoContent)
+	success, ok := result.(*DeleteRepositoriesByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteRepositoriesByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteRepositoriesByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-DeleteRepositoriesByRepositorynameHealthCheck disables repository health check proxy repositories only
+DeleteRepositoriesByRepositoryNameHealthCheck disables repository health check proxy repositories only
 */
-func (a *Client) DeleteRepositoriesByRepositorynameHealthCheck(params *DeleteRepositoriesByRepositorynameHealthCheckParams, opts ...ClientOption) (*DeleteRepositoriesByRepositorynameHealthCheckNoContent, error) {
+func (a *Client) DeleteRepositoriesByRepositoryNameHealthCheck(params *DeleteRepositoriesByRepositoryNameHealthCheckParams, opts ...ClientOption) (*DeleteRepositoriesByRepositoryNameHealthCheckNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteRepositoriesByRepositorynameHealthCheckParams()
+		params = NewDeleteRepositoriesByRepositoryNameHealthCheckParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteRepositoriesByRepositorynameHealthCheck",
+		ID:                 "DeleteRepositoriesByRepositoryNameHealthCheck",
 		Method:             "DELETE",
 		PathPattern:        "/v1/repositories/{repositoryName}/health-check",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteRepositoriesByRepositorynameHealthCheckReader{formats: a.formats},
+		Reader:             &DeleteRepositoriesByRepositoryNameHealthCheckReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -411,13 +411,13 @@ func (a *Client) DeleteRepositoriesByRepositorynameHealthCheck(params *DeleteRep
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteRepositoriesByRepositorynameHealthCheckNoContent)
+	success, ok := result.(*DeleteRepositoriesByRepositoryNameHealthCheckNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for DeleteRepositoriesByRepositorynameHealthCheck: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteRepositoriesByRepositoryNameHealthCheck: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -460,22 +460,22 @@ func (a *Client) GetRepositories(params *GetRepositoriesParams, opts ...ClientOp
 }
 
 /*
-GetRepositoriesAptHostedByRepositoryname gets repository
+GetRepositoriesAptHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesAptHostedByRepositoryname(params *GetRepositoriesAptHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesAptHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesAptHostedByRepositoryName(params *GetRepositoriesAptHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesAptHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesAptHostedByRepositorynameParams()
+		params = NewGetRepositoriesAptHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesAptHostedByRepositoryname",
+		ID:                 "GetRepositoriesAptHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/apt/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesAptHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesAptHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -487,33 +487,33 @@ func (a *Client) GetRepositoriesAptHostedByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesAptHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesAptHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesAptHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesAptHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesAptProxyByRepositoryname gets repository
+GetRepositoriesAptProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesAptProxyByRepositoryname(params *GetRepositoriesAptProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesAptProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesAptProxyByRepositoryName(params *GetRepositoriesAptProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesAptProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesAptProxyByRepositorynameParams()
+		params = NewGetRepositoriesAptProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesAptProxyByRepositoryname",
+		ID:                 "GetRepositoriesAptProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/apt/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesAptProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesAptProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -525,33 +525,33 @@ func (a *Client) GetRepositoriesAptProxyByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesAptProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesAptProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesAptProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesAptProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesByRepositoryname gets repository details
+GetRepositoriesByRepositoryName gets repository details
 */
-func (a *Client) GetRepositoriesByRepositoryname(params *GetRepositoriesByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesByRepositoryName(params *GetRepositoriesByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesByRepositorynameParams()
+		params = NewGetRepositoriesByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesByRepositoryname",
+		ID:                 "GetRepositoriesByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -563,33 +563,33 @@ func (a *Client) GetRepositoriesByRepositoryname(params *GetRepositoriesByReposi
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesCargoGroupByRepositoryname gets repository
+GetRepositoriesCargoGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesCargoGroupByRepositoryname(params *GetRepositoriesCargoGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCargoGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesCargoGroupByRepositoryName(params *GetRepositoriesCargoGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCargoGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesCargoGroupByRepositorynameParams()
+		params = NewGetRepositoriesCargoGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesCargoGroupByRepositoryname",
+		ID:                 "GetRepositoriesCargoGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/cargo/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesCargoGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesCargoGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -601,33 +601,33 @@ func (a *Client) GetRepositoriesCargoGroupByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesCargoGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesCargoGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCargoGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCargoGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesCargoHostedByRepositoryname gets repository
+GetRepositoriesCargoHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesCargoHostedByRepositoryname(params *GetRepositoriesCargoHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCargoHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesCargoHostedByRepositoryName(params *GetRepositoriesCargoHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCargoHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesCargoHostedByRepositorynameParams()
+		params = NewGetRepositoriesCargoHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesCargoHostedByRepositoryname",
+		ID:                 "GetRepositoriesCargoHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/cargo/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesCargoHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesCargoHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -639,33 +639,33 @@ func (a *Client) GetRepositoriesCargoHostedByRepositoryname(params *GetRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesCargoHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesCargoHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCargoHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCargoHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesCargoProxyByRepositoryname gets repository
+GetRepositoriesCargoProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesCargoProxyByRepositoryname(params *GetRepositoriesCargoProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCargoProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesCargoProxyByRepositoryName(params *GetRepositoriesCargoProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCargoProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesCargoProxyByRepositorynameParams()
+		params = NewGetRepositoriesCargoProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesCargoProxyByRepositoryname",
+		ID:                 "GetRepositoriesCargoProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/cargo/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesCargoProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesCargoProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -677,33 +677,33 @@ func (a *Client) GetRepositoriesCargoProxyByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesCargoProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesCargoProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCargoProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCargoProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesCocoapodsProxyByRepositoryname gets repository
+GetRepositoriesCocoapodsProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesCocoapodsProxyByRepositoryname(params *GetRepositoriesCocoapodsProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCocoapodsProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesCocoapodsProxyByRepositoryName(params *GetRepositoriesCocoapodsProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCocoapodsProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesCocoapodsProxyByRepositorynameParams()
+		params = NewGetRepositoriesCocoapodsProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesCocoapodsProxyByRepositoryname",
+		ID:                 "GetRepositoriesCocoapodsProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/cocoapods/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesCocoapodsProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesCocoapodsProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -715,33 +715,33 @@ func (a *Client) GetRepositoriesCocoapodsProxyByRepositoryname(params *GetReposi
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesCocoapodsProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesCocoapodsProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCocoapodsProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCocoapodsProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesComposerProxyByRepositoryname gets repository
+GetRepositoriesComposerProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesComposerProxyByRepositoryname(params *GetRepositoriesComposerProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesComposerProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesComposerProxyByRepositoryName(params *GetRepositoriesComposerProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesComposerProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesComposerProxyByRepositorynameParams()
+		params = NewGetRepositoriesComposerProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesComposerProxyByRepositoryname",
+		ID:                 "GetRepositoriesComposerProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/composer/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesComposerProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesComposerProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -753,33 +753,33 @@ func (a *Client) GetRepositoriesComposerProxyByRepositoryname(params *GetReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesComposerProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesComposerProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesComposerProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesComposerProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesConanGroupByRepositoryname gets repository
+GetRepositoriesConanGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesConanGroupByRepositoryname(params *GetRepositoriesConanGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesConanGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesConanGroupByRepositoryName(params *GetRepositoriesConanGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesConanGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesConanGroupByRepositorynameParams()
+		params = NewGetRepositoriesConanGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesConanGroupByRepositoryname",
+		ID:                 "GetRepositoriesConanGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/conan/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesConanGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesConanGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -791,33 +791,33 @@ func (a *Client) GetRepositoriesConanGroupByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesConanGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesConanGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesConanGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesConanGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesConanHostedByRepositoryname gets repository
+GetRepositoriesConanHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesConanHostedByRepositoryname(params *GetRepositoriesConanHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesConanHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesConanHostedByRepositoryName(params *GetRepositoriesConanHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesConanHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesConanHostedByRepositorynameParams()
+		params = NewGetRepositoriesConanHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesConanHostedByRepositoryname",
+		ID:                 "GetRepositoriesConanHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/conan/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesConanHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesConanHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -829,33 +829,33 @@ func (a *Client) GetRepositoriesConanHostedByRepositoryname(params *GetRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesConanHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesConanHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesConanHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesConanHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesConanProxyByRepositoryname gets repository
+GetRepositoriesConanProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesConanProxyByRepositoryname(params *GetRepositoriesConanProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesConanProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesConanProxyByRepositoryName(params *GetRepositoriesConanProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesConanProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesConanProxyByRepositorynameParams()
+		params = NewGetRepositoriesConanProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesConanProxyByRepositoryname",
+		ID:                 "GetRepositoriesConanProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/conan/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesConanProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesConanProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -867,33 +867,33 @@ func (a *Client) GetRepositoriesConanProxyByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesConanProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesConanProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesConanProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesConanProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesCondaProxyByRepositoryname gets repository
+GetRepositoriesCondaProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesCondaProxyByRepositoryname(params *GetRepositoriesCondaProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesCondaProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesCondaProxyByRepositoryName(params *GetRepositoriesCondaProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesCondaProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesCondaProxyByRepositorynameParams()
+		params = NewGetRepositoriesCondaProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesCondaProxyByRepositoryname",
+		ID:                 "GetRepositoriesCondaProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/conda/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesCondaProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesCondaProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -905,33 +905,33 @@ func (a *Client) GetRepositoriesCondaProxyByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesCondaProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesCondaProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCondaProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesCondaProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesDockerGroupByRepositoryname gets repository
+GetRepositoriesDockerGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesDockerGroupByRepositoryname(params *GetRepositoriesDockerGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesDockerGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesDockerGroupByRepositoryName(params *GetRepositoriesDockerGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesDockerGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesDockerGroupByRepositorynameParams()
+		params = NewGetRepositoriesDockerGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesDockerGroupByRepositoryname",
+		ID:                 "GetRepositoriesDockerGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/docker/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesDockerGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesDockerGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -943,33 +943,33 @@ func (a *Client) GetRepositoriesDockerGroupByRepositoryname(params *GetRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesDockerGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesDockerGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesDockerGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesDockerGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesDockerHostedByRepositoryname gets repository
+GetRepositoriesDockerHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesDockerHostedByRepositoryname(params *GetRepositoriesDockerHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesDockerHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesDockerHostedByRepositoryName(params *GetRepositoriesDockerHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesDockerHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesDockerHostedByRepositorynameParams()
+		params = NewGetRepositoriesDockerHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesDockerHostedByRepositoryname",
+		ID:                 "GetRepositoriesDockerHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/docker/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesDockerHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesDockerHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -981,33 +981,33 @@ func (a *Client) GetRepositoriesDockerHostedByRepositoryname(params *GetReposito
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesDockerHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesDockerHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesDockerHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesDockerHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesDockerProxyByRepositoryname gets repository
+GetRepositoriesDockerProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesDockerProxyByRepositoryname(params *GetRepositoriesDockerProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesDockerProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesDockerProxyByRepositoryName(params *GetRepositoriesDockerProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesDockerProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesDockerProxyByRepositorynameParams()
+		params = NewGetRepositoriesDockerProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesDockerProxyByRepositoryname",
+		ID:                 "GetRepositoriesDockerProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/docker/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesDockerProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesDockerProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1019,33 +1019,33 @@ func (a *Client) GetRepositoriesDockerProxyByRepositoryname(params *GetRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesDockerProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesDockerProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesDockerProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesDockerProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesGitlfsHostedByRepositoryname gets repository
+GetRepositoriesGitlfsHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesGitlfsHostedByRepositoryname(params *GetRepositoriesGitlfsHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesGitlfsHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesGitlfsHostedByRepositoryName(params *GetRepositoriesGitlfsHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesGitlfsHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesGitlfsHostedByRepositorynameParams()
+		params = NewGetRepositoriesGitlfsHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesGitlfsHostedByRepositoryname",
+		ID:                 "GetRepositoriesGitlfsHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/gitlfs/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesGitlfsHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesGitlfsHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1057,33 +1057,33 @@ func (a *Client) GetRepositoriesGitlfsHostedByRepositoryname(params *GetReposito
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesGitlfsHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesGitlfsHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesGitlfsHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesGitlfsHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesGoGroupByRepositoryname gets repository
+GetRepositoriesGoGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesGoGroupByRepositoryname(params *GetRepositoriesGoGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesGoGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesGoGroupByRepositoryName(params *GetRepositoriesGoGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesGoGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesGoGroupByRepositorynameParams()
+		params = NewGetRepositoriesGoGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesGoGroupByRepositoryname",
+		ID:                 "GetRepositoriesGoGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/go/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesGoGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesGoGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1095,33 +1095,33 @@ func (a *Client) GetRepositoriesGoGroupByRepositoryname(params *GetRepositoriesG
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesGoGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesGoGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesGoGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesGoGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesGoProxyByRepositoryname gets repository
+GetRepositoriesGoProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesGoProxyByRepositoryname(params *GetRepositoriesGoProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesGoProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesGoProxyByRepositoryName(params *GetRepositoriesGoProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesGoProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesGoProxyByRepositorynameParams()
+		params = NewGetRepositoriesGoProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesGoProxyByRepositoryname",
+		ID:                 "GetRepositoriesGoProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/go/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesGoProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesGoProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1133,33 +1133,33 @@ func (a *Client) GetRepositoriesGoProxyByRepositoryname(params *GetRepositoriesG
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesGoProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesGoProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesGoProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesGoProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesHelmHostedByRepositoryname gets repository
+GetRepositoriesHelmHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesHelmHostedByRepositoryname(params *GetRepositoriesHelmHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesHelmHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesHelmHostedByRepositoryName(params *GetRepositoriesHelmHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesHelmHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesHelmHostedByRepositorynameParams()
+		params = NewGetRepositoriesHelmHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesHelmHostedByRepositoryname",
+		ID:                 "GetRepositoriesHelmHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/helm/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesHelmHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesHelmHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1171,33 +1171,33 @@ func (a *Client) GetRepositoriesHelmHostedByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesHelmHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesHelmHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesHelmHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesHelmHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesHelmProxyByRepositoryname gets repository
+GetRepositoriesHelmProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesHelmProxyByRepositoryname(params *GetRepositoriesHelmProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesHelmProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesHelmProxyByRepositoryName(params *GetRepositoriesHelmProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesHelmProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesHelmProxyByRepositorynameParams()
+		params = NewGetRepositoriesHelmProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesHelmProxyByRepositoryname",
+		ID:                 "GetRepositoriesHelmProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/helm/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesHelmProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesHelmProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1209,33 +1209,33 @@ func (a *Client) GetRepositoriesHelmProxyByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesHelmProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesHelmProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesHelmProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesHelmProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesHuggingfaceProxyByRepositoryname gets repository
+GetRepositoriesHuggingfaceProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesHuggingfaceProxyByRepositoryname(params *GetRepositoriesHuggingfaceProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesHuggingfaceProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesHuggingfaceProxyByRepositoryName(params *GetRepositoriesHuggingfaceProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesHuggingfaceProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesHuggingfaceProxyByRepositorynameParams()
+		params = NewGetRepositoriesHuggingfaceProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesHuggingfaceProxyByRepositoryname",
+		ID:                 "GetRepositoriesHuggingfaceProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/huggingface/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesHuggingfaceProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesHuggingfaceProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1247,33 +1247,33 @@ func (a *Client) GetRepositoriesHuggingfaceProxyByRepositoryname(params *GetRepo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesHuggingfaceProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesHuggingfaceProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesHuggingfaceProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesHuggingfaceProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesMavenGroupByRepositoryname gets repository
+GetRepositoriesMavenGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesMavenGroupByRepositoryname(params *GetRepositoriesMavenGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesMavenGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesMavenGroupByRepositoryName(params *GetRepositoriesMavenGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesMavenGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesMavenGroupByRepositorynameParams()
+		params = NewGetRepositoriesMavenGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesMavenGroupByRepositoryname",
+		ID:                 "GetRepositoriesMavenGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/maven/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesMavenGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesMavenGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1285,33 +1285,33 @@ func (a *Client) GetRepositoriesMavenGroupByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesMavenGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesMavenGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesMavenGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesMavenGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesMavenHostedByRepositoryname gets repository
+GetRepositoriesMavenHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesMavenHostedByRepositoryname(params *GetRepositoriesMavenHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesMavenHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesMavenHostedByRepositoryName(params *GetRepositoriesMavenHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesMavenHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesMavenHostedByRepositorynameParams()
+		params = NewGetRepositoriesMavenHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesMavenHostedByRepositoryname",
+		ID:                 "GetRepositoriesMavenHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/maven/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesMavenHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesMavenHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1323,33 +1323,33 @@ func (a *Client) GetRepositoriesMavenHostedByRepositoryname(params *GetRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesMavenHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesMavenHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesMavenHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesMavenHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesMavenProxyByRepositoryname gets repository
+GetRepositoriesMavenProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesMavenProxyByRepositoryname(params *GetRepositoriesMavenProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesMavenProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesMavenProxyByRepositoryName(params *GetRepositoriesMavenProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesMavenProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesMavenProxyByRepositorynameParams()
+		params = NewGetRepositoriesMavenProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesMavenProxyByRepositoryname",
+		ID:                 "GetRepositoriesMavenProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/maven/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesMavenProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesMavenProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1361,33 +1361,33 @@ func (a *Client) GetRepositoriesMavenProxyByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesMavenProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesMavenProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesMavenProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesMavenProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesNpmGroupByRepositoryname gets repository
+GetRepositoriesNpmGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesNpmGroupByRepositoryname(params *GetRepositoriesNpmGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNpmGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesNpmGroupByRepositoryName(params *GetRepositoriesNpmGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNpmGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesNpmGroupByRepositorynameParams()
+		params = NewGetRepositoriesNpmGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesNpmGroupByRepositoryname",
+		ID:                 "GetRepositoriesNpmGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/npm/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesNpmGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesNpmGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1399,33 +1399,33 @@ func (a *Client) GetRepositoriesNpmGroupByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesNpmGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesNpmGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNpmGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNpmGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesNpmHostedByRepositoryname gets repository
+GetRepositoriesNpmHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesNpmHostedByRepositoryname(params *GetRepositoriesNpmHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNpmHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesNpmHostedByRepositoryName(params *GetRepositoriesNpmHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNpmHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesNpmHostedByRepositorynameParams()
+		params = NewGetRepositoriesNpmHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesNpmHostedByRepositoryname",
+		ID:                 "GetRepositoriesNpmHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/npm/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesNpmHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesNpmHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1437,33 +1437,33 @@ func (a *Client) GetRepositoriesNpmHostedByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesNpmHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesNpmHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNpmHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNpmHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesNpmProxyByRepositoryname gets repository
+GetRepositoriesNpmProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesNpmProxyByRepositoryname(params *GetRepositoriesNpmProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNpmProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesNpmProxyByRepositoryName(params *GetRepositoriesNpmProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNpmProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesNpmProxyByRepositorynameParams()
+		params = NewGetRepositoriesNpmProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesNpmProxyByRepositoryname",
+		ID:                 "GetRepositoriesNpmProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/npm/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesNpmProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesNpmProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1475,33 +1475,33 @@ func (a *Client) GetRepositoriesNpmProxyByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesNpmProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesNpmProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNpmProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNpmProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesNugetGroupByRepositoryname gets repository
+GetRepositoriesNugetGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesNugetGroupByRepositoryname(params *GetRepositoriesNugetGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNugetGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesNugetGroupByRepositoryName(params *GetRepositoriesNugetGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNugetGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesNugetGroupByRepositorynameParams()
+		params = NewGetRepositoriesNugetGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesNugetGroupByRepositoryname",
+		ID:                 "GetRepositoriesNugetGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/nuget/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesNugetGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesNugetGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1513,33 +1513,33 @@ func (a *Client) GetRepositoriesNugetGroupByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesNugetGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesNugetGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNugetGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNugetGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesNugetHostedByRepositoryname gets repository
+GetRepositoriesNugetHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesNugetHostedByRepositoryname(params *GetRepositoriesNugetHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNugetHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesNugetHostedByRepositoryName(params *GetRepositoriesNugetHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNugetHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesNugetHostedByRepositorynameParams()
+		params = NewGetRepositoriesNugetHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesNugetHostedByRepositoryname",
+		ID:                 "GetRepositoriesNugetHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/nuget/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesNugetHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesNugetHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1551,33 +1551,33 @@ func (a *Client) GetRepositoriesNugetHostedByRepositoryname(params *GetRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesNugetHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesNugetHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNugetHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNugetHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesNugetProxyByRepositoryname gets repository
+GetRepositoriesNugetProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesNugetProxyByRepositoryname(params *GetRepositoriesNugetProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesNugetProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesNugetProxyByRepositoryName(params *GetRepositoriesNugetProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesNugetProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesNugetProxyByRepositorynameParams()
+		params = NewGetRepositoriesNugetProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesNugetProxyByRepositoryname",
+		ID:                 "GetRepositoriesNugetProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/nuget/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesNugetProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesNugetProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1589,33 +1589,33 @@ func (a *Client) GetRepositoriesNugetProxyByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesNugetProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesNugetProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNugetProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesNugetProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesP2ProxyByRepositoryname gets repository
+GetRepositoriesP2ProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesP2ProxyByRepositoryname(params *GetRepositoriesP2ProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesP2ProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesP2ProxyByRepositoryName(params *GetRepositoriesP2ProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesP2ProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesP2ProxyByRepositorynameParams()
+		params = NewGetRepositoriesP2ProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesP2ProxyByRepositoryname",
+		ID:                 "GetRepositoriesP2ProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/p2/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesP2ProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesP2ProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1627,33 +1627,33 @@ func (a *Client) GetRepositoriesP2ProxyByRepositoryname(params *GetRepositoriesP
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesP2ProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesP2ProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesP2ProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesP2ProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesPypiGroupByRepositoryname gets repository
+GetRepositoriesPypiGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesPypiGroupByRepositoryname(params *GetRepositoriesPypiGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesPypiGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesPypiGroupByRepositoryName(params *GetRepositoriesPypiGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesPypiGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesPypiGroupByRepositorynameParams()
+		params = NewGetRepositoriesPypiGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesPypiGroupByRepositoryname",
+		ID:                 "GetRepositoriesPypiGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/pypi/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesPypiGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesPypiGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1665,33 +1665,33 @@ func (a *Client) GetRepositoriesPypiGroupByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesPypiGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesPypiGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesPypiGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesPypiGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesPypiHostedByRepositoryname gets repository
+GetRepositoriesPypiHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesPypiHostedByRepositoryname(params *GetRepositoriesPypiHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesPypiHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesPypiHostedByRepositoryName(params *GetRepositoriesPypiHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesPypiHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesPypiHostedByRepositorynameParams()
+		params = NewGetRepositoriesPypiHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesPypiHostedByRepositoryname",
+		ID:                 "GetRepositoriesPypiHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/pypi/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesPypiHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesPypiHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1703,33 +1703,33 @@ func (a *Client) GetRepositoriesPypiHostedByRepositoryname(params *GetRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesPypiHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesPypiHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesPypiHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesPypiHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesPypiProxyByRepositoryname gets repository
+GetRepositoriesPypiProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesPypiProxyByRepositoryname(params *GetRepositoriesPypiProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesPypiProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesPypiProxyByRepositoryName(params *GetRepositoriesPypiProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesPypiProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesPypiProxyByRepositorynameParams()
+		params = NewGetRepositoriesPypiProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesPypiProxyByRepositoryname",
+		ID:                 "GetRepositoriesPypiProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/pypi/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesPypiProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesPypiProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1741,33 +1741,33 @@ func (a *Client) GetRepositoriesPypiProxyByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesPypiProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesPypiProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesPypiProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesPypiProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRGroupByRepositoryname gets repository
+GetRepositoriesRGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRGroupByRepositoryname(params *GetRepositoriesRGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRGroupByRepositoryName(params *GetRepositoriesRGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRGroupByRepositorynameParams()
+		params = NewGetRepositoriesRGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRGroupByRepositoryname",
+		ID:                 "GetRepositoriesRGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/r/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1779,33 +1779,33 @@ func (a *Client) GetRepositoriesRGroupByRepositoryname(params *GetRepositoriesRG
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRHostedByRepositoryname gets repository
+GetRepositoriesRHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRHostedByRepositoryname(params *GetRepositoriesRHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRHostedByRepositoryName(params *GetRepositoriesRHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRHostedByRepositorynameParams()
+		params = NewGetRepositoriesRHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRHostedByRepositoryname",
+		ID:                 "GetRepositoriesRHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/r/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1817,33 +1817,33 @@ func (a *Client) GetRepositoriesRHostedByRepositoryname(params *GetRepositoriesR
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRProxyByRepositoryname gets repository
+GetRepositoriesRProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRProxyByRepositoryname(params *GetRepositoriesRProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRProxyByRepositoryName(params *GetRepositoriesRProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRProxyByRepositorynameParams()
+		params = NewGetRepositoriesRProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRProxyByRepositoryname",
+		ID:                 "GetRepositoriesRProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/r/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1855,33 +1855,33 @@ func (a *Client) GetRepositoriesRProxyByRepositoryname(params *GetRepositoriesRP
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRawGroupByRepositoryname gets repository
+GetRepositoriesRawGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRawGroupByRepositoryname(params *GetRepositoriesRawGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRawGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRawGroupByRepositoryName(params *GetRepositoriesRawGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRawGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRawGroupByRepositorynameParams()
+		params = NewGetRepositoriesRawGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRawGroupByRepositoryname",
+		ID:                 "GetRepositoriesRawGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/raw/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRawGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRawGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1893,33 +1893,33 @@ func (a *Client) GetRepositoriesRawGroupByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRawGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRawGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRawGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRawGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRawHostedByRepositoryname gets repository
+GetRepositoriesRawHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRawHostedByRepositoryname(params *GetRepositoriesRawHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRawHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRawHostedByRepositoryName(params *GetRepositoriesRawHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRawHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRawHostedByRepositorynameParams()
+		params = NewGetRepositoriesRawHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRawHostedByRepositoryname",
+		ID:                 "GetRepositoriesRawHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/raw/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRawHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRawHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1931,33 +1931,33 @@ func (a *Client) GetRepositoriesRawHostedByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRawHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRawHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRawHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRawHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRawProxyByRepositoryname gets repository
+GetRepositoriesRawProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRawProxyByRepositoryname(params *GetRepositoriesRawProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRawProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRawProxyByRepositoryName(params *GetRepositoriesRawProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRawProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRawProxyByRepositorynameParams()
+		params = NewGetRepositoriesRawProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRawProxyByRepositoryname",
+		ID:                 "GetRepositoriesRawProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/raw/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRawProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRawProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -1969,33 +1969,33 @@ func (a *Client) GetRepositoriesRawProxyByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRawProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRawProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRawProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRawProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRubygemsGroupByRepositoryname gets repository
+GetRepositoriesRubygemsGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRubygemsGroupByRepositoryname(params *GetRepositoriesRubygemsGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRubygemsGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRubygemsGroupByRepositoryName(params *GetRepositoriesRubygemsGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRubygemsGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRubygemsGroupByRepositorynameParams()
+		params = NewGetRepositoriesRubygemsGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRubygemsGroupByRepositoryname",
+		ID:                 "GetRepositoriesRubygemsGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/rubygems/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRubygemsGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRubygemsGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2007,33 +2007,33 @@ func (a *Client) GetRepositoriesRubygemsGroupByRepositoryname(params *GetReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRubygemsGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRubygemsGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRubygemsGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRubygemsGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRubygemsHostedByRepositoryname gets repository
+GetRepositoriesRubygemsHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRubygemsHostedByRepositoryname(params *GetRepositoriesRubygemsHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRubygemsHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRubygemsHostedByRepositoryName(params *GetRepositoriesRubygemsHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRubygemsHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRubygemsHostedByRepositorynameParams()
+		params = NewGetRepositoriesRubygemsHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRubygemsHostedByRepositoryname",
+		ID:                 "GetRepositoriesRubygemsHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/rubygems/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRubygemsHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRubygemsHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2045,33 +2045,33 @@ func (a *Client) GetRepositoriesRubygemsHostedByRepositoryname(params *GetReposi
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRubygemsHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRubygemsHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRubygemsHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRubygemsHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesRubygemsProxyByRepositoryname gets repository
+GetRepositoriesRubygemsProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesRubygemsProxyByRepositoryname(params *GetRepositoriesRubygemsProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesRubygemsProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesRubygemsProxyByRepositoryName(params *GetRepositoriesRubygemsProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesRubygemsProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesRubygemsProxyByRepositorynameParams()
+		params = NewGetRepositoriesRubygemsProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesRubygemsProxyByRepositoryname",
+		ID:                 "GetRepositoriesRubygemsProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/rubygems/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesRubygemsProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesRubygemsProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2083,33 +2083,33 @@ func (a *Client) GetRepositoriesRubygemsProxyByRepositoryname(params *GetReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesRubygemsProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesRubygemsProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRubygemsProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesRubygemsProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesYumGroupByRepositoryname gets repository
+GetRepositoriesYumGroupByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesYumGroupByRepositoryname(params *GetRepositoriesYumGroupByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesYumGroupByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesYumGroupByRepositoryName(params *GetRepositoriesYumGroupByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesYumGroupByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesYumGroupByRepositorynameParams()
+		params = NewGetRepositoriesYumGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesYumGroupByRepositoryname",
+		ID:                 "GetRepositoriesYumGroupByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/yum/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesYumGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesYumGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2121,33 +2121,33 @@ func (a *Client) GetRepositoriesYumGroupByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesYumGroupByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesYumGroupByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesYumGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesYumGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesYumHostedByRepositoryname gets repository
+GetRepositoriesYumHostedByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesYumHostedByRepositoryname(params *GetRepositoriesYumHostedByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesYumHostedByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesYumHostedByRepositoryName(params *GetRepositoriesYumHostedByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesYumHostedByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesYumHostedByRepositorynameParams()
+		params = NewGetRepositoriesYumHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesYumHostedByRepositoryname",
+		ID:                 "GetRepositoriesYumHostedByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/yum/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesYumHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesYumHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2159,33 +2159,33 @@ func (a *Client) GetRepositoriesYumHostedByRepositoryname(params *GetRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesYumHostedByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesYumHostedByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesYumHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesYumHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositoriesYumProxyByRepositoryname gets repository
+GetRepositoriesYumProxyByRepositoryName gets repository
 */
-func (a *Client) GetRepositoriesYumProxyByRepositoryname(params *GetRepositoriesYumProxyByRepositorynameParams, opts ...ClientOption) (*GetRepositoriesYumProxyByRepositorynameOK, error) {
+func (a *Client) GetRepositoriesYumProxyByRepositoryName(params *GetRepositoriesYumProxyByRepositoryNameParams, opts ...ClientOption) (*GetRepositoriesYumProxyByRepositoryNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRepositoriesYumProxyByRepositorynameParams()
+		params = NewGetRepositoriesYumProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetRepositoriesYumProxyByRepositoryname",
+		ID:                 "GetRepositoriesYumProxyByRepositoryName",
 		Method:             "GET",
 		PathPattern:        "/v1/repositories/yum/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRepositoriesYumProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &GetRepositoriesYumProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2197,18 +2197,18 @@ func (a *Client) GetRepositoriesYumProxyByRepositoryname(params *GetRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRepositoriesYumProxyByRepositorynameOK)
+	success, ok := result.(*GetRepositoriesYumProxyByRepositoryNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetRepositoriesYumProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRepositoriesYumProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRepositorysettings lists repositories
+GetRepositorysettings lists repository settins
 */
 func (a *Client) GetRepositorysettings(params *GetRepositorysettingsParams, opts ...ClientOption) (*GetRepositorysettingsOK, error) {
 	// TODO: Validate the params before sending
@@ -2322,22 +2322,22 @@ func (a *Client) PostRepositoriesAptProxy(params *PostRepositoriesAptProxyParams
 }
 
 /*
-PostRepositoriesByRepositorynameHealthCheck enables repository health check proxy repositories only
+PostRepositoriesByRepositoryNameHealthCheck enables repository health check proxy repositories only
 */
-func (a *Client) PostRepositoriesByRepositorynameHealthCheck(params *PostRepositoriesByRepositorynameHealthCheckParams, opts ...ClientOption) (*PostRepositoriesByRepositorynameHealthCheckNoContent, error) {
+func (a *Client) PostRepositoriesByRepositoryNameHealthCheck(params *PostRepositoriesByRepositoryNameHealthCheckParams, opts ...ClientOption) (*PostRepositoriesByRepositoryNameHealthCheckNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPostRepositoriesByRepositorynameHealthCheckParams()
+		params = NewPostRepositoriesByRepositoryNameHealthCheckParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PostRepositoriesByRepositorynameHealthCheck",
+		ID:                 "PostRepositoriesByRepositoryNameHealthCheck",
 		Method:             "POST",
 		PathPattern:        "/v1/repositories/{repositoryName}/health-check",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PostRepositoriesByRepositorynameHealthCheckReader{formats: a.formats},
+		Reader:             &PostRepositoriesByRepositoryNameHealthCheckReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2349,33 +2349,33 @@ func (a *Client) PostRepositoriesByRepositorynameHealthCheck(params *PostReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PostRepositoriesByRepositorynameHealthCheckNoContent)
+	success, ok := result.(*PostRepositoriesByRepositoryNameHealthCheckNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PostRepositoriesByRepositorynameHealthCheck: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostRepositoriesByRepositoryNameHealthCheck: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PostRepositoriesByRepositorynameInvalidateCache invalidates repository cache proxy or group repositories only
+PostRepositoriesByRepositoryNameInvalidateCache invalidates repository cache proxy or group repositories only
 */
-func (a *Client) PostRepositoriesByRepositorynameInvalidateCache(params *PostRepositoriesByRepositorynameInvalidateCacheParams, opts ...ClientOption) (*PostRepositoriesByRepositorynameInvalidateCacheNoContent, error) {
+func (a *Client) PostRepositoriesByRepositoryNameInvalidateCache(params *PostRepositoriesByRepositoryNameInvalidateCacheParams, opts ...ClientOption) (*PostRepositoriesByRepositoryNameInvalidateCacheNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPostRepositoriesByRepositorynameInvalidateCacheParams()
+		params = NewPostRepositoriesByRepositoryNameInvalidateCacheParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PostRepositoriesByRepositorynameInvalidateCache",
+		ID:                 "PostRepositoriesByRepositoryNameInvalidateCache",
 		Method:             "POST",
 		PathPattern:        "/v1/repositories/{repositoryName}/invalidate-cache",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PostRepositoriesByRepositorynameInvalidateCacheReader{formats: a.formats},
+		Reader:             &PostRepositoriesByRepositoryNameInvalidateCacheReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2387,33 +2387,33 @@ func (a *Client) PostRepositoriesByRepositorynameInvalidateCache(params *PostRep
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PostRepositoriesByRepositorynameInvalidateCacheNoContent)
+	success, ok := result.(*PostRepositoriesByRepositoryNameInvalidateCacheNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PostRepositoriesByRepositorynameInvalidateCache: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostRepositoriesByRepositoryNameInvalidateCache: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PostRepositoriesByRepositorynameRebuildIndex schedules a repair rebuild repository search task hosted or proxy repositories only
+PostRepositoriesByRepositoryNameRebuildIndex schedules a repair rebuild repository search task hosted or proxy repositories only
 */
-func (a *Client) PostRepositoriesByRepositorynameRebuildIndex(params *PostRepositoriesByRepositorynameRebuildIndexParams, opts ...ClientOption) (*PostRepositoriesByRepositorynameRebuildIndexNoContent, error) {
+func (a *Client) PostRepositoriesByRepositoryNameRebuildIndex(params *PostRepositoriesByRepositoryNameRebuildIndexParams, opts ...ClientOption) (*PostRepositoriesByRepositoryNameRebuildIndexNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPostRepositoriesByRepositorynameRebuildIndexParams()
+		params = NewPostRepositoriesByRepositoryNameRebuildIndexParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PostRepositoriesByRepositorynameRebuildIndex",
+		ID:                 "PostRepositoriesByRepositoryNameRebuildIndex",
 		Method:             "POST",
 		PathPattern:        "/v1/repositories/{repositoryName}/rebuild-index",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PostRepositoriesByRepositorynameRebuildIndexReader{formats: a.formats},
+		Reader:             &PostRepositoriesByRepositoryNameRebuildIndexReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -2425,13 +2425,13 @@ func (a *Client) PostRepositoriesByRepositorynameRebuildIndex(params *PostReposi
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PostRepositoriesByRepositorynameRebuildIndexNoContent)
+	success, ok := result.(*PostRepositoriesByRepositoryNameRebuildIndexNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PostRepositoriesByRepositorynameRebuildIndex: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostRepositoriesByRepositoryNameRebuildIndex: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -4070,22 +4070,22 @@ func (a *Client) PostRepositoriesYumProxy(params *PostRepositoriesYumProxyParams
 }
 
 /*
-PutRepositoriesAptHostedByRepositoryname updates a p t hosted repository
+PutRepositoriesAptHostedByRepositoryName updates a p t hosted repository
 */
-func (a *Client) PutRepositoriesAptHostedByRepositoryname(params *PutRepositoriesAptHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesAptHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesAptHostedByRepositoryName(params *PutRepositoriesAptHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesAptHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesAptHostedByRepositorynameParams()
+		params = NewPutRepositoriesAptHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesAptHostedByRepositoryname",
+		ID:                 "PutRepositoriesAptHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/apt/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesAptHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesAptHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4097,33 +4097,33 @@ func (a *Client) PutRepositoriesAptHostedByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesAptHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesAptHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesAptHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesAptHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesAptProxyByRepositoryname updates a p t proxy repository
+PutRepositoriesAptProxyByRepositoryName updates a p t proxy repository
 */
-func (a *Client) PutRepositoriesAptProxyByRepositoryname(params *PutRepositoriesAptProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesAptProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesAptProxyByRepositoryName(params *PutRepositoriesAptProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesAptProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesAptProxyByRepositorynameParams()
+		params = NewPutRepositoriesAptProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesAptProxyByRepositoryname",
+		ID:                 "PutRepositoriesAptProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/apt/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesAptProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesAptProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4135,33 +4135,33 @@ func (a *Client) PutRepositoriesAptProxyByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesAptProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesAptProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesAptProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesAptProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesCargoGroupByRepositoryname updates cargo group repository
+PutRepositoriesCargoGroupByRepositoryName updates cargo group repository
 */
-func (a *Client) PutRepositoriesCargoGroupByRepositoryname(params *PutRepositoriesCargoGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCargoGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesCargoGroupByRepositoryName(params *PutRepositoriesCargoGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCargoGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesCargoGroupByRepositorynameParams()
+		params = NewPutRepositoriesCargoGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesCargoGroupByRepositoryname",
+		ID:                 "PutRepositoriesCargoGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/cargo/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesCargoGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesCargoGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4173,33 +4173,33 @@ func (a *Client) PutRepositoriesCargoGroupByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesCargoGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesCargoGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCargoGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCargoGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesCargoHostedByRepositoryname updates cargo hosted repository
+PutRepositoriesCargoHostedByRepositoryName updates cargo hosted repository
 */
-func (a *Client) PutRepositoriesCargoHostedByRepositoryname(params *PutRepositoriesCargoHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCargoHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesCargoHostedByRepositoryName(params *PutRepositoriesCargoHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCargoHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesCargoHostedByRepositorynameParams()
+		params = NewPutRepositoriesCargoHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesCargoHostedByRepositoryname",
+		ID:                 "PutRepositoriesCargoHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/cargo/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesCargoHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesCargoHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4211,33 +4211,33 @@ func (a *Client) PutRepositoriesCargoHostedByRepositoryname(params *PutRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesCargoHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesCargoHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCargoHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCargoHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesCargoProxyByRepositoryname updates cargo proxy repository
+PutRepositoriesCargoProxyByRepositoryName updates cargo proxy repository
 */
-func (a *Client) PutRepositoriesCargoProxyByRepositoryname(params *PutRepositoriesCargoProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCargoProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesCargoProxyByRepositoryName(params *PutRepositoriesCargoProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCargoProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesCargoProxyByRepositorynameParams()
+		params = NewPutRepositoriesCargoProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesCargoProxyByRepositoryname",
+		ID:                 "PutRepositoriesCargoProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/cargo/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesCargoProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesCargoProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4249,33 +4249,33 @@ func (a *Client) PutRepositoriesCargoProxyByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesCargoProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesCargoProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCargoProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCargoProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesCocoapodsProxyByRepositoryname updates cocoapods proxy repository
+PutRepositoriesCocoapodsProxyByRepositoryName updates cocoapods proxy repository
 */
-func (a *Client) PutRepositoriesCocoapodsProxyByRepositoryname(params *PutRepositoriesCocoapodsProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCocoapodsProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesCocoapodsProxyByRepositoryName(params *PutRepositoriesCocoapodsProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCocoapodsProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesCocoapodsProxyByRepositorynameParams()
+		params = NewPutRepositoriesCocoapodsProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesCocoapodsProxyByRepositoryname",
+		ID:                 "PutRepositoriesCocoapodsProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/cocoapods/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesCocoapodsProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesCocoapodsProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4287,33 +4287,33 @@ func (a *Client) PutRepositoriesCocoapodsProxyByRepositoryname(params *PutReposi
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesCocoapodsProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesCocoapodsProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCocoapodsProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCocoapodsProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesComposerProxyByRepositoryname updates composer proxy repository
+PutRepositoriesComposerProxyByRepositoryName updates composer proxy repository
 */
-func (a *Client) PutRepositoriesComposerProxyByRepositoryname(params *PutRepositoriesComposerProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesComposerProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesComposerProxyByRepositoryName(params *PutRepositoriesComposerProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesComposerProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesComposerProxyByRepositorynameParams()
+		params = NewPutRepositoriesComposerProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesComposerProxyByRepositoryname",
+		ID:                 "PutRepositoriesComposerProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/composer/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesComposerProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesComposerProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4325,33 +4325,33 @@ func (a *Client) PutRepositoriesComposerProxyByRepositoryname(params *PutReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesComposerProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesComposerProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesComposerProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesComposerProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesConanGroupByRepositoryname updates conan group repository
+PutRepositoriesConanGroupByRepositoryName updates conan group repository
 */
-func (a *Client) PutRepositoriesConanGroupByRepositoryname(params *PutRepositoriesConanGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesConanGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesConanGroupByRepositoryName(params *PutRepositoriesConanGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesConanGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesConanGroupByRepositorynameParams()
+		params = NewPutRepositoriesConanGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesConanGroupByRepositoryname",
+		ID:                 "PutRepositoriesConanGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/conan/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesConanGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesConanGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4363,33 +4363,33 @@ func (a *Client) PutRepositoriesConanGroupByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesConanGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesConanGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesConanGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesConanGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesConanHostedByRepositoryname updates conan hosted repository
+PutRepositoriesConanHostedByRepositoryName updates conan hosted repository
 */
-func (a *Client) PutRepositoriesConanHostedByRepositoryname(params *PutRepositoriesConanHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesConanHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesConanHostedByRepositoryName(params *PutRepositoriesConanHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesConanHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesConanHostedByRepositorynameParams()
+		params = NewPutRepositoriesConanHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesConanHostedByRepositoryname",
+		ID:                 "PutRepositoriesConanHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/conan/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesConanHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesConanHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4401,33 +4401,33 @@ func (a *Client) PutRepositoriesConanHostedByRepositoryname(params *PutRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesConanHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesConanHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesConanHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesConanHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesConanProxyByRepositoryname updates conan proxy repository
+PutRepositoriesConanProxyByRepositoryName updates conan proxy repository
 */
-func (a *Client) PutRepositoriesConanProxyByRepositoryname(params *PutRepositoriesConanProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesConanProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesConanProxyByRepositoryName(params *PutRepositoriesConanProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesConanProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesConanProxyByRepositorynameParams()
+		params = NewPutRepositoriesConanProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesConanProxyByRepositoryname",
+		ID:                 "PutRepositoriesConanProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/conan/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesConanProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesConanProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4439,33 +4439,33 @@ func (a *Client) PutRepositoriesConanProxyByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesConanProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesConanProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesConanProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesConanProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesCondaProxyByRepositoryname updates conda proxy repository
+PutRepositoriesCondaProxyByRepositoryName updates conda proxy repository
 */
-func (a *Client) PutRepositoriesCondaProxyByRepositoryname(params *PutRepositoriesCondaProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesCondaProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesCondaProxyByRepositoryName(params *PutRepositoriesCondaProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesCondaProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesCondaProxyByRepositorynameParams()
+		params = NewPutRepositoriesCondaProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesCondaProxyByRepositoryname",
+		ID:                 "PutRepositoriesCondaProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/conda/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesCondaProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesCondaProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4477,33 +4477,33 @@ func (a *Client) PutRepositoriesCondaProxyByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesCondaProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesCondaProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCondaProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesCondaProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesDockerGroupByRepositoryname updates docker group repository
+PutRepositoriesDockerGroupByRepositoryName updates docker group repository
 */
-func (a *Client) PutRepositoriesDockerGroupByRepositoryname(params *PutRepositoriesDockerGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesDockerGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesDockerGroupByRepositoryName(params *PutRepositoriesDockerGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesDockerGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesDockerGroupByRepositorynameParams()
+		params = NewPutRepositoriesDockerGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesDockerGroupByRepositoryname",
+		ID:                 "PutRepositoriesDockerGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/docker/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesDockerGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesDockerGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4515,33 +4515,33 @@ func (a *Client) PutRepositoriesDockerGroupByRepositoryname(params *PutRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesDockerGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesDockerGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesDockerGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesDockerGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesDockerHostedByRepositoryname updates docker hosted repository
+PutRepositoriesDockerHostedByRepositoryName updates docker hosted repository
 */
-func (a *Client) PutRepositoriesDockerHostedByRepositoryname(params *PutRepositoriesDockerHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesDockerHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesDockerHostedByRepositoryName(params *PutRepositoriesDockerHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesDockerHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesDockerHostedByRepositorynameParams()
+		params = NewPutRepositoriesDockerHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesDockerHostedByRepositoryname",
+		ID:                 "PutRepositoriesDockerHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/docker/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesDockerHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesDockerHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4553,33 +4553,33 @@ func (a *Client) PutRepositoriesDockerHostedByRepositoryname(params *PutReposito
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesDockerHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesDockerHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesDockerHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesDockerHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesDockerProxyByRepositoryname updates docker proxy repository
+PutRepositoriesDockerProxyByRepositoryName updates docker proxy repository
 */
-func (a *Client) PutRepositoriesDockerProxyByRepositoryname(params *PutRepositoriesDockerProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesDockerProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesDockerProxyByRepositoryName(params *PutRepositoriesDockerProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesDockerProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesDockerProxyByRepositorynameParams()
+		params = NewPutRepositoriesDockerProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesDockerProxyByRepositoryname",
+		ID:                 "PutRepositoriesDockerProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/docker/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesDockerProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesDockerProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4591,33 +4591,33 @@ func (a *Client) PutRepositoriesDockerProxyByRepositoryname(params *PutRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesDockerProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesDockerProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesDockerProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesDockerProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesGitlfsHostedByRepositoryname updates git l f s hosted repository
+PutRepositoriesGitlfsHostedByRepositoryName updates git l f s hosted repository
 */
-func (a *Client) PutRepositoriesGitlfsHostedByRepositoryname(params *PutRepositoriesGitlfsHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesGitlfsHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesGitlfsHostedByRepositoryName(params *PutRepositoriesGitlfsHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesGitlfsHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesGitlfsHostedByRepositorynameParams()
+		params = NewPutRepositoriesGitlfsHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesGitlfsHostedByRepositoryname",
+		ID:                 "PutRepositoriesGitlfsHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/gitlfs/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesGitlfsHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesGitlfsHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4629,33 +4629,33 @@ func (a *Client) PutRepositoriesGitlfsHostedByRepositoryname(params *PutReposito
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesGitlfsHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesGitlfsHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesGitlfsHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesGitlfsHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesGoGroupByRepositoryname updates a go group repository
+PutRepositoriesGoGroupByRepositoryName updates a go group repository
 */
-func (a *Client) PutRepositoriesGoGroupByRepositoryname(params *PutRepositoriesGoGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesGoGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesGoGroupByRepositoryName(params *PutRepositoriesGoGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesGoGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesGoGroupByRepositorynameParams()
+		params = NewPutRepositoriesGoGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesGoGroupByRepositoryname",
+		ID:                 "PutRepositoriesGoGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/go/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesGoGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesGoGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4667,33 +4667,33 @@ func (a *Client) PutRepositoriesGoGroupByRepositoryname(params *PutRepositoriesG
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesGoGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesGoGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesGoGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesGoGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesGoProxyByRepositoryname updates a go proxy repository
+PutRepositoriesGoProxyByRepositoryName updates a go proxy repository
 */
-func (a *Client) PutRepositoriesGoProxyByRepositoryname(params *PutRepositoriesGoProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesGoProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesGoProxyByRepositoryName(params *PutRepositoriesGoProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesGoProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesGoProxyByRepositorynameParams()
+		params = NewPutRepositoriesGoProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesGoProxyByRepositoryname",
+		ID:                 "PutRepositoriesGoProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/go/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesGoProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesGoProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4705,33 +4705,33 @@ func (a *Client) PutRepositoriesGoProxyByRepositoryname(params *PutRepositoriesG
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesGoProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesGoProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesGoProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesGoProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesHelmHostedByRepositoryname updates helm hosted repository
+PutRepositoriesHelmHostedByRepositoryName updates helm hosted repository
 */
-func (a *Client) PutRepositoriesHelmHostedByRepositoryname(params *PutRepositoriesHelmHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesHelmHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesHelmHostedByRepositoryName(params *PutRepositoriesHelmHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesHelmHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesHelmHostedByRepositorynameParams()
+		params = NewPutRepositoriesHelmHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesHelmHostedByRepositoryname",
+		ID:                 "PutRepositoriesHelmHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/helm/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesHelmHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesHelmHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4743,33 +4743,33 @@ func (a *Client) PutRepositoriesHelmHostedByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesHelmHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesHelmHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesHelmHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesHelmHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesHelmProxyByRepositoryname updates helm proxy repository
+PutRepositoriesHelmProxyByRepositoryName updates helm proxy repository
 */
-func (a *Client) PutRepositoriesHelmProxyByRepositoryname(params *PutRepositoriesHelmProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesHelmProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesHelmProxyByRepositoryName(params *PutRepositoriesHelmProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesHelmProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesHelmProxyByRepositorynameParams()
+		params = NewPutRepositoriesHelmProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesHelmProxyByRepositoryname",
+		ID:                 "PutRepositoriesHelmProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/helm/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesHelmProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesHelmProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4781,33 +4781,33 @@ func (a *Client) PutRepositoriesHelmProxyByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesHelmProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesHelmProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesHelmProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesHelmProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesHuggingfaceProxyByRepositoryname updates huggingface proxy repository
+PutRepositoriesHuggingfaceProxyByRepositoryName updates huggingface proxy repository
 */
-func (a *Client) PutRepositoriesHuggingfaceProxyByRepositoryname(params *PutRepositoriesHuggingfaceProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesHuggingfaceProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesHuggingfaceProxyByRepositoryName(params *PutRepositoriesHuggingfaceProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesHuggingfaceProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesHuggingfaceProxyByRepositorynameParams()
+		params = NewPutRepositoriesHuggingfaceProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesHuggingfaceProxyByRepositoryname",
+		ID:                 "PutRepositoriesHuggingfaceProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/huggingface/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesHuggingfaceProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesHuggingfaceProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4819,33 +4819,33 @@ func (a *Client) PutRepositoriesHuggingfaceProxyByRepositoryname(params *PutRepo
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesHuggingfaceProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesHuggingfaceProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesHuggingfaceProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesHuggingfaceProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesMavenGroupByRepositoryname updates maven group repository
+PutRepositoriesMavenGroupByRepositoryName updates maven group repository
 */
-func (a *Client) PutRepositoriesMavenGroupByRepositoryname(params *PutRepositoriesMavenGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesMavenGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesMavenGroupByRepositoryName(params *PutRepositoriesMavenGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesMavenGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesMavenGroupByRepositorynameParams()
+		params = NewPutRepositoriesMavenGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesMavenGroupByRepositoryname",
+		ID:                 "PutRepositoriesMavenGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/maven/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesMavenGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesMavenGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4857,33 +4857,33 @@ func (a *Client) PutRepositoriesMavenGroupByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesMavenGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesMavenGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesMavenGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesMavenGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesMavenHostedByRepositoryname updates maven hosted repository
+PutRepositoriesMavenHostedByRepositoryName updates maven hosted repository
 */
-func (a *Client) PutRepositoriesMavenHostedByRepositoryname(params *PutRepositoriesMavenHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesMavenHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesMavenHostedByRepositoryName(params *PutRepositoriesMavenHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesMavenHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesMavenHostedByRepositorynameParams()
+		params = NewPutRepositoriesMavenHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesMavenHostedByRepositoryname",
+		ID:                 "PutRepositoriesMavenHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/maven/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesMavenHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesMavenHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4895,33 +4895,33 @@ func (a *Client) PutRepositoriesMavenHostedByRepositoryname(params *PutRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesMavenHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesMavenHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesMavenHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesMavenHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesMavenProxyByRepositoryname updates maven proxy repository
+PutRepositoriesMavenProxyByRepositoryName updates maven proxy repository
 */
-func (a *Client) PutRepositoriesMavenProxyByRepositoryname(params *PutRepositoriesMavenProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesMavenProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesMavenProxyByRepositoryName(params *PutRepositoriesMavenProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesMavenProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesMavenProxyByRepositorynameParams()
+		params = NewPutRepositoriesMavenProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesMavenProxyByRepositoryname",
+		ID:                 "PutRepositoriesMavenProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/maven/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesMavenProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesMavenProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4933,33 +4933,33 @@ func (a *Client) PutRepositoriesMavenProxyByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesMavenProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesMavenProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesMavenProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesMavenProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesNpmGroupByRepositoryname updates npm group repository
+PutRepositoriesNpmGroupByRepositoryName updates npm group repository
 */
-func (a *Client) PutRepositoriesNpmGroupByRepositoryname(params *PutRepositoriesNpmGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNpmGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesNpmGroupByRepositoryName(params *PutRepositoriesNpmGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNpmGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesNpmGroupByRepositorynameParams()
+		params = NewPutRepositoriesNpmGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesNpmGroupByRepositoryname",
+		ID:                 "PutRepositoriesNpmGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/npm/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesNpmGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesNpmGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -4971,33 +4971,33 @@ func (a *Client) PutRepositoriesNpmGroupByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesNpmGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesNpmGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNpmGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNpmGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesNpmHostedByRepositoryname updates npm hosted repository
+PutRepositoriesNpmHostedByRepositoryName updates npm hosted repository
 */
-func (a *Client) PutRepositoriesNpmHostedByRepositoryname(params *PutRepositoriesNpmHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNpmHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesNpmHostedByRepositoryName(params *PutRepositoriesNpmHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNpmHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesNpmHostedByRepositorynameParams()
+		params = NewPutRepositoriesNpmHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesNpmHostedByRepositoryname",
+		ID:                 "PutRepositoriesNpmHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/npm/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesNpmHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesNpmHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5009,33 +5009,33 @@ func (a *Client) PutRepositoriesNpmHostedByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesNpmHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesNpmHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNpmHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNpmHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesNpmProxyByRepositoryname updates npm proxy repository
+PutRepositoriesNpmProxyByRepositoryName updates npm proxy repository
 */
-func (a *Client) PutRepositoriesNpmProxyByRepositoryname(params *PutRepositoriesNpmProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNpmProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesNpmProxyByRepositoryName(params *PutRepositoriesNpmProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNpmProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesNpmProxyByRepositorynameParams()
+		params = NewPutRepositoriesNpmProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesNpmProxyByRepositoryname",
+		ID:                 "PutRepositoriesNpmProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/npm/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesNpmProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesNpmProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5047,33 +5047,33 @@ func (a *Client) PutRepositoriesNpmProxyByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesNpmProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesNpmProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNpmProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNpmProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesNugetGroupByRepositoryname updates nu get group repository
+PutRepositoriesNugetGroupByRepositoryName updates nu get group repository
 */
-func (a *Client) PutRepositoriesNugetGroupByRepositoryname(params *PutRepositoriesNugetGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNugetGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesNugetGroupByRepositoryName(params *PutRepositoriesNugetGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNugetGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesNugetGroupByRepositorynameParams()
+		params = NewPutRepositoriesNugetGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesNugetGroupByRepositoryname",
+		ID:                 "PutRepositoriesNugetGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/nuget/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesNugetGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesNugetGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5085,33 +5085,33 @@ func (a *Client) PutRepositoriesNugetGroupByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesNugetGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesNugetGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNugetGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNugetGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesNugetHostedByRepositoryname updates nu get hosted repository
+PutRepositoriesNugetHostedByRepositoryName updates nu get hosted repository
 */
-func (a *Client) PutRepositoriesNugetHostedByRepositoryname(params *PutRepositoriesNugetHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNugetHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesNugetHostedByRepositoryName(params *PutRepositoriesNugetHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNugetHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesNugetHostedByRepositorynameParams()
+		params = NewPutRepositoriesNugetHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesNugetHostedByRepositoryname",
+		ID:                 "PutRepositoriesNugetHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/nuget/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesNugetHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesNugetHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5123,33 +5123,33 @@ func (a *Client) PutRepositoriesNugetHostedByRepositoryname(params *PutRepositor
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesNugetHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesNugetHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNugetHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNugetHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesNugetProxyByRepositoryname updates nu get proxy repository
+PutRepositoriesNugetProxyByRepositoryName updates nu get proxy repository
 */
-func (a *Client) PutRepositoriesNugetProxyByRepositoryname(params *PutRepositoriesNugetProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesNugetProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesNugetProxyByRepositoryName(params *PutRepositoriesNugetProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesNugetProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesNugetProxyByRepositorynameParams()
+		params = NewPutRepositoriesNugetProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesNugetProxyByRepositoryname",
+		ID:                 "PutRepositoriesNugetProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/nuget/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesNugetProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesNugetProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5161,33 +5161,33 @@ func (a *Client) PutRepositoriesNugetProxyByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesNugetProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesNugetProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNugetProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesNugetProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesP2ProxyByRepositoryname updates p2 proxy repository
+PutRepositoriesP2ProxyByRepositoryName updates p2 proxy repository
 */
-func (a *Client) PutRepositoriesP2ProxyByRepositoryname(params *PutRepositoriesP2ProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesP2ProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesP2ProxyByRepositoryName(params *PutRepositoriesP2ProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesP2ProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesP2ProxyByRepositorynameParams()
+		params = NewPutRepositoriesP2ProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesP2ProxyByRepositoryname",
+		ID:                 "PutRepositoriesP2ProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/p2/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesP2ProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesP2ProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5199,33 +5199,33 @@ func (a *Client) PutRepositoriesP2ProxyByRepositoryname(params *PutRepositoriesP
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesP2ProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesP2ProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesP2ProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesP2ProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesPypiGroupByRepositoryname updates py p i group repository
+PutRepositoriesPypiGroupByRepositoryName updates py p i group repository
 */
-func (a *Client) PutRepositoriesPypiGroupByRepositoryname(params *PutRepositoriesPypiGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesPypiGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesPypiGroupByRepositoryName(params *PutRepositoriesPypiGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesPypiGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesPypiGroupByRepositorynameParams()
+		params = NewPutRepositoriesPypiGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesPypiGroupByRepositoryname",
+		ID:                 "PutRepositoriesPypiGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/pypi/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesPypiGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesPypiGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5237,33 +5237,33 @@ func (a *Client) PutRepositoriesPypiGroupByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesPypiGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesPypiGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesPypiGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesPypiGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesPypiHostedByRepositoryname updates py p i hosted repository
+PutRepositoriesPypiHostedByRepositoryName updates py p i hosted repository
 */
-func (a *Client) PutRepositoriesPypiHostedByRepositoryname(params *PutRepositoriesPypiHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesPypiHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesPypiHostedByRepositoryName(params *PutRepositoriesPypiHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesPypiHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesPypiHostedByRepositorynameParams()
+		params = NewPutRepositoriesPypiHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesPypiHostedByRepositoryname",
+		ID:                 "PutRepositoriesPypiHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/pypi/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesPypiHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesPypiHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5275,33 +5275,33 @@ func (a *Client) PutRepositoriesPypiHostedByRepositoryname(params *PutRepositori
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesPypiHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesPypiHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesPypiHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesPypiHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesPypiProxyByRepositoryname updates py p i proxy repository
+PutRepositoriesPypiProxyByRepositoryName updates py p i proxy repository
 */
-func (a *Client) PutRepositoriesPypiProxyByRepositoryname(params *PutRepositoriesPypiProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesPypiProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesPypiProxyByRepositoryName(params *PutRepositoriesPypiProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesPypiProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesPypiProxyByRepositorynameParams()
+		params = NewPutRepositoriesPypiProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesPypiProxyByRepositoryname",
+		ID:                 "PutRepositoriesPypiProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/pypi/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesPypiProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesPypiProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5313,33 +5313,33 @@ func (a *Client) PutRepositoriesPypiProxyByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesPypiProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesPypiProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesPypiProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesPypiProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRGroupByRepositoryname updates r group repository
+PutRepositoriesRGroupByRepositoryName updates r group repository
 */
-func (a *Client) PutRepositoriesRGroupByRepositoryname(params *PutRepositoriesRGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRGroupByRepositoryName(params *PutRepositoriesRGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRGroupByRepositorynameParams()
+		params = NewPutRepositoriesRGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRGroupByRepositoryname",
+		ID:                 "PutRepositoriesRGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/r/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5351,33 +5351,33 @@ func (a *Client) PutRepositoriesRGroupByRepositoryname(params *PutRepositoriesRG
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRHostedByRepositoryname updates r hosted repository
+PutRepositoriesRHostedByRepositoryName updates r hosted repository
 */
-func (a *Client) PutRepositoriesRHostedByRepositoryname(params *PutRepositoriesRHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRHostedByRepositoryName(params *PutRepositoriesRHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRHostedByRepositorynameParams()
+		params = NewPutRepositoriesRHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRHostedByRepositoryname",
+		ID:                 "PutRepositoriesRHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/r/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5389,33 +5389,33 @@ func (a *Client) PutRepositoriesRHostedByRepositoryname(params *PutRepositoriesR
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRProxyByRepositoryname updates r proxy repository
+PutRepositoriesRProxyByRepositoryName updates r proxy repository
 */
-func (a *Client) PutRepositoriesRProxyByRepositoryname(params *PutRepositoriesRProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRProxyByRepositoryName(params *PutRepositoriesRProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRProxyByRepositorynameParams()
+		params = NewPutRepositoriesRProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRProxyByRepositoryname",
+		ID:                 "PutRepositoriesRProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/r/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5427,33 +5427,33 @@ func (a *Client) PutRepositoriesRProxyByRepositoryname(params *PutRepositoriesRP
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRawGroupByRepositoryname updates raw group repository
+PutRepositoriesRawGroupByRepositoryName updates raw group repository
 */
-func (a *Client) PutRepositoriesRawGroupByRepositoryname(params *PutRepositoriesRawGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRawGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRawGroupByRepositoryName(params *PutRepositoriesRawGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRawGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRawGroupByRepositorynameParams()
+		params = NewPutRepositoriesRawGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRawGroupByRepositoryname",
+		ID:                 "PutRepositoriesRawGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/raw/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRawGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRawGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5465,33 +5465,33 @@ func (a *Client) PutRepositoriesRawGroupByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRawGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRawGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRawGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRawGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRawHostedByRepositoryname updates raw hosted repository
+PutRepositoriesRawHostedByRepositoryName updates raw hosted repository
 */
-func (a *Client) PutRepositoriesRawHostedByRepositoryname(params *PutRepositoriesRawHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRawHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRawHostedByRepositoryName(params *PutRepositoriesRawHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRawHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRawHostedByRepositorynameParams()
+		params = NewPutRepositoriesRawHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRawHostedByRepositoryname",
+		ID:                 "PutRepositoriesRawHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/raw/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRawHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRawHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5503,33 +5503,33 @@ func (a *Client) PutRepositoriesRawHostedByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRawHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRawHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRawHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRawHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRawProxyByRepositoryname updates raw proxy repository
+PutRepositoriesRawProxyByRepositoryName updates raw proxy repository
 */
-func (a *Client) PutRepositoriesRawProxyByRepositoryname(params *PutRepositoriesRawProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRawProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRawProxyByRepositoryName(params *PutRepositoriesRawProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRawProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRawProxyByRepositorynameParams()
+		params = NewPutRepositoriesRawProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRawProxyByRepositoryname",
+		ID:                 "PutRepositoriesRawProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/raw/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRawProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRawProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5541,33 +5541,33 @@ func (a *Client) PutRepositoriesRawProxyByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRawProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRawProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRawProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRawProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRubygemsGroupByRepositoryname updates ruby gems group repository
+PutRepositoriesRubygemsGroupByRepositoryName updates ruby gems group repository
 */
-func (a *Client) PutRepositoriesRubygemsGroupByRepositoryname(params *PutRepositoriesRubygemsGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRubygemsGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRubygemsGroupByRepositoryName(params *PutRepositoriesRubygemsGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRubygemsGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRubygemsGroupByRepositorynameParams()
+		params = NewPutRepositoriesRubygemsGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRubygemsGroupByRepositoryname",
+		ID:                 "PutRepositoriesRubygemsGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/rubygems/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRubygemsGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRubygemsGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5579,33 +5579,33 @@ func (a *Client) PutRepositoriesRubygemsGroupByRepositoryname(params *PutReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRubygemsGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRubygemsGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRubygemsGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRubygemsGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRubygemsHostedByRepositoryname updates ruby gems hosted repository
+PutRepositoriesRubygemsHostedByRepositoryName updates ruby gems hosted repository
 */
-func (a *Client) PutRepositoriesRubygemsHostedByRepositoryname(params *PutRepositoriesRubygemsHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRubygemsHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRubygemsHostedByRepositoryName(params *PutRepositoriesRubygemsHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRubygemsHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRubygemsHostedByRepositorynameParams()
+		params = NewPutRepositoriesRubygemsHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRubygemsHostedByRepositoryname",
+		ID:                 "PutRepositoriesRubygemsHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/rubygems/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRubygemsHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRubygemsHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5617,33 +5617,33 @@ func (a *Client) PutRepositoriesRubygemsHostedByRepositoryname(params *PutReposi
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRubygemsHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRubygemsHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRubygemsHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRubygemsHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesRubygemsProxyByRepositoryname updates ruby gems proxy repository
+PutRepositoriesRubygemsProxyByRepositoryName updates ruby gems proxy repository
 */
-func (a *Client) PutRepositoriesRubygemsProxyByRepositoryname(params *PutRepositoriesRubygemsProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesRubygemsProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesRubygemsProxyByRepositoryName(params *PutRepositoriesRubygemsProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesRubygemsProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesRubygemsProxyByRepositorynameParams()
+		params = NewPutRepositoriesRubygemsProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesRubygemsProxyByRepositoryname",
+		ID:                 "PutRepositoriesRubygemsProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/rubygems/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesRubygemsProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesRubygemsProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5655,33 +5655,33 @@ func (a *Client) PutRepositoriesRubygemsProxyByRepositoryname(params *PutReposit
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesRubygemsProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesRubygemsProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRubygemsProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesRubygemsProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesYumGroupByRepositoryname updates yum group repository
+PutRepositoriesYumGroupByRepositoryName updates yum group repository
 */
-func (a *Client) PutRepositoriesYumGroupByRepositoryname(params *PutRepositoriesYumGroupByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesYumGroupByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesYumGroupByRepositoryName(params *PutRepositoriesYumGroupByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesYumGroupByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesYumGroupByRepositorynameParams()
+		params = NewPutRepositoriesYumGroupByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesYumGroupByRepositoryname",
+		ID:                 "PutRepositoriesYumGroupByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/yum/group/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesYumGroupByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesYumGroupByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5693,33 +5693,33 @@ func (a *Client) PutRepositoriesYumGroupByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesYumGroupByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesYumGroupByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesYumGroupByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesYumGroupByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesYumHostedByRepositoryname updates yum hosted repository
+PutRepositoriesYumHostedByRepositoryName updates yum hosted repository
 */
-func (a *Client) PutRepositoriesYumHostedByRepositoryname(params *PutRepositoriesYumHostedByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesYumHostedByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesYumHostedByRepositoryName(params *PutRepositoriesYumHostedByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesYumHostedByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesYumHostedByRepositorynameParams()
+		params = NewPutRepositoriesYumHostedByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesYumHostedByRepositoryname",
+		ID:                 "PutRepositoriesYumHostedByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/yum/hosted/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesYumHostedByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesYumHostedByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5731,33 +5731,33 @@ func (a *Client) PutRepositoriesYumHostedByRepositoryname(params *PutRepositorie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesYumHostedByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesYumHostedByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesYumHostedByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesYumHostedByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PutRepositoriesYumProxyByRepositoryname updates yum proxy repository
+PutRepositoriesYumProxyByRepositoryName updates yum proxy repository
 */
-func (a *Client) PutRepositoriesYumProxyByRepositoryname(params *PutRepositoriesYumProxyByRepositorynameParams, opts ...ClientOption) (*PutRepositoriesYumProxyByRepositorynameNoContent, error) {
+func (a *Client) PutRepositoriesYumProxyByRepositoryName(params *PutRepositoriesYumProxyByRepositoryNameParams, opts ...ClientOption) (*PutRepositoriesYumProxyByRepositoryNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutRepositoriesYumProxyByRepositorynameParams()
+		params = NewPutRepositoriesYumProxyByRepositoryNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutRepositoriesYumProxyByRepositoryname",
+		ID:                 "PutRepositoriesYumProxyByRepositoryName",
 		Method:             "PUT",
 		PathPattern:        "/v1/repositories/yum/proxy/{repositoryName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutRepositoriesYumProxyByRepositorynameReader{formats: a.formats},
+		Reader:             &PutRepositoriesYumProxyByRepositoryNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -5769,13 +5769,13 @@ func (a *Client) PutRepositoriesYumProxyByRepositoryname(params *PutRepositories
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PutRepositoriesYumProxyByRepositorynameNoContent)
+	success, ok := result.(*PutRepositoriesYumProxyByRepositoryNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PutRepositoriesYumProxyByRepositoryname: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutRepositoriesYumProxyByRepositoryName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

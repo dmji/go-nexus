@@ -56,11 +56,11 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteSecurityPrivilegesByPrivilegename(params *DeleteSecurityPrivilegesByPrivilegenameParams, opts ...ClientOption) error
+	DeleteSecurityPrivilegesByPrivilegeName(params *DeleteSecurityPrivilegesByPrivilegeNameParams, opts ...ClientOption) error
 
 	GetSecurityPrivileges(params *GetSecurityPrivilegesParams, opts ...ClientOption) (*GetSecurityPrivilegesOK, error)
 
-	GetSecurityPrivilegesByPrivilegename(params *GetSecurityPrivilegesByPrivilegenameParams, opts ...ClientOption) (*GetSecurityPrivilegesByPrivilegenameOK, error)
+	GetSecurityPrivilegesByPrivilegeName(params *GetSecurityPrivilegesByPrivilegeNameParams, opts ...ClientOption) (*GetSecurityPrivilegesByPrivilegeNameOK, error)
 
 	PostSecurityPrivilegesApplication(params *PostSecurityPrivilegesApplicationParams, opts ...ClientOption) error
 
@@ -74,38 +74,38 @@ type ClientService interface {
 
 	PostSecurityPrivilegesWildcard(params *PostSecurityPrivilegesWildcardParams, opts ...ClientOption) error
 
-	PutSecurityPrivilegesApplicationByPrivilegename(params *PutSecurityPrivilegesApplicationByPrivilegenameParams, opts ...ClientOption) error
+	PutSecurityPrivilegesApplicationByPrivilegeName(params *PutSecurityPrivilegesApplicationByPrivilegeNameParams, opts ...ClientOption) error
 
-	PutSecurityPrivilegesRepositoryAdminByPrivilegename(params *PutSecurityPrivilegesRepositoryAdminByPrivilegenameParams, opts ...ClientOption) error
+	PutSecurityPrivilegesRepositoryAdminByPrivilegeName(params *PutSecurityPrivilegesRepositoryAdminByPrivilegeNameParams, opts ...ClientOption) error
 
-	PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename(params *PutSecurityPrivilegesRepositoryContentSelectorByPrivilegenameParams, opts ...ClientOption) error
+	PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeName(params *PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeNameParams, opts ...ClientOption) error
 
-	PutSecurityPrivilegesRepositoryViewByPrivilegename(params *PutSecurityPrivilegesRepositoryViewByPrivilegenameParams, opts ...ClientOption) error
+	PutSecurityPrivilegesRepositoryViewByPrivilegeName(params *PutSecurityPrivilegesRepositoryViewByPrivilegeNameParams, opts ...ClientOption) error
 
-	PutSecurityPrivilegesScriptByPrivilegename(params *PutSecurityPrivilegesScriptByPrivilegenameParams, opts ...ClientOption) error
+	PutSecurityPrivilegesScriptByPrivilegeName(params *PutSecurityPrivilegesScriptByPrivilegeNameParams, opts ...ClientOption) error
 
-	PutSecurityPrivilegesWildcardByPrivilegename(params *PutSecurityPrivilegesWildcardByPrivilegenameParams, opts ...ClientOption) error
+	PutSecurityPrivilegesWildcardByPrivilegeName(params *PutSecurityPrivilegesWildcardByPrivilegeNameParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeleteSecurityPrivilegesByPrivilegename deletes a privilege by name
+DeleteSecurityPrivilegesByPrivilegeName deletes a privilege by name
 */
-func (a *Client) DeleteSecurityPrivilegesByPrivilegename(params *DeleteSecurityPrivilegesByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) DeleteSecurityPrivilegesByPrivilegeName(params *DeleteSecurityPrivilegesByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteSecurityPrivilegesByPrivilegenameParams()
+		params = NewDeleteSecurityPrivilegesByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "DeleteSecurityPrivilegesByPrivilegename",
+		ID:                 "DeleteSecurityPrivilegesByPrivilegeName",
 		Method:             "DELETE",
 		PathPattern:        "/v1/security/privileges/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteSecurityPrivilegesByPrivilegenameReader{formats: a.formats},
+		Reader:             &DeleteSecurityPrivilegesByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -159,22 +159,22 @@ func (a *Client) GetSecurityPrivileges(params *GetSecurityPrivilegesParams, opts
 }
 
 /*
-GetSecurityPrivilegesByPrivilegename retrieves a privilege by name
+GetSecurityPrivilegesByPrivilegeName retrieves a privilege by name
 */
-func (a *Client) GetSecurityPrivilegesByPrivilegename(params *GetSecurityPrivilegesByPrivilegenameParams, opts ...ClientOption) (*GetSecurityPrivilegesByPrivilegenameOK, error) {
+func (a *Client) GetSecurityPrivilegesByPrivilegeName(params *GetSecurityPrivilegesByPrivilegeNameParams, opts ...ClientOption) (*GetSecurityPrivilegesByPrivilegeNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetSecurityPrivilegesByPrivilegenameParams()
+		params = NewGetSecurityPrivilegesByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetSecurityPrivilegesByPrivilegename",
+		ID:                 "GetSecurityPrivilegesByPrivilegeName",
 		Method:             "GET",
 		PathPattern:        "/v1/security/privileges/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetSecurityPrivilegesByPrivilegenameReader{formats: a.formats},
+		Reader:             &GetSecurityPrivilegesByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -186,13 +186,13 @@ func (a *Client) GetSecurityPrivilegesByPrivilegename(params *GetSecurityPrivile
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetSecurityPrivilegesByPrivilegenameOK)
+	success, ok := result.(*GetSecurityPrivilegesByPrivilegeNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetSecurityPrivilegesByPrivilegename: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityPrivilegesByPrivilegeName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -383,22 +383,22 @@ func (a *Client) PostSecurityPrivilegesWildcard(params *PostSecurityPrivilegesWi
 }
 
 /*
-PutSecurityPrivilegesApplicationByPrivilegename updates an application type privilege
+PutSecurityPrivilegesApplicationByPrivilegeName updates an application type privilege
 */
-func (a *Client) PutSecurityPrivilegesApplicationByPrivilegename(params *PutSecurityPrivilegesApplicationByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityPrivilegesApplicationByPrivilegeName(params *PutSecurityPrivilegesApplicationByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityPrivilegesApplicationByPrivilegenameParams()
+		params = NewPutSecurityPrivilegesApplicationByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityPrivilegesApplicationByPrivilegename",
+		ID:                 "PutSecurityPrivilegesApplicationByPrivilegeName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/privileges/application/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityPrivilegesApplicationByPrivilegenameReader{formats: a.formats},
+		Reader:             &PutSecurityPrivilegesApplicationByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -414,22 +414,22 @@ func (a *Client) PutSecurityPrivilegesApplicationByPrivilegename(params *PutSecu
 }
 
 /*
-PutSecurityPrivilegesRepositoryAdminByPrivilegename updates a repository admin type privilege
+PutSecurityPrivilegesRepositoryAdminByPrivilegeName updates a repository admin type privilege
 */
-func (a *Client) PutSecurityPrivilegesRepositoryAdminByPrivilegename(params *PutSecurityPrivilegesRepositoryAdminByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityPrivilegesRepositoryAdminByPrivilegeName(params *PutSecurityPrivilegesRepositoryAdminByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityPrivilegesRepositoryAdminByPrivilegenameParams()
+		params = NewPutSecurityPrivilegesRepositoryAdminByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityPrivilegesRepositoryAdminByPrivilegename",
+		ID:                 "PutSecurityPrivilegesRepositoryAdminByPrivilegeName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/privileges/repository-admin/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityPrivilegesRepositoryAdminByPrivilegenameReader{formats: a.formats},
+		Reader:             &PutSecurityPrivilegesRepositoryAdminByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -445,22 +445,22 @@ func (a *Client) PutSecurityPrivilegesRepositoryAdminByPrivilegename(params *Put
 }
 
 /*
-PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename updates a repository content selector type privilege
+PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeName updates a repository content selector type privilege
 */
-func (a *Client) PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename(params *PutSecurityPrivilegesRepositoryContentSelectorByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeName(params *PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityPrivilegesRepositoryContentSelectorByPrivilegenameParams()
+		params = NewPutSecurityPrivilegesRepositoryContentSelectorByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename",
+		ID:                 "PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/privileges/repository-content-selector/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityPrivilegesRepositoryContentSelectorByPrivilegenameReader{formats: a.formats},
+		Reader:             &PutSecurityPrivilegesRepositoryContentSelectorByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -476,22 +476,22 @@ func (a *Client) PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename(p
 }
 
 /*
-PutSecurityPrivilegesRepositoryViewByPrivilegename updates a repository view type privilege
+PutSecurityPrivilegesRepositoryViewByPrivilegeName updates a repository view type privilege
 */
-func (a *Client) PutSecurityPrivilegesRepositoryViewByPrivilegename(params *PutSecurityPrivilegesRepositoryViewByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityPrivilegesRepositoryViewByPrivilegeName(params *PutSecurityPrivilegesRepositoryViewByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityPrivilegesRepositoryViewByPrivilegenameParams()
+		params = NewPutSecurityPrivilegesRepositoryViewByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityPrivilegesRepositoryViewByPrivilegename",
+		ID:                 "PutSecurityPrivilegesRepositoryViewByPrivilegeName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/privileges/repository-view/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityPrivilegesRepositoryViewByPrivilegenameReader{formats: a.formats},
+		Reader:             &PutSecurityPrivilegesRepositoryViewByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -507,22 +507,22 @@ func (a *Client) PutSecurityPrivilegesRepositoryViewByPrivilegename(params *PutS
 }
 
 /*
-PutSecurityPrivilegesScriptByPrivilegename updates a script type privilege
+PutSecurityPrivilegesScriptByPrivilegeName updates a script type privilege
 */
-func (a *Client) PutSecurityPrivilegesScriptByPrivilegename(params *PutSecurityPrivilegesScriptByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityPrivilegesScriptByPrivilegeName(params *PutSecurityPrivilegesScriptByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityPrivilegesScriptByPrivilegenameParams()
+		params = NewPutSecurityPrivilegesScriptByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityPrivilegesScriptByPrivilegename",
+		ID:                 "PutSecurityPrivilegesScriptByPrivilegeName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/privileges/script/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityPrivilegesScriptByPrivilegenameReader{formats: a.formats},
+		Reader:             &PutSecurityPrivilegesScriptByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -538,22 +538,22 @@ func (a *Client) PutSecurityPrivilegesScriptByPrivilegename(params *PutSecurityP
 }
 
 /*
-PutSecurityPrivilegesWildcardByPrivilegename updates a wildcard type privilege
+PutSecurityPrivilegesWildcardByPrivilegeName updates a wildcard type privilege
 */
-func (a *Client) PutSecurityPrivilegesWildcardByPrivilegename(params *PutSecurityPrivilegesWildcardByPrivilegenameParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityPrivilegesWildcardByPrivilegeName(params *PutSecurityPrivilegesWildcardByPrivilegeNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPutSecurityPrivilegesWildcardByPrivilegenameParams()
+		params = NewPutSecurityPrivilegesWildcardByPrivilegeNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PutSecurityPrivilegesWildcardByPrivilegename",
+		ID:                 "PutSecurityPrivilegesWildcardByPrivilegeName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/privileges/wildcard/{privilegeName}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PutSecurityPrivilegesWildcardByPrivilegenameReader{formats: a.formats},
+		Reader:             &PutSecurityPrivilegesWildcardByPrivilegeNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

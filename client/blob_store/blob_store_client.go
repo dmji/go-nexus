@@ -68,7 +68,7 @@ type ClientService interface {
 
 	GetBlobstoresGoogleByName(params *GetBlobstoresGoogleByNameParams, opts ...ClientOption) (*GetBlobstoresGoogleByNameOK, error)
 
-	GetBlobstoresGoogleRegionsByProjectid(params *GetBlobstoresGoogleRegionsByProjectidParams, opts ...ClientOption) (*GetBlobstoresGoogleRegionsByProjectidOK, error)
+	GetBlobstoresGoogleRegionsByProjectID(params *GetBlobstoresGoogleRegionsByProjectIDParams, opts ...ClientOption) (*GetBlobstoresGoogleRegionsByProjectIDOK, error)
 
 	GetBlobstoresGroupByName(params *GetBlobstoresGroupByNameParams, opts ...ClientOption) (*GetBlobstoresGroupByNameOK, error)
 
@@ -82,7 +82,7 @@ type ClientService interface {
 
 	PostBlobstoresGroup(params *PostBlobstoresGroupParams, opts ...ClientOption) (*PostBlobstoresGroupNoContent, error)
 
-	PostBlobstoresGroupConvertByNameByNewnamefororiginal(params *PostBlobstoresGroupConvertByNameByNewnamefororiginalParams, opts ...ClientOption) (*PostBlobstoresGroupConvertByNameByNewnamefororiginalOK, error)
+	PostBlobstoresGroupConvertByNameByNewNameForOriginal(params *PostBlobstoresGroupConvertByNameByNewNameForOriginalParams, opts ...ClientOption) (*PostBlobstoresGroupConvertByNameByNewNameForOriginalOK, error)
 
 	PostBlobstoresS3(params *PostBlobstoresS3Params, opts ...ClientOption) (*PostBlobstoresS3Created, error)
 
@@ -321,22 +321,22 @@ func (a *Client) GetBlobstoresGoogleByName(params *GetBlobstoresGoogleByNamePara
 }
 
 /*
-GetBlobstoresGoogleRegionsByProjectid gets the project regions by project s id
+GetBlobstoresGoogleRegionsByProjectID gets the project regions by project s id
 */
-func (a *Client) GetBlobstoresGoogleRegionsByProjectid(params *GetBlobstoresGoogleRegionsByProjectidParams, opts ...ClientOption) (*GetBlobstoresGoogleRegionsByProjectidOK, error) {
+func (a *Client) GetBlobstoresGoogleRegionsByProjectID(params *GetBlobstoresGoogleRegionsByProjectIDParams, opts ...ClientOption) (*GetBlobstoresGoogleRegionsByProjectIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetBlobstoresGoogleRegionsByProjectidParams()
+		params = NewGetBlobstoresGoogleRegionsByProjectIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "GetBlobstoresGoogleRegionsByProjectid",
+		ID:                 "GetBlobstoresGoogleRegionsByProjectId",
 		Method:             "GET",
 		PathPattern:        "/v1/blobstores/google/regions/{projectId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetBlobstoresGoogleRegionsByProjectidReader{formats: a.formats},
+		Reader:             &GetBlobstoresGoogleRegionsByProjectIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -348,13 +348,13 @@ func (a *Client) GetBlobstoresGoogleRegionsByProjectid(params *GetBlobstoresGoog
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetBlobstoresGoogleRegionsByProjectidOK)
+	success, ok := result.(*GetBlobstoresGoogleRegionsByProjectIDOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for GetBlobstoresGoogleRegionsByProjectid: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresGoogleRegionsByProjectId: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -587,22 +587,22 @@ func (a *Client) PostBlobstoresGroup(params *PostBlobstoresGroupParams, opts ...
 }
 
 /*
-PostBlobstoresGroupConvertByNameByNewnamefororiginal converts a blob store to a group blob store
+PostBlobstoresGroupConvertByNameByNewNameForOriginal converts a blob store to a group blob store
 */
-func (a *Client) PostBlobstoresGroupConvertByNameByNewnamefororiginal(params *PostBlobstoresGroupConvertByNameByNewnamefororiginalParams, opts ...ClientOption) (*PostBlobstoresGroupConvertByNameByNewnamefororiginalOK, error) {
+func (a *Client) PostBlobstoresGroupConvertByNameByNewNameForOriginal(params *PostBlobstoresGroupConvertByNameByNewNameForOriginalParams, opts ...ClientOption) (*PostBlobstoresGroupConvertByNameByNewNameForOriginalOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPostBlobstoresGroupConvertByNameByNewnamefororiginalParams()
+		params = NewPostBlobstoresGroupConvertByNameByNewNameForOriginalParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "PostBlobstoresGroupConvertByNameByNewnamefororiginal",
+		ID:                 "PostBlobstoresGroupConvertByNameByNewNameForOriginal",
 		Method:             "POST",
 		PathPattern:        "/v1/blobstores/group/convert/{name}/{newNameForOriginal}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &PostBlobstoresGroupConvertByNameByNewnamefororiginalReader{formats: a.formats},
+		Reader:             &PostBlobstoresGroupConvertByNameByNewNameForOriginalReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -614,13 +614,13 @@ func (a *Client) PostBlobstoresGroupConvertByNameByNewnamefororiginal(params *Po
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PostBlobstoresGroupConvertByNameByNewnamefororiginalOK)
+	success, ok := result.(*PostBlobstoresGroupConvertByNameByNewNameForOriginalOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PostBlobstoresGroupConvertByNameByNewnamefororiginal: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresGroupConvertByNameByNewNameForOriginal: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
