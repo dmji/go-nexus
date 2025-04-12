@@ -108,7 +108,7 @@
         ],
         "summary": "Bounce lifecycle phase",
         "description": "Re-runs all phases from the given phase to the current phase",
-        "operationId": "bounce",
+        "operationId": "PutLifecycleBounce",
         "consumes": [
           "text/plain"
         ],
@@ -117,7 +117,6 @@
             "in": "body",
             "name": "body",
             "description": "The phase to bounce",
-            "required": false,
             "schema": {
               "type": "string"
             }
@@ -136,8 +135,7 @@
           "Lifecycle"
         ],
         "summary": "Get current lifecycle phase",
-        "description": "",
-        "operationId": "getPhase",
+        "operationId": "GetLifecyclePhase",
         "produces": [
           "text/plain"
         ],
@@ -156,8 +154,7 @@
           "Lifecycle"
         ],
         "summary": "Move to new lifecycle phase",
-        "description": "",
-        "operationId": "setPhase",
+        "operationId": "PutLifecyclePhase",
         "consumes": [
           "text/plain"
         ],
@@ -166,7 +163,6 @@
             "in": "body",
             "name": "body",
             "description": "The phase to move to",
-            "required": false,
             "schema": {
               "type": "string"
             }
@@ -185,8 +181,7 @@
           "System: Nodes"
         ],
         "summary": "Get information about this node",
-        "description": "",
-        "operationId": "getNodeId",
+        "operationId": "GetSystemNode",
         "consumes": [
           "application/json"
         ],
@@ -211,8 +206,7 @@
           "System: Nodes"
         ],
         "summary": "Reset the ID for this node. Takes effect after restart and should only be used when cloning an instance",
-        "description": "",
-        "operationId": "clear",
+        "operationId": "DeleteSystemNode",
         "consumes": [
           "application/json"
         ],
@@ -233,8 +227,7 @@
           "System: Nodes"
         ],
         "summary": "Get information about all nodes",
-        "description": "",
-        "operationId": "getSystemInformation",
+        "operationId": "GetBetaSystemInformation",
         "produces": [
           "application/json"
         ],
@@ -256,7 +249,7 @@
         ],
         "summary": "Forcibly release read-only and allow changes to embedded OrientDB",
         "description": "Forcibly release read-only status, including if caused by system tasks. Warning: may result in data loss.",
-        "operationId": "forceRelease",
+        "operationId": "PostReadOnlyForceRelease",
         "consumes": [
           "application/json"
         ],
@@ -283,8 +276,7 @@
           "Read-only"
         ],
         "summary": "Get read-only state",
-        "description": "",
-        "operationId": "get",
+        "operationId": "GetReadOnly",
         "consumes": [
           "application/json"
         ],
@@ -309,7 +301,7 @@
         ],
         "summary": "Release read-only and allow changes to embedded OrientDB",
         "description": "Releases administrator-initiated read-only status. Will not release read-only status caused by system tasks.",
-        "operationId": "release",
+        "operationId": "PostReadOnlyRelease",
         "consumes": [
           "application/json"
         ],
@@ -337,7 +329,7 @@
         ],
         "summary": "Prevent changes to embedded OrientDB",
         "description": "For low-level system maintenance purposes only; do not use if you want users to still be able to download components.",
-        "operationId": "freeze",
+        "operationId": "PostReadOnlyFreeze",
         "consumes": [
           "application/json"
         ],
@@ -365,7 +357,7 @@
         ],
         "summary": "Re-encrypt secrets using the specified key",
         "description": "Ensure all nodes have access to the key, and they use the same key",
-        "operationId": "reEncrypt",
+        "operationId": "PutSecretsEncryptionReEncrypt",
         "consumes": [
           "application/json"
         ],
@@ -376,7 +368,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ReEncryptionRequestApiXO"
             }
@@ -404,8 +395,7 @@
           "Blob store"
         ],
         "summary": "Get quota status for a given blob store",
-        "description": "",
-        "operationId": "quotaStatus",
+        "operationId": "GetBlobstoresByNameQuotaStatus",
         "consumes": [
           "application/json"
         ],
@@ -436,8 +426,7 @@
           "Blob store"
         ],
         "summary": "List the blob stores",
-        "description": "",
-        "operationId": "listBlobStores",
+        "operationId": "GetBlobstores",
         "consumes": [
           "application/json"
         ],
@@ -464,8 +453,7 @@
           "Blob store"
         ],
         "summary": "Delete a blob store by name",
-        "description": "",
-        "operationId": "deleteBlobStore",
+        "operationId": "DeleteBlobstoresByName",
         "consumes": [
           "application/json"
         ],
@@ -494,8 +482,7 @@
           "Blob store"
         ],
         "summary": "Get a file blob store configuration by name",
-        "description": "",
-        "operationId": "getFileBlobStoreConfiguration",
+        "operationId": "GetBlobstoresFileByName",
         "consumes": [
           "application/json"
         ],
@@ -532,8 +519,7 @@
           "Blob store"
         ],
         "summary": "Update a file blob store configuration by name",
-        "description": "",
-        "operationId": "updateFileBlobStore",
+        "operationId": "PutBlobstoresFileByName",
         "consumes": [
           "application/json"
         ],
@@ -549,9 +535,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
-            "required": false,
+            "in": "body",
             "schema": {
               "$ref": "#/definitions/FileBlobStoreApiUpdateRequest"
             }
@@ -576,8 +561,7 @@
           "Blob store"
         ],
         "summary": "Create a file blob store",
-        "description": "",
-        "operationId": "createFileBlobStore",
+        "operationId": "PostBlobstoresFile",
         "consumes": [
           "application/json"
         ],
@@ -588,7 +572,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/FileBlobStoreApiCreateRequest"
             }
@@ -610,8 +593,7 @@
           "Email"
         ],
         "summary": "Retrieve the current email configuration",
-        "description": "",
-        "operationId": "getEmailConfiguration",
+        "operationId": "GetEmail",
         "produces": [
           "application/json"
         ],
@@ -633,8 +615,7 @@
           "Email"
         ],
         "summary": "Set the current email configuration",
-        "description": "",
-        "operationId": "setEmailConfiguration",
+        "operationId": "PutEmail",
         "produces": [
           "application/json"
         ],
@@ -665,8 +646,7 @@
           "Email"
         ],
         "summary": "Disable and clear the email configuration",
-        "description": "",
-        "operationId": "deleteEmailConfiguration",
+        "operationId": "DeleteEmail",
         "produces": [
           "application/json"
         ],
@@ -684,8 +664,7 @@
           "Email"
         ],
         "summary": "Send a test email to the email address provided in the request body",
-        "description": "",
-        "operationId": "testEmailConfiguration",
+        "operationId": "PostEmailVerify",
         "produces": [
           "application/json"
         ],
@@ -719,8 +698,7 @@
           "Community Edition Eula"
         ],
         "summary": "Get the current Community Eula status.",
-        "description": "",
-        "operationId": "getCommunityEulaStatus",
+        "operationId": "GetSystemEula",
         "produces": [
           "application/json"
         ],
@@ -730,8 +708,7 @@
             "description": "Successful response",
             "examples": {
               "application/json": {
-                "disclaimer": "Use of Sonatype Nexus Repository - Community Edition is governed by the End User License Agreement at https://links.sonatype.com/products/nxrm/ce-eula. By returning the value from ‘accepted:false’ to ‘accepted:true’, you acknowledge that you have read and agree to the End User License Agreement at https://links.sonatype.com/products/nxrm/ce-eula.",
-                "accepted": false
+                "disclaimer": "Use of Sonatype Nexus Repository - Community Edition is governed by the End User License Agreement at https://links.sonatype.com/products/nxrm/ce-eula. By returning the value from ‘accepted:false’ to ‘accepted:true’, you acknowledge that you have read and agree to the End User License Agreement at https://links.sonatype.com/products/nxrm/ce-eula."
               }
             }
           }
@@ -742,8 +719,7 @@
           "Community Edition Eula"
         ],
         "summary": "Set the Community Eula status.",
-        "description": "",
-        "operationId": "setEulaAcceptedCE",
+        "operationId": "PostSystemEula",
         "consumes": [
           "application/json"
         ],
@@ -751,7 +727,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/EulaStatus"
             },
@@ -776,8 +751,7 @@
           "Status"
         ],
         "summary": "Health check endpoint that returns the results of the system status checks",
-        "description": "",
-        "operationId": "getSystemStatusChecks",
+        "operationId": "GetStatusCheck",
         "consumes": [
           "application/json"
         ],
@@ -804,8 +778,7 @@
           "Status"
         ],
         "summary": "Health check endpoint that validates server can respond to read and write requests",
-        "description": "",
-        "operationId": "isWritable",
+        "operationId": "GetStatusWritable",
         "consumes": [
           "application/json"
         ],
@@ -829,8 +802,7 @@
           "Status"
         ],
         "summary": "Health check endpoint that validates server can respond to read requests",
-        "description": "",
-        "operationId": "isAvailable",
+        "operationId": "GetStatus",
         "consumes": [
           "application/json"
         ],
@@ -854,8 +826,7 @@
           "Support"
         ],
         "summary": "Creates and downloads a support zip",
-        "description": "",
-        "operationId": "supportzip",
+        "operationId": "PostSupportSupportzip",
         "consumes": [
           "application/json"
         ],
@@ -866,7 +837,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/SupportZipGeneratorRequest"
             }
@@ -888,8 +858,7 @@
           "Support"
         ],
         "summary": "Creates a support zip and returns the path",
-        "description": "",
-        "operationId": "supportzippath",
+        "operationId": "PostSupportSupportzippath",
         "consumes": [
           "application/json"
         ],
@@ -900,7 +869,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/SupportZipGeneratorRequest"
             }
@@ -922,8 +890,7 @@
           "assets"
         ],
         "summary": "Get a single asset",
-        "description": "",
-        "operationId": "getAssetById",
+        "operationId": "GetAssetsById",
         "consumes": [
           "application/json"
         ],
@@ -962,8 +929,7 @@
           "assets"
         ],
         "summary": "Delete a single asset",
-        "description": "",
-        "operationId": "deleteAsset",
+        "operationId": "DeleteAssetsById",
         "consumes": [
           "application/json"
         ],
@@ -1001,8 +967,7 @@
           "assets"
         ],
         "summary": "List assets",
-        "description": "",
-        "operationId": "getAssets",
+        "operationId": "GetAssets",
         "consumes": [
           "application/json"
         ],
@@ -1014,7 +979,6 @@
             "name": "continuationToken",
             "in": "query",
             "description": "A token returned by a prior request. If present, the next page of results are returned",
-            "required": false,
             "type": "string"
           },
           {
@@ -1047,8 +1011,7 @@
           "components"
         ],
         "summary": "Get a single component",
-        "description": "",
-        "operationId": "getComponentById",
+        "operationId": "GetComponentsById",
         "consumes": [
           "application/json"
         ],
@@ -1087,8 +1050,7 @@
           "components"
         ],
         "summary": "Delete a single component",
-        "description": "",
-        "operationId": "deleteComponent",
+        "operationId": "DeleteComponentsById",
         "consumes": [
           "application/json"
         ],
@@ -1126,8 +1088,7 @@
           "components"
         ],
         "summary": "List components",
-        "description": "",
-        "operationId": "getComponents",
+        "operationId": "GetComponents",
         "consumes": [
           "application/json"
         ],
@@ -1139,7 +1100,6 @@
             "name": "continuationToken",
             "in": "query",
             "description": "A token returned by a prior request. If present, the next page of results are returned",
-            "required": false,
             "type": "string"
           },
           {
@@ -1170,8 +1130,7 @@
           "components"
         ],
         "summary": "Upload a single component",
-        "description": "",
-        "operationId": "uploadComponent",
+        "operationId": "PostComponents",
         "consumes": [
           "multipart/form-data"
         ],
@@ -1190,231 +1149,198 @@
             "name": "apt.asset",
             "in": "formData",
             "description": "apt Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "maven2.groupId",
             "in": "formData",
             "description": "maven2 Group ID",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.artifactId",
             "in": "formData",
             "description": "maven2 Artifact ID",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.version",
             "in": "formData",
             "description": "maven2 Version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.generate-pom",
             "in": "formData",
             "description": "maven2 Generate a POM file with these coordinates",
-            "required": false,
             "type": "boolean"
           },
           {
             "name": "maven2.packaging",
             "in": "formData",
             "description": "maven2 Packaging",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.asset1",
             "in": "formData",
             "description": "maven2 Asset 1",
-            "required": false,
             "type": "file"
           },
           {
             "name": "maven2.asset1.classifier",
             "in": "formData",
             "description": "maven2 Asset 1 Classifier",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.asset1.extension",
             "in": "formData",
             "description": "maven2 Asset 1 Extension",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.asset2",
             "in": "formData",
             "description": "maven2 Asset 2",
-            "required": false,
             "type": "file"
           },
           {
             "name": "maven2.asset2.classifier",
             "in": "formData",
             "description": "maven2 Asset 2 Classifier",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.asset2.extension",
             "in": "formData",
             "description": "maven2 Asset 2 Extension",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.asset3",
             "in": "formData",
             "description": "maven2 Asset 3",
-            "required": false,
             "type": "file"
           },
           {
             "name": "maven2.asset3.classifier",
             "in": "formData",
             "description": "maven2 Asset 3 Classifier",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven2.asset3.extension",
             "in": "formData",
             "description": "maven2 Asset 3 Extension",
-            "required": false,
             "type": "string"
           },
           {
             "name": "raw.directory",
             "in": "formData",
             "description": "raw Directory",
-            "required": false,
             "type": "string"
           },
           {
             "name": "raw.asset1",
             "in": "formData",
             "description": "raw Asset 1",
-            "required": false,
             "type": "file"
           },
           {
             "name": "raw.asset1.filename",
             "in": "formData",
             "description": "raw Asset 1 Filename",
-            "required": false,
             "type": "string"
           },
           {
             "name": "raw.asset2",
             "in": "formData",
             "description": "raw Asset 2",
-            "required": false,
             "type": "file"
           },
           {
             "name": "raw.asset2.filename",
             "in": "formData",
             "description": "raw Asset 2 Filename",
-            "required": false,
             "type": "string"
           },
           {
             "name": "raw.asset3",
             "in": "formData",
             "description": "raw Asset 3",
-            "required": false,
             "type": "file"
           },
           {
             "name": "raw.asset3.filename",
             "in": "formData",
             "description": "raw Asset 3 Filename",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.asset",
             "in": "formData",
             "description": "docker Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "helm.asset",
             "in": "formData",
             "description": "helm Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "npm.asset",
             "in": "formData",
             "description": "npm Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "nuget.asset",
             "in": "formData",
             "description": "nuget Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "pypi.asset",
             "in": "formData",
             "description": "pypi Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "r.asset",
             "in": "formData",
             "description": "r Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "r.asset.pathId",
             "in": "formData",
             "description": "r Asset  Package Path",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.asset",
             "in": "formData",
             "description": "rubygems Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "yum.directory",
             "in": "formData",
             "description": "yum Directory",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.asset",
             "in": "formData",
             "description": "yum Asset ",
-            "required": false,
             "type": "file"
           },
           {
             "name": "yum.asset.filename",
             "in": "formData",
             "description": "yum Asset  Filename",
-            "required": false,
             "type": "string"
           }
         ],
@@ -1434,8 +1360,7 @@
           "Repository Management"
         ],
         "summary": "Schedule a 'Repair - Rebuild repository search' Task. Hosted or proxy repositories only.",
-        "description": "",
-        "operationId": "rebuildIndex",
+        "operationId": "PostRepositoriesByRepositorynameRebuildIndex",
         "consumes": [
           "application/json"
         ],
@@ -1476,8 +1401,7 @@
           "Repository Management"
         ],
         "summary": "Get repository details",
-        "description": "",
-        "operationId": "getRepository",
+        "operationId": "GetRepositoriesByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -1516,8 +1440,7 @@
           "Repository Management"
         ],
         "summary": "Delete repository of any format",
-        "description": "",
-        "operationId": "deleteRepository",
+        "operationId": "DeleteRepositoriesByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -1555,8 +1478,7 @@
           "Repository Management"
         ],
         "summary": "Invalidate repository cache. Proxy or group repositories only.",
-        "description": "",
-        "operationId": "invalidateCache",
+        "operationId": "PostRepositoriesByRepositorynameInvalidateCache",
         "consumes": [
           "application/json"
         ],
@@ -1597,8 +1519,7 @@
           "Repository Management"
         ],
         "summary": "List repositories",
-        "description": "",
-        "operationId": "getRepositories",
+        "operationId": "GetRepositorysettings",
         "consumes": [
           "application/json"
         ],
@@ -1631,8 +1552,7 @@
           "Content selectors"
         ],
         "summary": "Get a content selector by name",
-        "description": "",
-        "operationId": "getContentSelector",
+        "operationId": "GetSecurityContentSelectorsByName",
         "consumes": [
           "application/json"
         ],
@@ -1665,8 +1585,7 @@
           "Content selectors"
         ],
         "summary": "Update a content selector",
-        "description": "",
-        "operationId": "updateContentSelector",
+        "operationId": "PutSecurityContentSelectorsByName",
         "consumes": [
           "application/json"
         ],
@@ -1682,9 +1601,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
-            "required": false,
+            "in": "body",
             "schema": {
               "$ref": "#/definitions/ContentSelectorApiUpdateRequest"
             }
@@ -1707,8 +1625,7 @@
           "Content selectors"
         ],
         "summary": "Delete a content selector",
-        "description": "",
-        "operationId": "deleteContentSelector",
+        "operationId": "DeleteSecurityContentSelectorsByName",
         "consumes": [
           "application/json"
         ],
@@ -1742,8 +1659,7 @@
           "Content selectors"
         ],
         "summary": "List content selectors",
-        "description": "",
-        "operationId": "getContentSelectors",
+        "operationId": "GetSecurityContentSelectors",
         "consumes": [
           "application/json"
         ],
@@ -1771,8 +1687,7 @@
           "Content selectors"
         ],
         "summary": "Create a new content selector",
-        "description": "",
-        "operationId": "createContentSelector",
+        "operationId": "PostSecurityContentSelectors",
         "consumes": [
           "application/json"
         ],
@@ -1783,7 +1698,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ContentSelectorApiCreateRequest"
             }
@@ -1808,8 +1722,7 @@
           "Repository Management"
         ],
         "summary": "List repositories",
-        "description": "",
-        "operationId": "getRepositories_1",
+        "operationId": "GetRepositories",
         "consumes": [
           "application/json"
         ],
@@ -1836,8 +1749,7 @@
           "Routing rules"
         ],
         "summary": "Get a single routing rule",
-        "description": "",
-        "operationId": "getRoutingRule",
+        "operationId": "GetRoutingRulesByName",
         "consumes": [
           "application/json"
         ],
@@ -1873,8 +1785,7 @@
           "Routing rules"
         ],
         "summary": "Update a single routing rule",
-        "description": "",
-        "operationId": "updateRoutingRule",
+        "operationId": "PutRoutingRulesByName",
         "consumes": [
           "application/json"
         ],
@@ -1890,8 +1801,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "A routing rule configuration",
             "required": true,
             "schema": {
@@ -1919,8 +1830,7 @@
           "Routing rules"
         ],
         "summary": "Delete a single routing rule",
-        "description": "",
-        "operationId": "deleteRoutingRule",
+        "operationId": "DeleteRoutingRulesByName",
         "consumes": [
           "application/json"
         ],
@@ -1955,8 +1865,7 @@
           "Routing rules"
         ],
         "summary": "List routing rules",
-        "description": "",
-        "operationId": "getRoutingRules",
+        "operationId": "GetRoutingRules",
         "consumes": [
           "application/json"
         ],
@@ -1984,8 +1893,7 @@
           "Routing rules"
         ],
         "summary": "Create a single routing rule",
-        "description": "",
-        "operationId": "createRoutingRule",
+        "operationId": "PostRoutingRules",
         "consumes": [
           "application/json"
         ],
@@ -2022,8 +1930,7 @@
           "Search"
         ],
         "summary": "Search assets",
-        "description": "",
-        "operationId": "searchAssets",
+        "operationId": "GetSearchAssets",
         "consumes": [
           "application/json"
         ],
@@ -2035,14 +1942,12 @@
             "name": "continuationToken",
             "in": "query",
             "description": "A token returned by a prior request. If present, the next page of results are returned",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sort",
             "in": "query",
             "description": "The field to sort the results against, if left empty, a sort based on match weight will be used.",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true,
             "enum": [
@@ -2056,7 +1961,6 @@
             "name": "direction",
             "in": "query",
             "description": "The direction to sort records in, defaults to ascending ('asc') for all sort fields, except version, which defaults to descending ('desc')",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true,
             "enum": [
@@ -2068,373 +1972,320 @@
             "name": "timeout",
             "in": "query",
             "description": "How long to wait for search results in seconds. If this value is not provided, the system default timeout will be used.",
-            "required": false,
             "type": "integer",
-            "format": "int32",
-            "allowEmptyValue": true
+            "allowEmptyValue": true,
+            "format": "int32"
           },
           {
             "name": "q",
             "in": "query",
             "description": "Query by keyword",
-            "required": false,
             "type": "string"
           },
           {
             "name": "repository",
             "in": "query",
             "description": "Repository name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "format",
             "in": "query",
             "description": "Query by format",
-            "required": false,
             "type": "string"
           },
           {
             "name": "group",
             "in": "query",
             "description": "Component group",
-            "required": false,
             "type": "string"
           },
           {
             "name": "name",
             "in": "query",
             "description": "Component name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "version",
             "in": "query",
             "description": "Component version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "prerelease",
             "in": "query",
             "description": "Prerelease version flag",
-            "required": false,
             "type": "string"
           },
           {
             "name": "md5",
             "in": "query",
             "description": "Specific MD5 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha1",
             "in": "query",
             "description": "Specific SHA-1 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha256",
             "in": "query",
             "description": "Specific SHA-256 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha512",
             "in": "query",
             "description": "Specific SHA-512 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.vendor",
             "in": "query",
             "description": "Vendor",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.package",
             "in": "query",
             "description": "Package",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.version",
             "in": "query",
             "description": "Version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.baseVersion",
             "in": "query",
             "description": "Conan base version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.channel",
             "in": "query",
             "description": "Conan channel",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.revision",
             "in": "query",
             "description": "Conan recipe revision",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.packageId",
             "in": "query",
             "description": "Conan package id",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.packageRevision",
             "in": "query",
             "description": "Conan package revision",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.imageName",
             "in": "query",
             "description": "Docker image name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.imageTag",
             "in": "query",
             "description": "Docker image tag",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.layerId",
             "in": "query",
             "description": "Docker layer ID",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.contentDigest",
             "in": "query",
             "description": "Docker content digest",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.groupId",
             "in": "query",
             "description": "Maven groupId",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.artifactId",
             "in": "query",
             "description": "Maven artifactId",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.baseVersion",
             "in": "query",
             "description": "Maven base version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.extension",
             "in": "query",
             "description": "Maven extension of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.classifier",
             "in": "query",
             "description": "Maven classifier of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "gavec",
             "in": "query",
             "description": "Group asset version extension classifier",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.scope",
             "in": "query",
             "description": "npm scope",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.author",
             "in": "query",
             "description": "npm author",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.description",
             "in": "query",
             "description": "npm description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.keywords",
             "in": "query",
             "description": "npm keywords",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.license",
             "in": "query",
             "description": "npm license",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.tagged_is",
             "in": "query",
             "description": "npm tagged is",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.tagged_not",
             "in": "query",
             "description": "npm tagged not",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.id",
             "in": "query",
             "description": "NuGet id",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.tags",
             "in": "query",
             "description": "NuGet tags",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.title",
             "in": "query",
             "description": "NuGet title",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.authors",
             "in": "query",
             "description": "NuGet authors",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.description",
             "in": "query",
             "description": "NuGet description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.summary",
             "in": "query",
             "description": "NuGet summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "p2.pluginName",
             "in": "query",
             "description": "p2 plugin name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.classifiers",
             "in": "query",
             "description": "PyPI classifiers",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.description",
             "in": "query",
             "description": "PyPI description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.keywords",
             "in": "query",
             "description": "PyPI keywords",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.summary",
             "in": "query",
             "description": "PyPI summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.description",
             "in": "query",
             "description": "RubyGems description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.platform",
             "in": "query",
             "description": "RubyGems platform",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.summary",
             "in": "query",
             "description": "RubyGems summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.architecture",
             "in": "query",
             "description": "Yum architecture",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.name",
             "in": "query",
             "description": "Yum package name",
-            "required": false,
             "type": "string"
           }
         ],
@@ -2455,7 +2306,7 @@
         ],
         "summary": "Search and download asset",
         "description": "Returns a 302 Found with location header field set to download URL. Unless a sort parameter is supplied, the search must return a single asset to receive download URL.",
-        "operationId": "searchAndDownloadAssets",
+        "operationId": "GetSearchAssetsDownload",
         "consumes": [
           "application/json"
         ],
@@ -2467,7 +2318,6 @@
             "name": "sort",
             "in": "query",
             "description": "The field to sort the results against, if left empty and more than 1 result is returned, the request will fail.",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true,
             "enum": [
@@ -2481,7 +2331,6 @@
             "name": "direction",
             "in": "query",
             "description": "The direction to sort records in, defaults to ascending ('asc') for all sort fields, except version, which defaults to descending ('desc')",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true,
             "enum": [
@@ -2493,373 +2342,320 @@
             "name": "timeout",
             "in": "query",
             "description": "How long to wait for search results in seconds. If this value is not provided, the system default timeout will be used.",
-            "required": false,
             "type": "integer",
-            "format": "int32",
-            "allowEmptyValue": true
+            "allowEmptyValue": true,
+            "format": "int32"
           },
           {
             "name": "q",
             "in": "query",
             "description": "Query by keyword",
-            "required": false,
             "type": "string"
           },
           {
             "name": "repository",
             "in": "query",
             "description": "Repository name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "format",
             "in": "query",
             "description": "Query by format",
-            "required": false,
             "type": "string"
           },
           {
             "name": "group",
             "in": "query",
             "description": "Component group",
-            "required": false,
             "type": "string"
           },
           {
             "name": "name",
             "in": "query",
             "description": "Component name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "version",
             "in": "query",
             "description": "Component version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "prerelease",
             "in": "query",
             "description": "Prerelease version flag",
-            "required": false,
             "type": "string"
           },
           {
             "name": "md5",
             "in": "query",
             "description": "Specific MD5 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha1",
             "in": "query",
             "description": "Specific SHA-1 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha256",
             "in": "query",
             "description": "Specific SHA-256 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha512",
             "in": "query",
             "description": "Specific SHA-512 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.vendor",
             "in": "query",
             "description": "Vendor",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.package",
             "in": "query",
             "description": "Package",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.version",
             "in": "query",
             "description": "Version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.baseVersion",
             "in": "query",
             "description": "Conan base version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.channel",
             "in": "query",
             "description": "Conan channel",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.revision",
             "in": "query",
             "description": "Conan recipe revision",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.packageId",
             "in": "query",
             "description": "Conan package id",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.packageRevision",
             "in": "query",
             "description": "Conan package revision",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.imageName",
             "in": "query",
             "description": "Docker image name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.imageTag",
             "in": "query",
             "description": "Docker image tag",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.layerId",
             "in": "query",
             "description": "Docker layer ID",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.contentDigest",
             "in": "query",
             "description": "Docker content digest",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.groupId",
             "in": "query",
             "description": "Maven groupId",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.artifactId",
             "in": "query",
             "description": "Maven artifactId",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.baseVersion",
             "in": "query",
             "description": "Maven base version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.extension",
             "in": "query",
             "description": "Maven extension of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.classifier",
             "in": "query",
             "description": "Maven classifier of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "gavec",
             "in": "query",
             "description": "Group asset version extension classifier",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.scope",
             "in": "query",
             "description": "npm scope",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.author",
             "in": "query",
             "description": "npm author",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.description",
             "in": "query",
             "description": "npm description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.keywords",
             "in": "query",
             "description": "npm keywords",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.license",
             "in": "query",
             "description": "npm license",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.tagged_is",
             "in": "query",
             "description": "npm tagged is",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.tagged_not",
             "in": "query",
             "description": "npm tagged not",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.id",
             "in": "query",
             "description": "NuGet id",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.tags",
             "in": "query",
             "description": "NuGet tags",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.title",
             "in": "query",
             "description": "NuGet title",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.authors",
             "in": "query",
             "description": "NuGet authors",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.description",
             "in": "query",
             "description": "NuGet description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.summary",
             "in": "query",
             "description": "NuGet summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "p2.pluginName",
             "in": "query",
             "description": "p2 plugin name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.classifiers",
             "in": "query",
             "description": "PyPI classifiers",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.description",
             "in": "query",
             "description": "PyPI description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.keywords",
             "in": "query",
             "description": "PyPI keywords",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.summary",
             "in": "query",
             "description": "PyPI summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.description",
             "in": "query",
             "description": "RubyGems description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.platform",
             "in": "query",
             "description": "RubyGems platform",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.summary",
             "in": "query",
             "description": "RubyGems summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.architecture",
             "in": "query",
             "description": "Yum architecture",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.name",
             "in": "query",
             "description": "Yum package name",
-            "required": false,
             "type": "string"
           }
         ],
@@ -2879,8 +2675,7 @@
           "Search"
         ],
         "summary": "Search components",
-        "description": "",
-        "operationId": "search",
+        "operationId": "GetSearch",
         "consumes": [
           "application/json"
         ],
@@ -2892,7 +2687,6 @@
             "name": "continuationToken",
             "in": "query",
             "description": "A token returned by a prior request. If present, the next page of results are returned",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true
           },
@@ -2900,7 +2694,6 @@
             "name": "sort",
             "in": "query",
             "description": "The field to sort the results against, if left empty, a sort based on match weight will be used.",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true,
             "enum": [
@@ -2914,7 +2707,6 @@
             "name": "direction",
             "in": "query",
             "description": "The direction to sort records in, defaults to ascending ('asc') for all sort fields, except version, which defaults to descending ('desc')",
-            "required": false,
             "type": "string",
             "allowEmptyValue": true,
             "enum": [
@@ -2926,373 +2718,320 @@
             "name": "timeout",
             "in": "query",
             "description": "How long to wait for search results in seconds. If this value is not provided, the system default timeout will be used.",
-            "required": false,
             "type": "integer",
-            "format": "int32",
-            "allowEmptyValue": true
+            "allowEmptyValue": true,
+            "format": "int32"
           },
           {
             "name": "q",
             "in": "query",
             "description": "Query by keyword",
-            "required": false,
             "type": "string"
           },
           {
             "name": "repository",
             "in": "query",
             "description": "Repository name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "format",
             "in": "query",
             "description": "Query by format",
-            "required": false,
             "type": "string"
           },
           {
             "name": "group",
             "in": "query",
             "description": "Component group",
-            "required": false,
             "type": "string"
           },
           {
             "name": "name",
             "in": "query",
             "description": "Component name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "version",
             "in": "query",
             "description": "Component version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "prerelease",
             "in": "query",
             "description": "Prerelease version flag",
-            "required": false,
             "type": "string"
           },
           {
             "name": "md5",
             "in": "query",
             "description": "Specific MD5 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha1",
             "in": "query",
             "description": "Specific SHA-1 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha256",
             "in": "query",
             "description": "Specific SHA-256 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "sha512",
             "in": "query",
             "description": "Specific SHA-512 hash of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.vendor",
             "in": "query",
             "description": "Vendor",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.package",
             "in": "query",
             "description": "Package",
-            "required": false,
             "type": "string"
           },
           {
             "name": "composer.version",
             "in": "query",
             "description": "Version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.baseVersion",
             "in": "query",
             "description": "Conan base version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.channel",
             "in": "query",
             "description": "Conan channel",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.revision",
             "in": "query",
             "description": "Conan recipe revision",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.packageId",
             "in": "query",
             "description": "Conan package id",
-            "required": false,
             "type": "string"
           },
           {
             "name": "conan.packageRevision",
             "in": "query",
             "description": "Conan package revision",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.imageName",
             "in": "query",
             "description": "Docker image name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.imageTag",
             "in": "query",
             "description": "Docker image tag",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.layerId",
             "in": "query",
             "description": "Docker layer ID",
-            "required": false,
             "type": "string"
           },
           {
             "name": "docker.contentDigest",
             "in": "query",
             "description": "Docker content digest",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.groupId",
             "in": "query",
             "description": "Maven groupId",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.artifactId",
             "in": "query",
             "description": "Maven artifactId",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.baseVersion",
             "in": "query",
             "description": "Maven base version",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.extension",
             "in": "query",
             "description": "Maven extension of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "maven.classifier",
             "in": "query",
             "description": "Maven classifier of component's asset",
-            "required": false,
             "type": "string"
           },
           {
             "name": "gavec",
             "in": "query",
             "description": "Group asset version extension classifier",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.scope",
             "in": "query",
             "description": "npm scope",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.author",
             "in": "query",
             "description": "npm author",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.description",
             "in": "query",
             "description": "npm description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.keywords",
             "in": "query",
             "description": "npm keywords",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.license",
             "in": "query",
             "description": "npm license",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.tagged_is",
             "in": "query",
             "description": "npm tagged is",
-            "required": false,
             "type": "string"
           },
           {
             "name": "npm.tagged_not",
             "in": "query",
             "description": "npm tagged not",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.id",
             "in": "query",
             "description": "NuGet id",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.tags",
             "in": "query",
             "description": "NuGet tags",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.title",
             "in": "query",
             "description": "NuGet title",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.authors",
             "in": "query",
             "description": "NuGet authors",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.description",
             "in": "query",
             "description": "NuGet description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "nuget.summary",
             "in": "query",
             "description": "NuGet summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "p2.pluginName",
             "in": "query",
             "description": "p2 plugin name",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.classifiers",
             "in": "query",
             "description": "PyPI classifiers",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.description",
             "in": "query",
             "description": "PyPI description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.keywords",
             "in": "query",
             "description": "PyPI keywords",
-            "required": false,
             "type": "string"
           },
           {
             "name": "pypi.summary",
             "in": "query",
             "description": "PyPI summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.description",
             "in": "query",
             "description": "RubyGems description",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.platform",
             "in": "query",
             "description": "RubyGems platform",
-            "required": false,
             "type": "string"
           },
           {
             "name": "rubygems.summary",
             "in": "query",
             "description": "RubyGems summary",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.architecture",
             "in": "query",
             "description": "Yum architecture",
-            "required": false,
             "type": "string"
           },
           {
             "name": "yum.name",
             "in": "query",
             "description": "Yum package name",
-            "required": false,
             "type": "string"
           }
         ],
@@ -3312,8 +3051,7 @@
           "Formats"
         ],
         "summary": "Get upload field requirements for the desired format",
-        "description": "",
-        "operationId": "get_1",
+        "operationId": "GetFormatsByFormatUploadSpecs",
         "consumes": [
           "application/json"
         ],
@@ -3345,8 +3083,7 @@
           "Formats"
         ],
         "summary": "Get upload field requirements for each supported format",
-        "description": "",
-        "operationId": "get_2",
+        "operationId": "GetFormatsUploadSpecs",
         "consumes": [
           "application/json"
         ],
@@ -3373,8 +3110,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a repository view type privilege.",
-        "description": "",
-        "operationId": "updatePrivilege",
+        "operationId": "PutSecurityPrivilegesRepositoryViewByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -3390,10 +3126,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The privilege to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeRepositoryViewRequest"
             }
@@ -3418,8 +3153,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a repository admin type privilege.",
-        "description": "",
-        "operationId": "updatePrivilege_1",
+        "operationId": "PutSecurityPrivilegesRepositoryAdminByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -3435,10 +3169,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The privilege to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeRepositoryAdminRequest"
             }
@@ -3463,8 +3196,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a repository content selector type privilege.",
-        "description": "",
-        "operationId": "updatePrivilege_2",
+        "operationId": "PutSecurityPrivilegesRepositoryContentSelectorByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -3480,10 +3212,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The privilege to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeRepositoryContentSelectorRequest"
             }
@@ -3508,8 +3239,7 @@
           "Security management: privileges"
         ],
         "summary": "Create a repository content selector type privilege.",
-        "description": "",
-        "operationId": "createPrivilege",
+        "operationId": "PostSecurityPrivilegesRepositoryContentSelector",
         "consumes": [
           "application/json"
         ],
@@ -3521,7 +3251,6 @@
             "in": "body",
             "name": "body",
             "description": "The privilege to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeRepositoryContentSelectorRequest"
             }
@@ -3543,8 +3272,7 @@
           "Security management: privileges"
         ],
         "summary": "Create a repository view type privilege.",
-        "description": "",
-        "operationId": "createPrivilege_1",
+        "operationId": "PostSecurityPrivilegesRepositoryView",
         "consumes": [
           "application/json"
         ],
@@ -3556,7 +3284,6 @@
             "in": "body",
             "name": "body",
             "description": "The privilege to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeRepositoryViewRequest"
             }
@@ -3578,8 +3305,7 @@
           "Security management: privileges"
         ],
         "summary": "Create a repository admin type privilege.",
-        "description": "",
-        "operationId": "createPrivilege_2",
+        "operationId": "PostSecurityPrivilegesRepositoryAdmin",
         "consumes": [
           "application/json"
         ],
@@ -3591,7 +3317,6 @@
             "in": "body",
             "name": "body",
             "description": "The privilege to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeRepositoryAdminRequest"
             }
@@ -3613,8 +3338,7 @@
           "Tasks"
         ],
         "summary": "Get a single task by id",
-        "description": "",
-        "operationId": "getTaskById",
+        "operationId": "GetTasksById",
         "consumes": [
           "application/json"
         ],
@@ -3649,8 +3373,7 @@
           "Tasks"
         ],
         "summary": "List tasks",
-        "description": "",
-        "operationId": "getTasks",
+        "operationId": "GetTasks",
         "consumes": [
           "application/json"
         ],
@@ -3662,7 +3385,6 @@
             "name": "type",
             "in": "query",
             "description": "Type of the tasks to get",
-            "required": false,
             "type": "string"
           }
         ],
@@ -3682,8 +3404,7 @@
           "Tasks"
         ],
         "summary": "Run task",
-        "description": "",
-        "operationId": "run",
+        "operationId": "PostTasksByIdRun",
         "consumes": [
           "application/json"
         ],
@@ -3718,8 +3439,7 @@
           "Tasks"
         ],
         "summary": "Stop task",
-        "description": "",
-        "operationId": "stop",
+        "operationId": "PostTasksByIdStop",
         "consumes": [
           "application/json"
         ],
@@ -3739,11 +3459,11 @@
           "204": {
             "description": "Task was stopped"
           },
-          "409": {
-            "description": "Unable to stop task"
-          },
           "404": {
             "description": "Task not found"
+          },
+          "409": {
+            "description": "Unable to stop task"
           }
         }
       }
@@ -3754,8 +3474,7 @@
           "Security Management: Anonymous Access"
         ],
         "summary": "Get Anonymous Access settings",
-        "description": "",
-        "operationId": "read",
+        "operationId": "GetSecurityAnonymous",
         "consumes": [
           "application/json"
         ],
@@ -3780,8 +3499,7 @@
           "Security Management: Anonymous Access"
         ],
         "summary": "Update Anonymous Access settings",
-        "description": "",
-        "operationId": "update",
+        "operationId": "PutSecurityAnonymous",
         "consumes": [
           "application/json"
         ],
@@ -3792,7 +3510,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AnonymousAccessSettingsXO"
             }
@@ -3817,8 +3534,7 @@
           "Security management"
         ],
         "summary": "Retrieve a list of the available user sources.",
-        "description": "",
-        "operationId": "getUserSources",
+        "operationId": "GetSecurityUserSources",
         "produces": [
           "application/json"
         ],
@@ -3845,8 +3561,7 @@
           "Security management: users"
         ],
         "summary": "Retrieve a list of users.",
-        "description": "",
-        "operationId": "getUsers",
+        "operationId": "GetSecurityUsers",
         "consumes": [
           "application/json"
         ],
@@ -3858,14 +3573,12 @@
             "name": "userId",
             "in": "query",
             "description": "An optional term to search userids for.",
-            "required": false,
             "type": "string"
           },
           {
             "name": "source",
             "in": "query",
             "description": "An optional user source to restrict the search to.",
-            "required": false,
             "type": "string"
           }
         ],
@@ -3892,8 +3605,7 @@
           "Security management: users"
         ],
         "summary": "Create a new user in the default source.",
-        "description": "",
-        "operationId": "createUser",
+        "operationId": "PostSecurityUsers",
         "consumes": [
           "application/json"
         ],
@@ -3905,7 +3617,6 @@
             "in": "body",
             "name": "body",
             "description": "A representation of the user to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiCreateUser"
             }
@@ -3933,8 +3644,7 @@
           "Security management: users"
         ],
         "summary": "Update an existing user.",
-        "description": "",
-        "operationId": "updateUser",
+        "operationId": "PutSecurityUsersByUserid",
         "consumes": [
           "application/json"
         ],
@@ -3950,10 +3660,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "A representation of the user to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiUser"
             }
@@ -3976,8 +3685,7 @@
           "Security management: users"
         ],
         "summary": "Delete a user.",
-        "description": "",
-        "operationId": "deleteUser",
+        "operationId": "DeleteSecurityUsersByUserid",
         "consumes": [
           "application/json"
         ],
@@ -3996,7 +3704,6 @@
             "name": "realm",
             "in": "query",
             "description": "The realm the request should apply to.",
-            "required": false,
             "type": "string"
           }
         ],
@@ -4019,8 +3726,7 @@
           "Security management: users"
         ],
         "summary": "Change a user's password.",
-        "description": "",
-        "operationId": "changePassword",
+        "operationId": "PutSecurityUsersByUseridChangePassword",
         "consumes": [
           "text/plain"
         ],
@@ -4036,10 +3742,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The new password to use.",
-            "required": false,
             "schema": {
               "type": "string"
             }
@@ -4064,8 +3769,7 @@
           "Security management: privileges"
         ],
         "summary": "Retrieve a privilege by name.",
-        "description": "",
-        "operationId": "getPrivilege",
+        "operationId": "GetSecurityPrivilegesByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -4101,8 +3805,7 @@
           "Security management: privileges"
         ],
         "summary": "Delete a privilege by name.",
-        "description": "",
-        "operationId": "deletePrivilege",
+        "operationId": "DeleteSecurityPrivilegesByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -4137,8 +3840,7 @@
           "Security management: privileges"
         ],
         "summary": "Update an application type privilege.",
-        "description": "",
-        "operationId": "updatePrivilege_3",
+        "operationId": "PutSecurityPrivilegesApplicationByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -4154,10 +3856,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The privilege to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeApplicationRequest"
             }
@@ -4182,8 +3883,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a wildcard type privilege.",
-        "description": "",
-        "operationId": "updatePrivilege_4",
+        "operationId": "PutSecurityPrivilegesWildcardByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -4199,10 +3899,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The privilege to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeWildcardRequest"
             }
@@ -4227,8 +3926,7 @@
           "Security management: privileges"
         ],
         "summary": "Retrieve a list of privileges.",
-        "description": "",
-        "operationId": "getPrivileges_1",
+        "operationId": "GetSecurityPrivileges",
         "consumes": [
           "application/json"
         ],
@@ -4258,8 +3956,7 @@
           "Security management: privileges"
         ],
         "summary": "Create a wildcard type privilege.",
-        "description": "",
-        "operationId": "createPrivilege_3",
+        "operationId": "PostSecurityPrivilegesWildcard",
         "consumes": [
           "application/json"
         ],
@@ -4271,7 +3968,6 @@
             "in": "body",
             "name": "body",
             "description": "The privilege to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeWildcardRequest"
             }
@@ -4293,8 +3989,7 @@
           "Security management: privileges"
         ],
         "summary": "Create an application type privilege.",
-        "description": "",
-        "operationId": "createPrivilege_4",
+        "operationId": "PostSecurityPrivilegesApplication",
         "consumes": [
           "application/json"
         ],
@@ -4306,7 +4001,6 @@
             "in": "body",
             "name": "body",
             "description": "The privilege to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeApplicationRequest"
             }
@@ -4328,8 +4022,7 @@
           "Security management: realms"
         ],
         "summary": "List the available realms",
-        "description": "",
-        "operationId": "getRealms",
+        "operationId": "GetSecurityRealmsAvailable",
         "consumes": [
           "application/json"
         ],
@@ -4356,8 +4049,7 @@
           "Security management: realms"
         ],
         "summary": "List the active realm IDs in order",
-        "description": "",
-        "operationId": "getActiveRealms",
+        "operationId": "GetSecurityRealmsActive",
         "consumes": [
           "application/json"
         ],
@@ -4382,8 +4074,7 @@
           "Security management: realms"
         ],
         "summary": "Set the active security realms in the order they should be used",
-        "description": "",
-        "operationId": "setActiveRealms",
+        "operationId": "PutSecurityRealmsActive",
         "consumes": [
           "application/json"
         ],
@@ -4395,7 +4086,6 @@
             "in": "body",
             "name": "body",
             "description": "The realm IDs",
-            "required": false,
             "schema": {
               "type": "array",
               "items": {
@@ -4417,8 +4107,7 @@
           "Security management: roles"
         ],
         "summary": "Get role",
-        "description": "",
-        "operationId": "getRole",
+        "operationId": "GetSecurityRolesById",
         "consumes": [
           "application/json"
         ],
@@ -4430,7 +4119,6 @@
             "name": "source",
             "in": "query",
             "description": "The id of the user source to filter the roles by. Available sources can be fetched using the 'User Sources' endpoint.",
-            "required": false,
             "type": "string",
             "default": "default"
           },
@@ -4465,8 +4153,7 @@
           "Security management: roles"
         ],
         "summary": "Update role",
-        "description": "",
-        "operationId": "update_1",
+        "operationId": "PutSecurityRolesById",
         "consumes": [
           "application/json"
         ],
@@ -4482,8 +4169,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "A role configuration",
             "required": true,
             "schema": {
@@ -4505,8 +4192,7 @@
           "Security management: roles"
         ],
         "summary": "Delete role",
-        "description": "",
-        "operationId": "delete",
+        "operationId": "DeleteSecurityRolesById",
         "consumes": [
           "application/json"
         ],
@@ -4538,8 +4224,7 @@
           "Security management: roles"
         ],
         "summary": "List roles",
-        "description": "",
-        "operationId": "getRoles",
+        "operationId": "GetSecurityRoles",
         "consumes": [
           "application/json"
         ],
@@ -4551,7 +4236,6 @@
             "name": "source",
             "in": "query",
             "description": "The id of the user source to filter the roles by, if supplied. Otherwise roles from all user sources will be returned.",
-            "required": false,
             "type": "string"
           }
         ],
@@ -4578,8 +4262,7 @@
           "Security management: roles"
         ],
         "summary": "Create role",
-        "description": "",
-        "operationId": "create",
+        "operationId": "PostSecurityRoles",
         "consumes": [
           "application/json"
         ],
@@ -4616,8 +4299,7 @@
           "Blob store"
         ],
         "summary": "Get a S3 blob store configuration by name",
-        "description": "",
-        "operationId": "getBlobStore",
+        "operationId": "GetBlobstoresS3ByName",
         "consumes": [
           "application/json"
         ],
@@ -4656,8 +4338,7 @@
           "Blob store"
         ],
         "summary": "Update an S3 blob store configuration by name",
-        "description": "",
-        "operationId": "updateBlobStore",
+        "operationId": "PutBlobstoresS3ByName",
         "consumes": [
           "application/json"
         ],
@@ -4668,16 +4349,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/S3BlobStoreApiModel"
             }
           },
           {
-            "name": "name",
             "in": "path",
-            "description": "Name of the blob store to update",
+            "name": "name",
             "required": true,
+            "description": "Name of the blob store to update",
             "type": "string"
           }
         ],
@@ -4703,8 +4383,7 @@
           "Blob store"
         ],
         "summary": "Create an S3 blob store",
-        "description": "",
-        "operationId": "createBlobStore",
+        "operationId": "PostBlobstoresS3",
         "consumes": [
           "application/json"
         ],
@@ -4715,7 +4394,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/S3BlobStoreApiModel"
             }
@@ -4740,8 +4418,7 @@
           "Repository Management"
         ],
         "summary": "Create APT hosted repository",
-        "description": "",
-        "operationId": "createRepository",
+        "operationId": "PostRepositoriesAptHosted",
         "consumes": [
           "application/json"
         ],
@@ -4752,7 +4429,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AptHostedRepositoryApiRequest"
             }
@@ -4780,8 +4456,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_1",
+        "operationId": "GetRepositoriesAptHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -4810,8 +4485,7 @@
           "Repository Management"
         ],
         "summary": "Update APT hosted repository",
-        "description": "",
-        "operationId": "updateRepository",
+        "operationId": "PutRepositoriesAptHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -4822,16 +4496,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AptHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -4860,8 +4533,7 @@
           "Repository Management"
         ],
         "summary": "Create APT proxy repository",
-        "description": "",
-        "operationId": "createRepository_1",
+        "operationId": "PostRepositoriesAptProxy",
         "consumes": [
           "application/json"
         ],
@@ -4872,7 +4544,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AptProxyRepositoryApiRequest"
             }
@@ -4900,8 +4571,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_2",
+        "operationId": "GetRepositoriesAptProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -4930,8 +4600,7 @@
           "Repository Management"
         ],
         "summary": "Update APT proxy repository",
-        "description": "",
-        "operationId": "updateRepository_1",
+        "operationId": "PutRepositoriesAptProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -4942,16 +4611,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AptProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -4980,8 +4648,7 @@
           "Repository Management"
         ],
         "summary": "Create Maven group repository",
-        "description": "",
-        "operationId": "createRepository_2",
+        "operationId": "PostRepositoriesMavenGroup",
         "consumes": [
           "application/json"
         ],
@@ -4992,7 +4659,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/MavenGroupRepositoryApiRequest"
             }
@@ -5017,8 +4683,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_3",
+        "operationId": "GetRepositoriesMavenGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5047,8 +4712,7 @@
           "Repository Management"
         ],
         "summary": "Update Maven group repository",
-        "description": "",
-        "operationId": "updateRepository_2",
+        "operationId": "PutRepositoriesMavenGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5059,16 +4723,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/MavenGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -5094,8 +4757,7 @@
           "Repository Management"
         ],
         "summary": "Create Maven hosted repository",
-        "description": "",
-        "operationId": "createRepository_3",
+        "operationId": "PostRepositoriesMavenHosted",
         "consumes": [
           "application/json"
         ],
@@ -5106,7 +4768,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/MavenHostedRepositoryApiRequest"
             }
@@ -5131,8 +4792,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_4",
+        "operationId": "GetRepositoriesMavenHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5161,8 +4821,7 @@
           "Repository Management"
         ],
         "summary": "Update Maven hosted repository",
-        "description": "",
-        "operationId": "updateRepository_3",
+        "operationId": "PutRepositoriesMavenHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5173,16 +4832,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/MavenHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -5208,8 +4866,7 @@
           "Repository Management"
         ],
         "summary": "Create Maven proxy repository",
-        "description": "",
-        "operationId": "createRepository_4",
+        "operationId": "PostRepositoriesMavenProxy",
         "consumes": [
           "application/json"
         ],
@@ -5220,7 +4877,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/MavenProxyRepositoryApiRequest"
             }
@@ -5245,8 +4901,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_5",
+        "operationId": "GetRepositoriesMavenProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5275,8 +4930,7 @@
           "Repository Management"
         ],
         "summary": "Update Maven proxy repository",
-        "description": "",
-        "operationId": "updateRepository_4",
+        "operationId": "PutRepositoriesMavenProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5287,16 +4941,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/MavenProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -5322,8 +4975,7 @@
           "Repository Management"
         ],
         "summary": "Create raw group repository",
-        "description": "",
-        "operationId": "createRepository_5",
+        "operationId": "PostRepositoriesRawGroup",
         "consumes": [
           "application/json"
         ],
@@ -5334,7 +4986,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RawGroupRepositoryApiRequest"
             }
@@ -5359,8 +5010,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_6",
+        "operationId": "GetRepositoriesRawGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5389,8 +5039,7 @@
           "Repository Management"
         ],
         "summary": "Update raw group repository",
-        "description": "",
-        "operationId": "updateRepository_5",
+        "operationId": "PutRepositoriesRawGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5401,16 +5050,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RawGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -5436,8 +5084,7 @@
           "Repository Management"
         ],
         "summary": "Create raw hosted repository",
-        "description": "",
-        "operationId": "createRepository_6",
+        "operationId": "PostRepositoriesRawHosted",
         "consumes": [
           "application/json"
         ],
@@ -5448,7 +5095,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RawHostedRepositoryApiRequest"
             }
@@ -5473,8 +5119,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_7",
+        "operationId": "GetRepositoriesRawHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5503,8 +5148,7 @@
           "Repository Management"
         ],
         "summary": "Update raw hosted repository",
-        "description": "",
-        "operationId": "updateRepository_6",
+        "operationId": "PutRepositoriesRawHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5515,16 +5159,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RawHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -5550,8 +5193,7 @@
           "Repository Management"
         ],
         "summary": "Create raw proxy repository",
-        "description": "",
-        "operationId": "createRepository_7",
+        "operationId": "PostRepositoriesRawProxy",
         "consumes": [
           "application/json"
         ],
@@ -5562,7 +5204,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RawProxyRepositoryApiRequest"
             }
@@ -5587,8 +5228,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_8",
+        "operationId": "GetRepositoriesRawProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5617,8 +5257,7 @@
           "Repository Management"
         ],
         "summary": "Update raw proxy repository",
-        "description": "",
-        "operationId": "updateRepository_7",
+        "operationId": "PutRepositoriesRawProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -5629,16 +5268,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RawProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -5664,8 +5302,7 @@
           "Security management: privileges"
         ],
         "summary": "Update a script type privilege.",
-        "description": "",
-        "operationId": "updatePrivilege_5",
+        "operationId": "PutSecurityPrivilegesScriptByPrivilegename",
         "consumes": [
           "application/json"
         ],
@@ -5681,10 +5318,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "The privilege to update.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeScriptRequest"
             }
@@ -5709,8 +5345,7 @@
           "Security management: privileges"
         ],
         "summary": "Create a script type privilege.",
-        "description": "",
-        "operationId": "createPrivilege_5",
+        "operationId": "PostSecurityPrivilegesScript",
         "consumes": [
           "application/json"
         ],
@@ -5722,7 +5357,6 @@
             "in": "body",
             "name": "body",
             "description": "The privilege to create.",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ApiPrivilegeScriptRequest"
             }
@@ -5744,8 +5378,7 @@
           "Script"
         ],
         "summary": "List all stored scripts",
-        "description": "",
-        "operationId": "browse",
+        "operationId": "GetScript",
         "consumes": [
           "application/json"
         ],
@@ -5770,8 +5403,7 @@
           "Script"
         ],
         "summary": "Add a new script",
-        "description": "",
-        "operationId": "add",
+        "operationId": "PostScript",
         "consumes": [
           "application/json"
         ],
@@ -5782,7 +5414,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ScriptXO"
             }
@@ -5804,8 +5435,7 @@
           "Script"
         ],
         "summary": "Read stored script by name",
-        "description": "",
-        "operationId": "read_1",
+        "operationId": "GetScriptByName",
         "consumes": [
           "application/json"
         ],
@@ -5837,8 +5467,7 @@
           "Script"
         ],
         "summary": "Update stored script by name",
-        "description": "",
-        "operationId": "edit",
+        "operationId": "PutScriptByName",
         "consumes": [
           "application/json"
         ],
@@ -5853,9 +5482,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
-            "required": false,
+            "in": "body",
             "schema": {
               "$ref": "#/definitions/ScriptXO"
             }
@@ -5878,8 +5506,7 @@
           "Script"
         ],
         "summary": "Delete stored script by name",
-        "description": "",
-        "operationId": "delete_1",
+        "operationId": "DeleteScriptByName",
         "consumes": [
           "application/json"
         ],
@@ -5910,8 +5537,7 @@
           "Script"
         ],
         "summary": "Run stored script by name",
-        "description": "",
-        "operationId": "run_1",
+        "operationId": "PostScriptByNameRun",
         "consumes": [
           "text/plain",
           "application/json"
@@ -5927,9 +5553,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
-            "required": false,
+            "in": "body",
             "schema": {
               "type": "string"
             }
@@ -5957,8 +5582,7 @@
           "Security: certificates"
         ],
         "summary": "Helper method to retrieve certificate details from a remote system.",
-        "description": "",
-        "operationId": "retrieveCertificate",
+        "operationId": "GetSecuritySsl",
         "produces": [
           "application/json"
         ],
@@ -5974,7 +5598,6 @@
             "name": "port",
             "in": "query",
             "description": "The port on the remote system to connect to",
-            "required": false,
             "type": "integer",
             "default": 443,
             "format": "int32"
@@ -5983,7 +5606,6 @@
             "name": "protocolHint",
             "in": "query",
             "description": "An optional hint of the protocol to try for the connection",
-            "required": false,
             "type": "string"
           }
         ],
@@ -5994,11 +5616,11 @@
               "$ref": "#/definitions/ApiCertificate"
             }
           },
-          "403": {
-            "description": "Insufficient permissions to retrieve remote certificate."
-          },
           "400": {
             "description": "A certificate could not be retrieved, see the message for details."
+          },
+          "403": {
+            "description": "Insufficient permissions to retrieve remote certificate."
           }
         }
       }
@@ -6009,8 +5631,7 @@
           "Security: certificates"
         ],
         "summary": "Retrieve a list of certificates added to the trust store.",
-        "description": "",
-        "operationId": "getTrustStoreCertificates",
+        "operationId": "GetSecuritySslTruststore",
         "produces": [
           "application/json"
         ],
@@ -6035,8 +5656,7 @@
           "Security: certificates"
         ],
         "summary": "Add a certificate to the trust store.",
-        "description": "",
-        "operationId": "addCertificate",
+        "operationId": "PostSecuritySslTruststore",
         "produces": [
           "application/json"
         ],
@@ -6045,7 +5665,6 @@
             "in": "body",
             "name": "body",
             "description": "The certificate to add encoded in PEM format",
-            "required": false,
             "schema": {
               "type": "string"
             }
@@ -6058,11 +5677,11 @@
               "$ref": "#/definitions/ApiCertificate"
             }
           },
-          "409": {
-            "description": "The certificate already exists in the system."
-          },
           "403": {
             "description": "Insufficient permissions to add certificate to the trust store."
+          },
+          "409": {
+            "description": "The certificate already exists in the system."
           }
         }
       }
@@ -6073,8 +5692,7 @@
           "Security: certificates"
         ],
         "summary": "Remove a certificate in the trust store.",
-        "description": "",
-        "operationId": "removeCertificate",
+        "operationId": "DeleteSecuritySslTruststoreById",
         "produces": [
           "application/json"
         ],
@@ -6100,8 +5718,7 @@
           "Azure blob store"
         ],
         "summary": "Verify connection using supplied Azure Blob Store settings",
-        "description": "",
-        "operationId": "verifyConnection",
+        "operationId": "PostAzureblobstoreTestConnection",
         "consumes": [
           "application/json"
         ],
@@ -6112,7 +5729,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AzureConnectionXO"
             }
@@ -6140,8 +5756,7 @@
           "Blob store"
         ],
         "summary": "Get an Azure blob store configuration by name",
-        "description": "",
-        "operationId": "getBlobStore_1",
+        "operationId": "GetBlobstoresAzureByName",
         "consumes": [
           "application/json"
         ],
@@ -6180,8 +5795,7 @@
           "Blob store"
         ],
         "summary": "Update an Azure blob store configuration by name",
-        "description": "",
-        "operationId": "updateBlobStore_1",
+        "operationId": "PutBlobstoresAzureByName",
         "consumes": [
           "application/json"
         ],
@@ -6192,16 +5806,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AzureBlobStoreApiModel"
             }
           },
           {
-            "name": "name",
             "in": "path",
-            "description": "Name of the blob store to update",
+            "name": "name",
             "required": true,
+            "description": "Name of the blob store to update",
             "type": "string"
           }
         ],
@@ -6227,8 +5840,7 @@
           "Blob store"
         ],
         "summary": "Create an Azure blob store",
-        "description": "",
-        "operationId": "createBlobStore_1",
+        "operationId": "PostBlobstoresAzure",
         "consumes": [
           "application/json"
         ],
@@ -6239,7 +5851,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/AzureBlobStoreApiModel"
             }
@@ -6264,8 +5875,7 @@
           "Blob store"
         ],
         "summary": "Get the configuration for a Google Cloud blob store",
-        "description": "",
-        "operationId": "getBlobStore_2",
+        "operationId": "GetBlobstoresGoogleByName",
         "consumes": [
           "application/json"
         ],
@@ -6304,8 +5914,7 @@
           "Blob store"
         ],
         "summary": "Update a Google Cloud blob store",
-        "description": "",
-        "operationId": "updateBlobStore_2",
+        "operationId": "PutBlobstoresGoogleByName",
         "consumes": [
           "application/json"
         ],
@@ -6321,9 +5930,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
-            "required": false,
+            "in": "body",
             "schema": {
               "$ref": "#/definitions/GoogleCloudBlobstoreApiModel"
             }
@@ -6351,8 +5959,7 @@
           "Blob store"
         ],
         "summary": "Create a Google Cloud blob store",
-        "description": "",
-        "operationId": "createBlobStore_2",
+        "operationId": "PostBlobstoresGoogle",
         "consumes": [
           "application/json"
         ],
@@ -6363,7 +5970,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GoogleCloudBlobstoreApiModel"
             }
@@ -6388,8 +5994,7 @@
           "Blob store"
         ],
         "summary": "Get the project regions by project's id",
-        "description": "",
-        "operationId": "getRegionsByProjectId",
+        "operationId": "GetBlobstoresGoogleRegionsByProjectid",
         "consumes": [
           "application/json"
         ],
@@ -6433,8 +6038,7 @@
           "Blob store"
         ],
         "summary": "Convert a blob store to a group blob store",
-        "description": "",
-        "operationId": "convertBlobStoreToGroup",
+        "operationId": "PostBlobstoresGroupConvertByNameByNewnamefororiginal",
         "consumes": [
           "application/json"
         ],
@@ -6479,8 +6083,7 @@
           "Blob store"
         ],
         "summary": "Create a group blob store",
-        "description": "",
-        "operationId": "createGroupBlobStore",
+        "operationId": "PostBlobstoresGroup",
         "consumes": [
           "application/json"
         ],
@@ -6491,7 +6094,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GroupBlobStoreApiCreateRequest"
             }
@@ -6513,8 +6115,7 @@
           "Blob store"
         ],
         "summary": "Get a group blob store configuration by name",
-        "description": "",
-        "operationId": "getGroupBlobStoreConfiguration",
+        "operationId": "GetBlobstoresGroupByName",
         "consumes": [
           "application/json"
         ],
@@ -6550,8 +6151,7 @@
           "Blob store"
         ],
         "summary": "Update a group blob store configuration by name",
-        "description": "",
-        "operationId": "updateGroupBlobStore",
+        "operationId": "PutBlobstoresGroupByName",
         "consumes": [
           "application/json"
         ],
@@ -6567,9 +6167,8 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
-            "required": false,
+            "in": "body",
             "schema": {
               "$ref": "#/definitions/GroupBlobStoreApiUpdateRequest"
             }
@@ -6594,8 +6193,7 @@
           "Manage Sonatype Repository Firewall configuration"
         ],
         "summary": "Verify Sonatype Repository Firewall connection",
-        "description": "",
-        "operationId": "verifyConnection_1",
+        "operationId": "PostIqVerifyConnection",
         "consumes": [
           "application/json"
         ],
@@ -6616,8 +6214,7 @@
           "Manage Sonatype Repository Firewall configuration"
         ],
         "summary": "Enable Sonatype Repository Firewall",
-        "description": "",
-        "operationId": "enableIq",
+        "operationId": "PostIqEnable",
         "consumes": [
           "application/json"
         ],
@@ -6641,8 +6238,7 @@
           "Manage Sonatype Repository Firewall configuration"
         ],
         "summary": "Disable Sonatype Repository Firewall",
-        "description": "",
-        "operationId": "disableIq",
+        "operationId": "PostIqDisable",
         "consumes": [
           "application/json"
         ],
@@ -6666,8 +6262,7 @@
           "Manage Sonatype Repository Firewall configuration"
         ],
         "summary": "Get Sonatype Repository Firewall configuration",
-        "description": "",
-        "operationId": "getConfiguration",
+        "operationId": "GetIq",
         "consumes": [
           "application/json"
         ],
@@ -6686,8 +6281,7 @@
           "Manage Sonatype Repository Firewall configuration"
         ],
         "summary": "Update Sonatype Repository Firewall configuration",
-        "description": "",
-        "operationId": "updateConfiguration",
+        "operationId": "PutIq",
         "consumes": [
           "application/json"
         ],
@@ -6698,7 +6292,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/IqConnectionXo"
             }
@@ -6717,8 +6310,7 @@
           "Repository Management"
         ],
         "summary": "Enable repository health check. Proxy repositories only.",
-        "description": "",
-        "operationId": "enableRepositoryHealthCheck",
+        "operationId": "PostRepositoriesByRepositorynameHealthCheck",
         "parameters": [
           {
             "name": "repositoryName",
@@ -6751,8 +6343,7 @@
           "Repository Management"
         ],
         "summary": "Disable repository health check. Proxy repositories only.",
-        "description": "",
-        "operationId": "disableRepositoryHealthCheck",
+        "operationId": "DeleteRepositoriesByRepositorynameHealthCheck",
         "parameters": [
           {
             "name": "repositoryName",
@@ -6784,8 +6375,7 @@
           "Security management: LDAP"
         ],
         "summary": "List LDAP servers",
-        "description": "",
-        "operationId": "getLdapServers",
+        "operationId": "GetSecurityLdap",
         "consumes": [
           "application/json"
         ],
@@ -6810,8 +6400,7 @@
           "Security management: LDAP"
         ],
         "summary": "Create LDAP server",
-        "description": "",
-        "operationId": "createLdapServer",
+        "operationId": "PostSecurityLdap",
         "consumes": [
           "application/json"
         ],
@@ -6822,7 +6411,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CreateLdapServerXo"
             }
@@ -6847,8 +6435,7 @@
           "Security management: LDAP"
         ],
         "summary": "Get LDAP server",
-        "description": "",
-        "operationId": "getLdapServer",
+        "operationId": "GetSecurityLdapByName",
         "consumes": [
           "application/json"
         ],
@@ -6884,8 +6471,7 @@
           "Security management: LDAP"
         ],
         "summary": "Update LDAP server",
-        "description": "",
-        "operationId": "updateLdapServer",
+        "operationId": "PutSecurityLdapByName",
         "consumes": [
           "application/json"
         ],
@@ -6901,10 +6487,9 @@
             "type": "string"
           },
           {
-            "in": "body",
             "name": "body",
+            "in": "body",
             "description": "Updated values of LDAP server",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/UpdateLdapServerXo"
             }
@@ -6930,8 +6515,7 @@
           "Security management: LDAP"
         ],
         "summary": "Delete LDAP server",
-        "description": "",
-        "operationId": "deleteLdapServer",
+        "operationId": "DeleteSecurityLdapByName",
         "consumes": [
           "application/json"
         ],
@@ -6969,8 +6553,7 @@
           "Security management: LDAP"
         ],
         "summary": "Change LDAP server order",
-        "description": "",
-        "operationId": "changeOrder",
+        "operationId": "PostSecurityLdapChangeOrder",
         "consumes": [
           "application/json"
         ],
@@ -6982,7 +6565,6 @@
             "in": "body",
             "name": "body",
             "description": "Ordered list of LDAP server names",
-            "required": false,
             "schema": {
               "type": "array",
               "items": {
@@ -7010,8 +6592,7 @@
           "Product licensing"
         ],
         "summary": "Get the current license status.",
-        "description": "",
-        "operationId": "getLicenseStatus",
+        "operationId": "GetSystemLicense",
         "produces": [
           "application/json"
         ],
@@ -7031,7 +6612,7 @@
         ],
         "summary": "Upload a new license file.",
         "description": "Server must be restarted to take effect",
-        "operationId": "setLicense",
+        "operationId": "PostSystemLicense",
         "consumes": [
           "application/octet-stream"
         ],
@@ -7042,7 +6623,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/InputStream"
             }
@@ -7062,8 +6642,7 @@
           "Product licensing"
         ],
         "summary": "Uninstall license if present.",
-        "description": "",
-        "operationId": "removeLicense",
+        "operationId": "DeleteSystemLicense",
         "produces": [
           "application/json"
         ],
@@ -7081,8 +6660,7 @@
           "Malicious Risk On Disk"
         ],
         "summary": "Get Malicious Risk On Disk Count",
-        "description": "",
-        "operationId": "getMaliciousRiskOnDiskCount",
+        "operationId": "GetMaliciousRiskRiskOnDisk",
         "consumes": [
           "application/json"
         ],
@@ -7109,8 +6687,7 @@
           "Malicious Risk On Disk"
         ],
         "summary": "Get RHC Enabled registries for malicious risk scanning.",
-        "description": "",
-        "operationId": "getEnabledRegistries",
+        "operationId": "GetMaliciousRiskEnabledregistries",
         "consumes": [
           "application/json"
         ],
@@ -7137,8 +6714,7 @@
           "Malicious Risk Visualizer"
         ],
         "summary": "Get Dashboard Data Summary",
-        "description": "",
-        "operationId": "getMaliciousRiskSummary",
+        "operationId": "GetMaliciousRiskSummary",
         "consumes": [
           "application/json"
         ],
@@ -7165,8 +6741,7 @@
           "Repository Management"
         ],
         "summary": "Create cargo group repository",
-        "description": "",
-        "operationId": "createRepository_8",
+        "operationId": "PostRepositoriesCargoGroup",
         "consumes": [
           "application/json"
         ],
@@ -7177,7 +6752,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CargoGroupRepositoryApiRequest"
             }
@@ -7202,8 +6776,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_9",
+        "operationId": "GetRepositoriesCargoGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7232,8 +6805,7 @@
           "Repository Management"
         ],
         "summary": "Update cargo group repository",
-        "description": "",
-        "operationId": "updateRepository_8",
+        "operationId": "PutRepositoriesCargoGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7244,16 +6816,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CargoGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7279,8 +6850,7 @@
           "Repository Management"
         ],
         "summary": "Create cargo hosted repository",
-        "description": "",
-        "operationId": "createRepository_9",
+        "operationId": "PostRepositoriesCargoHosted",
         "consumes": [
           "application/json"
         ],
@@ -7291,7 +6861,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CargoHostedRepositoryApiRequest"
             }
@@ -7316,8 +6885,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_10",
+        "operationId": "GetRepositoriesCargoHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7346,8 +6914,7 @@
           "Repository Management"
         ],
         "summary": "Update cargo hosted repository",
-        "description": "",
-        "operationId": "updateRepository_9",
+        "operationId": "PutRepositoriesCargoHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7358,16 +6925,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CargoHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7393,8 +6959,7 @@
           "Repository Management"
         ],
         "summary": "Create cargo proxy repository",
-        "description": "",
-        "operationId": "createRepository_10",
+        "operationId": "PostRepositoriesCargoProxy",
         "consumes": [
           "application/json"
         ],
@@ -7405,7 +6970,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CargoProxyRepositoryApiRequest"
             }
@@ -7430,8 +6994,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_11",
+        "operationId": "GetRepositoriesCargoProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7460,8 +7023,7 @@
           "Repository Management"
         ],
         "summary": "Update cargo proxy repository",
-        "description": "",
-        "operationId": "updateRepository_10",
+        "operationId": "PutRepositoriesCargoProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7472,16 +7034,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CargoProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7507,8 +7068,7 @@
           "Repository Management"
         ],
         "summary": "Create Cocoapods proxy repository",
-        "description": "",
-        "operationId": "createRepository_11",
+        "operationId": "PostRepositoriesCocoapodsProxy",
         "consumes": [
           "application/json"
         ],
@@ -7519,7 +7079,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CocoapodsProxyRepositoryApiRequest"
             }
@@ -7547,8 +7106,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_12",
+        "operationId": "GetRepositoriesCocoapodsProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7577,8 +7135,7 @@
           "Repository Management"
         ],
         "summary": "Update Cocoapods proxy repository",
-        "description": "",
-        "operationId": "updateRepository_11",
+        "operationId": "PutRepositoriesCocoapodsProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7589,16 +7146,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CocoapodsProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7624,8 +7180,7 @@
           "Repository Management"
         ],
         "summary": "Create composer proxy repository",
-        "description": "",
-        "operationId": "createRepository_12",
+        "operationId": "PostRepositoriesComposerProxy",
         "consumes": [
           "application/json"
         ],
@@ -7636,7 +7191,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ComposerProxyRepositoryApiRequest"
             }
@@ -7661,8 +7215,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_13",
+        "operationId": "GetRepositoriesComposerProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7691,8 +7244,7 @@
           "Repository Management"
         ],
         "summary": "Update composer proxy repository",
-        "description": "",
-        "operationId": "updateRepository_12",
+        "operationId": "PutRepositoriesComposerProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7703,16 +7255,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ComposerProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7738,8 +7289,7 @@
           "Repository Management"
         ],
         "summary": "Create Conan group repository",
-        "description": "",
-        "operationId": "createRepository_13",
+        "operationId": "PostRepositoriesConanGroup",
         "consumes": [
           "application/json"
         ],
@@ -7750,7 +7300,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ConanGroupRepositoryApiRequest"
             }
@@ -7775,8 +7324,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_14",
+        "operationId": "GetRepositoriesConanGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7805,8 +7353,7 @@
           "Repository Management"
         ],
         "summary": "Update Conan group repository",
-        "description": "",
-        "operationId": "updateRepository_13",
+        "operationId": "PutRepositoriesConanGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7817,16 +7364,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ConanGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7852,8 +7398,7 @@
           "Repository Management"
         ],
         "summary": "Create Conan hosted repository",
-        "description": "",
-        "operationId": "createRepository_14",
+        "operationId": "PostRepositoriesConanHosted",
         "consumes": [
           "application/json"
         ],
@@ -7864,7 +7409,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ConanHostedRepositoryApiRequest"
             }
@@ -7889,8 +7433,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_15",
+        "operationId": "GetRepositoriesConanHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7919,8 +7462,7 @@
           "Repository Management"
         ],
         "summary": "Update Conan hosted repository",
-        "description": "",
-        "operationId": "updateRepository_14",
+        "operationId": "PutRepositoriesConanHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -7931,16 +7473,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ConanHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -7969,8 +7510,7 @@
           "Repository Management"
         ],
         "summary": "Create Conan proxy repository",
-        "description": "",
-        "operationId": "createRepository_15",
+        "operationId": "PostRepositoriesConanProxy",
         "consumes": [
           "application/json"
         ],
@@ -7981,7 +7521,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ConanProxyRepositoryApiRequest"
             }
@@ -8009,8 +7548,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_16",
+        "operationId": "GetRepositoriesConanProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8039,8 +7577,7 @@
           "Repository Management"
         ],
         "summary": "Update Conan proxy repository",
-        "description": "",
-        "operationId": "updateRepository_15",
+        "operationId": "PutRepositoriesConanProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8051,16 +7588,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/ConanProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8089,8 +7625,7 @@
           "Repository Management"
         ],
         "summary": "Create conda proxy repository",
-        "description": "",
-        "operationId": "createRepository_16",
+        "operationId": "PostRepositoriesCondaProxy",
         "consumes": [
           "application/json"
         ],
@@ -8101,7 +7636,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CondaProxyRepositoryApiRequest"
             }
@@ -8129,8 +7663,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_17",
+        "operationId": "GetRepositoriesCondaProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8159,8 +7692,7 @@
           "Repository Management"
         ],
         "summary": "Update conda proxy repository",
-        "description": "",
-        "operationId": "updateRepository_16",
+        "operationId": "PutRepositoriesCondaProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8171,16 +7703,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/CondaProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8206,8 +7737,7 @@
           "Repository Management"
         ],
         "summary": "Create Docker group repository",
-        "description": "",
-        "operationId": "createRepository_17",
+        "operationId": "PostRepositoriesDockerGroup",
         "consumes": [
           "application/json"
         ],
@@ -8218,7 +7748,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/DockerGroupRepositoryApiRequest"
             }
@@ -8243,8 +7772,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_18",
+        "operationId": "GetRepositoriesDockerGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8273,8 +7801,7 @@
           "Repository Management"
         ],
         "summary": "Update Docker group repository",
-        "description": "",
-        "operationId": "updateRepository_17",
+        "operationId": "PutRepositoriesDockerGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8285,16 +7812,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/DockerGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8323,8 +7849,7 @@
           "Repository Management"
         ],
         "summary": "Create Docker hosted repository",
-        "description": "",
-        "operationId": "createRepository_18",
+        "operationId": "PostRepositoriesDockerHosted",
         "consumes": [
           "application/json"
         ],
@@ -8335,7 +7860,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/DockerHostedRepositoryApiRequest"
             }
@@ -8360,8 +7884,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_19",
+        "operationId": "GetRepositoriesDockerHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8390,8 +7913,7 @@
           "Repository Management"
         ],
         "summary": "Update Docker hosted repository",
-        "description": "",
-        "operationId": "updateRepository_18",
+        "operationId": "PutRepositoriesDockerHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8402,16 +7924,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/DockerHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8440,8 +7961,7 @@
           "Repository Management"
         ],
         "summary": "Create Docker proxy repository",
-        "description": "",
-        "operationId": "createRepository_19",
+        "operationId": "PostRepositoriesDockerProxy",
         "consumes": [
           "application/json"
         ],
@@ -8452,7 +7972,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/DockerProxyRepositoryApiRequest"
             }
@@ -8477,8 +7996,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_20",
+        "operationId": "GetRepositoriesDockerProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8507,8 +8025,7 @@
           "Repository Management"
         ],
         "summary": "Update Docker proxy repository",
-        "description": "",
-        "operationId": "updateRepository_19",
+        "operationId": "PutRepositoriesDockerProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8519,16 +8036,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/DockerProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8557,8 +8073,7 @@
           "Repository Management"
         ],
         "summary": "Create Git LFS hosted repository",
-        "description": "",
-        "operationId": "createRepository_20",
+        "operationId": "PostRepositoriesGitlfsHosted",
         "consumes": [
           "application/json"
         ],
@@ -8569,7 +8084,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GitLfsHostedRepositoryApiRequest"
             }
@@ -8594,8 +8108,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_21",
+        "operationId": "GetRepositoriesGitlfsHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8624,8 +8137,7 @@
           "Repository Management"
         ],
         "summary": "Update Git LFS hosted repository",
-        "description": "",
-        "operationId": "updateRepository_20",
+        "operationId": "PutRepositoriesGitlfsHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8636,16 +8148,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GitLfsHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8671,8 +8182,7 @@
           "Repository Management"
         ],
         "summary": "Create a Go group repository",
-        "description": "",
-        "operationId": "createRepository_21",
+        "operationId": "PostRepositoriesGoGroup",
         "consumes": [
           "application/json"
         ],
@@ -8683,7 +8193,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GolangGroupRepositoryApiRequest"
             }
@@ -8711,8 +8220,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_22",
+        "operationId": "GetRepositoriesGoGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8741,8 +8249,7 @@
           "Repository Management"
         ],
         "summary": "Update a Go group repository",
-        "description": "",
-        "operationId": "updateRepository_21",
+        "operationId": "PutRepositoriesGoGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8753,16 +8260,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GolangGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8791,8 +8297,7 @@
           "Repository Management"
         ],
         "summary": "Create a Go proxy repository",
-        "description": "",
-        "operationId": "createRepository_22",
+        "operationId": "PostRepositoriesGoProxy",
         "consumes": [
           "application/json"
         ],
@@ -8803,7 +8308,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GolangProxyRepositoryApiRequest"
             }
@@ -8831,8 +8335,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_23",
+        "operationId": "GetRepositoriesGoProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8861,8 +8364,7 @@
           "Repository Management"
         ],
         "summary": "Update a Go proxy repository",
-        "description": "",
-        "operationId": "updateRepository_22",
+        "operationId": "PutRepositoriesGoProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8873,16 +8375,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/GolangProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -8911,8 +8412,7 @@
           "Repository Management"
         ],
         "summary": "Create Helm hosted repository",
-        "description": "",
-        "operationId": "createRepository_23",
+        "operationId": "PostRepositoriesHelmHosted",
         "consumes": [
           "application/json"
         ],
@@ -8923,7 +8423,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/HelmHostedRepositoryApiRequest"
             }
@@ -8951,8 +8450,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_24",
+        "operationId": "GetRepositoriesHelmHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8981,8 +8479,7 @@
           "Repository Management"
         ],
         "summary": "Update Helm hosted repository",
-        "description": "",
-        "operationId": "updateRepository_23",
+        "operationId": "PutRepositoriesHelmHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -8993,16 +8490,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/HelmHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9028,8 +8524,7 @@
           "Repository Management"
         ],
         "summary": "Create Helm proxy repository",
-        "description": "",
-        "operationId": "createRepository_24",
+        "operationId": "PostRepositoriesHelmProxy",
         "consumes": [
           "application/json"
         ],
@@ -9040,7 +8535,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/HelmProxyRepositoryApiRequest"
             }
@@ -9068,8 +8562,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_25",
+        "operationId": "GetRepositoriesHelmProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9098,8 +8591,7 @@
           "Repository Management"
         ],
         "summary": "Update Helm proxy repository",
-        "description": "",
-        "operationId": "updateRepository_24",
+        "operationId": "PutRepositoriesHelmProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9110,16 +8602,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/HelmProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9145,8 +8636,7 @@
           "Repository Management"
         ],
         "summary": "Create huggingface proxy repository",
-        "description": "",
-        "operationId": "createRepository_25",
+        "operationId": "PostRepositoriesHuggingfaceProxy",
         "consumes": [
           "application/json"
         ],
@@ -9157,7 +8647,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/HuggingFaceProxyRepositoryApiRequest"
             }
@@ -9182,8 +8671,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_26",
+        "operationId": "GetRepositoriesHuggingfaceProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9212,8 +8700,7 @@
           "Repository Management"
         ],
         "summary": "Update huggingface proxy repository",
-        "description": "",
-        "operationId": "updateRepository_25",
+        "operationId": "PutRepositoriesHuggingfaceProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9224,16 +8711,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/HuggingFaceProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9259,8 +8745,7 @@
           "Repository Management"
         ],
         "summary": "Create npm group repository",
-        "description": "",
-        "operationId": "createRepository_26",
+        "operationId": "PostRepositoriesNpmGroup",
         "consumes": [
           "application/json"
         ],
@@ -9271,7 +8756,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NpmGroupRepositoryApiRequest"
             }
@@ -9296,8 +8780,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_27",
+        "operationId": "GetRepositoriesNpmGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9326,8 +8809,7 @@
           "Repository Management"
         ],
         "summary": "Update npm group repository",
-        "description": "",
-        "operationId": "updateRepository_26",
+        "operationId": "PutRepositoriesNpmGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9338,16 +8820,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NpmGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9373,8 +8854,7 @@
           "Repository Management"
         ],
         "summary": "Create npm hosted repository",
-        "description": "",
-        "operationId": "createRepository_27",
+        "operationId": "PostRepositoriesNpmHosted",
         "consumes": [
           "application/json"
         ],
@@ -9385,7 +8865,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NpmHostedRepositoryApiRequest"
             }
@@ -9410,8 +8889,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_28",
+        "operationId": "GetRepositoriesNpmHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9440,8 +8918,7 @@
           "Repository Management"
         ],
         "summary": "Update npm hosted repository",
-        "description": "",
-        "operationId": "updateRepository_27",
+        "operationId": "PutRepositoriesNpmHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9452,16 +8929,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NpmHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9487,8 +8963,7 @@
           "Repository Management"
         ],
         "summary": "Create npm proxy repository",
-        "description": "",
-        "operationId": "createRepository_28",
+        "operationId": "PostRepositoriesNpmProxy",
         "consumes": [
           "application/json"
         ],
@@ -9499,7 +8974,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NpmProxyRepositoryApiRequest"
             }
@@ -9524,8 +8998,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_29",
+        "operationId": "GetRepositoriesNpmProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9554,8 +9027,7 @@
           "Repository Management"
         ],
         "summary": "Update npm proxy repository",
-        "description": "",
-        "operationId": "updateRepository_28",
+        "operationId": "PutRepositoriesNpmProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9566,16 +9038,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NpmProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9601,8 +9072,7 @@
           "Repository Management"
         ],
         "summary": "Create NuGet group repository",
-        "description": "",
-        "operationId": "createRepository_29",
+        "operationId": "PostRepositoriesNugetGroup",
         "consumes": [
           "application/json"
         ],
@@ -9613,7 +9083,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NugetGroupRepositoryApiRequest"
             }
@@ -9638,8 +9107,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_30",
+        "operationId": "GetRepositoriesNugetGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9668,8 +9136,7 @@
           "Repository Management"
         ],
         "summary": "Update NuGet group repository",
-        "description": "",
-        "operationId": "updateRepository_29",
+        "operationId": "PutRepositoriesNugetGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9680,16 +9147,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NugetGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9715,8 +9181,7 @@
           "Repository Management"
         ],
         "summary": "Create NuGet hosted repository",
-        "description": "",
-        "operationId": "createRepository_30",
+        "operationId": "PostRepositoriesNugetHosted",
         "consumes": [
           "application/json"
         ],
@@ -9727,7 +9192,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NugetHostedRepositoryApiRequest"
             }
@@ -9752,8 +9216,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_31",
+        "operationId": "GetRepositoriesNugetHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9782,8 +9245,7 @@
           "Repository Management"
         ],
         "summary": "Update NuGet hosted repository",
-        "description": "",
-        "operationId": "updateRepository_30",
+        "operationId": "PutRepositoriesNugetHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9794,16 +9256,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NugetHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9829,8 +9290,7 @@
           "Repository Management"
         ],
         "summary": "Create NuGet proxy repository",
-        "description": "",
-        "operationId": "createRepository_31",
+        "operationId": "PostRepositoriesNugetProxy",
         "consumes": [
           "application/json"
         ],
@@ -9841,7 +9301,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NugetProxyRepositoryApiRequest"
             }
@@ -9866,8 +9325,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_32",
+        "operationId": "GetRepositoriesNugetProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9896,8 +9354,7 @@
           "Repository Management"
         ],
         "summary": "Update NuGet proxy repository",
-        "description": "",
-        "operationId": "updateRepository_31",
+        "operationId": "PutRepositoriesNugetProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -9908,16 +9365,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/NugetProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -9943,8 +9399,7 @@
           "Repository Management"
         ],
         "summary": "Create p2 proxy repository",
-        "description": "",
-        "operationId": "createRepository_32",
+        "operationId": "PostRepositoriesP2Proxy",
         "consumes": [
           "application/json"
         ],
@@ -9955,7 +9410,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/P2ProxyRepositoryApiRequest"
             }
@@ -9983,8 +9437,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_33",
+        "operationId": "GetRepositoriesP2ProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10013,8 +9466,7 @@
           "Repository Management"
         ],
         "summary": "Update p2 proxy repository",
-        "description": "",
-        "operationId": "updateRepository_32",
+        "operationId": "PutRepositoriesP2ProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10025,16 +9477,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/P2ProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10060,8 +9511,7 @@
           "Repository Management"
         ],
         "summary": "Create PyPI group repository",
-        "description": "",
-        "operationId": "createRepository_33",
+        "operationId": "PostRepositoriesPypiGroup",
         "consumes": [
           "application/json"
         ],
@@ -10072,7 +9522,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PypiGroupRepositoryApiRequest"
             }
@@ -10097,8 +9546,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_34",
+        "operationId": "GetRepositoriesPypiGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10127,8 +9575,7 @@
           "Repository Management"
         ],
         "summary": "Update PyPI group repository",
-        "description": "",
-        "operationId": "updateRepository_33",
+        "operationId": "PutRepositoriesPypiGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10139,16 +9586,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PypiGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10174,8 +9620,7 @@
           "Repository Management"
         ],
         "summary": "Create PyPI hosted repository",
-        "description": "",
-        "operationId": "createRepository_34",
+        "operationId": "PostRepositoriesPypiHosted",
         "consumes": [
           "application/json"
         ],
@@ -10186,7 +9631,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PypiHostedRepositoryApiRequest"
             }
@@ -10211,8 +9655,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_35",
+        "operationId": "GetRepositoriesPypiHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10241,8 +9684,7 @@
           "Repository Management"
         ],
         "summary": "Update PyPI hosted repository",
-        "description": "",
-        "operationId": "updateRepository_34",
+        "operationId": "PutRepositoriesPypiHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10253,16 +9695,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PypiHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10288,8 +9729,7 @@
           "Repository Management"
         ],
         "summary": "Create PyPI proxy repository",
-        "description": "",
-        "operationId": "createRepository_35",
+        "operationId": "PostRepositoriesPypiProxy",
         "consumes": [
           "application/json"
         ],
@@ -10300,7 +9740,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PypiProxyRepositoryApiRequest"
             }
@@ -10325,8 +9764,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_36",
+        "operationId": "GetRepositoriesPypiProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10355,8 +9793,7 @@
           "Repository Management"
         ],
         "summary": "Update PyPI proxy repository",
-        "description": "",
-        "operationId": "updateRepository_35",
+        "operationId": "PutRepositoriesPypiProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10367,16 +9804,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/PypiProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10402,8 +9838,7 @@
           "Repository Management"
         ],
         "summary": "Create R group repository",
-        "description": "",
-        "operationId": "createRepository_36",
+        "operationId": "PostRepositoriesRGroup",
         "consumes": [
           "application/json"
         ],
@@ -10414,7 +9849,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RGroupRepositoryApiRequest"
             }
@@ -10442,8 +9876,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_37",
+        "operationId": "GetRepositoriesRGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10472,8 +9905,7 @@
           "Repository Management"
         ],
         "summary": "Update R group repository",
-        "description": "",
-        "operationId": "updateRepository_36",
+        "operationId": "PutRepositoriesRGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10484,16 +9916,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10519,8 +9950,7 @@
           "Repository Management"
         ],
         "summary": "Create R hosted repository",
-        "description": "",
-        "operationId": "createRepository_37",
+        "operationId": "PostRepositoriesRHosted",
         "consumes": [
           "application/json"
         ],
@@ -10531,7 +9961,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RHostedRepositoryApiRequest"
             }
@@ -10559,8 +9988,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_38",
+        "operationId": "GetRepositoriesRHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10589,8 +10017,7 @@
           "Repository Management"
         ],
         "summary": "Update R hosted repository",
-        "description": "",
-        "operationId": "updateRepository_37",
+        "operationId": "PutRepositoriesRHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10601,16 +10028,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10636,8 +10062,7 @@
           "Repository Management"
         ],
         "summary": "Create R proxy repository",
-        "description": "",
-        "operationId": "createRepository_38",
+        "operationId": "PostRepositoriesRProxy",
         "consumes": [
           "application/json"
         ],
@@ -10648,7 +10073,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RProxyRepositoryApiRequest"
             }
@@ -10676,8 +10100,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_39",
+        "operationId": "GetRepositoriesRProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10706,8 +10129,7 @@
           "Repository Management"
         ],
         "summary": "Update R proxy repository",
-        "description": "",
-        "operationId": "updateRepository_38",
+        "operationId": "PutRepositoriesRProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10718,16 +10140,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10756,8 +10177,7 @@
           "Repository Management"
         ],
         "summary": "Create RubyGems group repository",
-        "description": "",
-        "operationId": "createRepository_39",
+        "operationId": "PostRepositoriesRubygemsGroup",
         "consumes": [
           "application/json"
         ],
@@ -10768,7 +10188,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RubyGemsGroupRepositoryApiRequest"
             }
@@ -10793,8 +10212,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_40",
+        "operationId": "GetRepositoriesRubygemsGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10823,8 +10241,7 @@
           "Repository Management"
         ],
         "summary": "Update RubyGems group repository",
-        "description": "",
-        "operationId": "updateRepository_39",
+        "operationId": "PutRepositoriesRubygemsGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10835,16 +10252,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RubyGemsGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10870,8 +10286,7 @@
           "Repository Management"
         ],
         "summary": "Create RubyGems hosted repository",
-        "description": "",
-        "operationId": "createRepository_40",
+        "operationId": "PostRepositoriesRubygemsHosted",
         "consumes": [
           "application/json"
         ],
@@ -10882,7 +10297,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RubyGemsHostedRepositoryApiRequest"
             }
@@ -10907,8 +10321,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_41",
+        "operationId": "GetRepositoriesRubygemsHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10937,8 +10350,7 @@
           "Repository Management"
         ],
         "summary": "Update RubyGems hosted repository",
-        "description": "",
-        "operationId": "updateRepository_40",
+        "operationId": "PutRepositoriesRubygemsHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -10949,16 +10361,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RubyGemsHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -10984,8 +10395,7 @@
           "Repository Management"
         ],
         "summary": "Create RubyGems proxy repository",
-        "description": "",
-        "operationId": "createRepository_41",
+        "operationId": "PostRepositoriesRubygemsProxy",
         "consumes": [
           "application/json"
         ],
@@ -10996,7 +10406,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RubyGemsProxyRepositoryApiRequest"
             }
@@ -11021,8 +10430,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_42",
+        "operationId": "GetRepositoriesRubygemsProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11051,8 +10459,7 @@
           "Repository Management"
         ],
         "summary": "Update RubyGems proxy repository",
-        "description": "",
-        "operationId": "updateRepository_41",
+        "operationId": "PutRepositoriesRubygemsProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11063,16 +10470,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/RubyGemsProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -11098,8 +10504,7 @@
           "Repository Management"
         ],
         "summary": "Create Yum group repository",
-        "description": "",
-        "operationId": "createRepository_42",
+        "operationId": "PostRepositoriesYumGroup",
         "consumes": [
           "application/json"
         ],
@@ -11110,7 +10515,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/YumGroupRepositoryApiRequest"
             }
@@ -11135,8 +10539,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_43",
+        "operationId": "GetRepositoriesYumGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11165,8 +10568,7 @@
           "Repository Management"
         ],
         "summary": "Update Yum group repository",
-        "description": "",
-        "operationId": "updateRepository_42",
+        "operationId": "PutRepositoriesYumGroupByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11177,16 +10579,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/YumGroupRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -11212,8 +10613,7 @@
           "Repository Management"
         ],
         "summary": "Create Yum hosted repository",
-        "description": "",
-        "operationId": "createRepository_43",
+        "operationId": "PostRepositoriesYumHosted",
         "consumes": [
           "application/json"
         ],
@@ -11224,7 +10624,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/YumHostedRepositoryApiRequest"
             }
@@ -11249,8 +10648,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_44",
+        "operationId": "GetRepositoriesYumHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11279,8 +10677,7 @@
           "Repository Management"
         ],
         "summary": "Update Yum hosted repository",
-        "description": "",
-        "operationId": "updateRepository_43",
+        "operationId": "PutRepositoriesYumHostedByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11291,16 +10688,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/YumHostedRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -11326,8 +10722,7 @@
           "Repository Management"
         ],
         "summary": "Create Yum proxy repository",
-        "description": "",
-        "operationId": "createRepository_44",
+        "operationId": "PostRepositoriesYumProxy",
         "consumes": [
           "application/json"
         ],
@@ -11338,7 +10733,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/YumProxyRepositoryApiRequest"
             }
@@ -11363,8 +10757,7 @@
           "Repository Management"
         ],
         "summary": "Get repository",
-        "description": "",
-        "operationId": "getRepository_45",
+        "operationId": "GetRepositoriesYumProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11393,8 +10786,7 @@
           "Repository Management"
         ],
         "summary": "Update Yum proxy repository",
-        "description": "",
-        "operationId": "updateRepository_44",
+        "operationId": "PutRepositoriesYumProxyByRepositoryname",
         "consumes": [
           "application/json"
         ],
@@ -11405,16 +10797,15 @@
           {
             "in": "body",
             "name": "body",
-            "required": false,
             "schema": {
               "$ref": "#/definitions/YumProxyRepositoryApiRequest"
             }
           },
           {
-            "name": "repositoryName",
             "in": "path",
-            "description": "Name of the repository to update",
+            "name": "repositoryName",
             "required": true,
+            "description": "Name of the repository to update",
             "type": "string"
           }
         ],
@@ -11499,8 +10890,7 @@
         "limit": {
           "type": "integer",
           "format": "int64",
-          "description": "The limit in MB.",
-          "minimum": 0
+          "description": "The limit in MB."
         }
       }
     },
@@ -11543,7 +10933,7 @@
         },
         "path": {
           "type": "string",
-          "description": "An absolute path or a path relative to <data-directory>/blobs"
+          "description": "An absolute path or a path relative to \u003cdata-directory\u003e/blobs"
         }
       }
     },
@@ -11556,7 +10946,7 @@
         },
         "path": {
           "type": "string",
-          "description": "An absolute path or a path relative to <data-directory>/blobs"
+          "description": "An absolute path or a path relative to \u003cdata-directory\u003e/blobs"
         },
         "name": {
           "type": "string"
@@ -11572,7 +10962,7 @@
         },
         "path": {
           "type": "string",
-          "description": "An absolute path or a path relative to <data-directory>/blobs"
+          "description": "An absolute path or a path relative to \u003cdata-directory\u003e/blobs"
         }
       }
     },
@@ -12920,7 +12310,6 @@
         },
         "flat": {
           "type": "boolean",
-          "example": false,
           "description": "Whether this repository is flat"
         }
       }
@@ -12983,7 +12372,6 @@
       "properties": {
         "blocked": {
           "type": "boolean",
-          "example": false,
           "description": "Whether to block outbound connections on the repository"
         },
         "autoBlock": {
@@ -13005,9 +12393,7 @@
         "retries": {
           "type": "integer",
           "format": "int32",
-          "example": 0,
           "description": "Total retries if the initial connection attempt suffers a timeout",
-          "minimum": 0,
           "maximum": 10
         },
         "userAgentSuffix": {
@@ -13024,17 +12410,14 @@
         },
         "enableCircularRedirects": {
           "type": "boolean",
-          "example": false,
           "description": "Whether to enable redirects to the same location (may be required by some servers)"
         },
         "enableCookies": {
           "type": "boolean",
-          "example": false,
           "description": "Whether to allow cookies to be stored and used"
         },
         "useTrustStore": {
           "type": "boolean",
-          "example": false,
           "description": "Use certificates stored in the Nexus Repository Manager truststore to connect to external systems"
         }
       }
@@ -13122,7 +12505,6 @@
       "properties": {
         "preemptivePullEnabled": {
           "type": "boolean",
-          "example": false,
           "description": "Whether pre-emptive pull is enabled"
         },
         "assetPathRegex": {
@@ -13378,7 +12760,6 @@
       "properties": {
         "blocked": {
           "type": "boolean",
-          "example": false,
           "description": "Whether to block outbound connections on the repository"
         },
         "autoBlock": {
@@ -13423,7 +12804,6 @@
         },
         "preemptive": {
           "type": "boolean",
-          "example": false,
           "description": "Whether to use pre-emptive authentication. Use with caution. Defaults to false."
         }
       }
@@ -14269,14 +13649,12 @@
         "connectionRetryDelaySeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "How long to wait before retrying",
-          "minimum": 0
+          "description": "How long to wait before retrying"
         },
         "maxIncidentsCount": {
           "type": "integer",
           "format": "int32",
-          "description": "How many retry attempts",
-          "minimum": 0
+          "description": "How many retry attempts"
         },
         "userBaseDn": {
           "type": "string",
@@ -14340,37 +13718,27 @@
         "groupObjectClass": {
           "type": "string",
           "example": "posixGroup",
-          "description": "LDAP class for group objects. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "LDAP class for group objects. Required if groupType is static"
         },
         "groupIdAttribute": {
           "type": "string",
           "example": "cn",
-          "description": "This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static"
         },
         "groupMemberAttribute": {
           "type": "string",
           "example": "memberUid",
-          "description": "LDAP attribute containing the usernames for the group. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "LDAP attribute containing the usernames for the group. Required if groupType is static"
         },
         "groupMemberFormat": {
           "type": "string",
           "example": "uid=${username},ou=people,dc=example,dc=com",
-          "description": "The format of user ID stored in the group member attribute. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "The format of user ID stored in the group member attribute. Required if groupType is static"
         },
         "userMemberOfAttribute": {
           "type": "string",
           "example": "memberOf",
-          "description": "Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic"
         },
         "id": {
           "type": "string",
@@ -14460,14 +13828,12 @@
         "connectionRetryDelaySeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "How long to wait before retrying",
-          "minimum": 0
+          "description": "How long to wait before retrying"
         },
         "maxIncidentsCount": {
           "type": "integer",
           "format": "int32",
-          "description": "How many retry attempts",
-          "minimum": 0
+          "description": "How many retry attempts"
         },
         "userBaseDn": {
           "type": "string",
@@ -14531,37 +13897,27 @@
         "groupObjectClass": {
           "type": "string",
           "example": "posixGroup",
-          "description": "LDAP class for group objects. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "LDAP class for group objects. Required if groupType is static"
         },
         "groupIdAttribute": {
           "type": "string",
           "example": "cn",
-          "description": "This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static"
         },
         "groupMemberAttribute": {
           "type": "string",
           "example": "memberUid",
-          "description": "LDAP attribute containing the usernames for the group. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "LDAP attribute containing the usernames for the group. Required if groupType is static"
         },
         "groupMemberFormat": {
           "type": "string",
           "example": "uid=${username},ou=people,dc=example,dc=com",
-          "description": "The format of user ID stored in the group member attribute. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "The format of user ID stored in the group member attribute. Required if groupType is static"
         },
         "userMemberOfAttribute": {
           "type": "string",
           "example": "memberOf",
-          "description": "Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic"
         },
         "authPassword": {
           "type": "string",
@@ -14646,14 +14002,12 @@
         "connectionRetryDelaySeconds": {
           "type": "integer",
           "format": "int32",
-          "description": "How long to wait before retrying",
-          "minimum": 0
+          "description": "How long to wait before retrying"
         },
         "maxIncidentsCount": {
           "type": "integer",
           "format": "int32",
-          "description": "How many retry attempts",
-          "minimum": 0
+          "description": "How many retry attempts"
         },
         "userBaseDn": {
           "type": "string",
@@ -14717,37 +14071,27 @@
         "groupObjectClass": {
           "type": "string",
           "example": "posixGroup",
-          "description": "LDAP class for group objects. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "LDAP class for group objects. Required if groupType is static"
         },
         "groupIdAttribute": {
           "type": "string",
           "example": "cn",
-          "description": "This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static"
         },
         "groupMemberAttribute": {
           "type": "string",
           "example": "memberUid",
-          "description": "LDAP attribute containing the usernames for the group. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "LDAP attribute containing the usernames for the group. Required if groupType is static"
         },
         "groupMemberFormat": {
           "type": "string",
           "example": "uid=${username},ou=people,dc=example,dc=com",
-          "description": "The format of user ID stored in the group member attribute. Required if groupType is static",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "The format of user ID stored in the group member attribute. Required if groupType is static"
         },
         "userMemberOfAttribute": {
           "type": "string",
           "example": "memberOf",
-          "description": "Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic",
-          "minLength": 0,
-          "maxLength": 0
+          "description": "Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic"
         },
         "authPassword": {
           "type": "string",
@@ -14859,7 +14203,6 @@
       "properties": {
         "requireAuthentication": {
           "type": "boolean",
-          "example": false,
           "description": "Indicates if this repository requires authentication overriding anonymous access."
         }
       }
@@ -15331,7 +14674,6 @@
       "properties": {
         "v1Enabled": {
           "type": "boolean",
-          "example": false,
           "description": "Whether to allow clients to use the V1 API to interact with this repository"
         },
         "forceBasicAuth": {
@@ -16680,7 +16022,6 @@
           "format": "int32",
           "example": 5,
           "description": "Specifies the repository depth where repodata folder(s) are created",
-          "minimum": 0,
           "maximum": 5
         },
         "deployPolicy": {
