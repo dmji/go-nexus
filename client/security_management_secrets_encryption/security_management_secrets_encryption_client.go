@@ -56,30 +56,30 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ReEncrypt(params *ReEncryptParams, opts ...ClientOption) (*ReEncryptAccepted, error)
+	PutSecretsEncryptionReEncrypt(params *PutSecretsEncryptionReEncryptParams, opts ...ClientOption) (*PutSecretsEncryptionReEncryptAccepted, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-ReEncrypt res encrypt secrets using the specified key
+PutSecretsEncryptionReEncrypt res encrypt secrets using the specified key
 
 Ensure all nodes have access to the key, and they use the same key
 */
-func (a *Client) ReEncrypt(params *ReEncryptParams, opts ...ClientOption) (*ReEncryptAccepted, error) {
+func (a *Client) PutSecretsEncryptionReEncrypt(params *PutSecretsEncryptionReEncryptParams, opts ...ClientOption) (*PutSecretsEncryptionReEncryptAccepted, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewReEncryptParams()
+		params = NewPutSecretsEncryptionReEncryptParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "reEncrypt",
+		ID:                 "PutSecretsEncryptionReEncrypt",
 		Method:             "PUT",
 		PathPattern:        "/v1/secrets/encryption/re-encrypt",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ReEncryptReader{formats: a.formats},
+		Reader:             &PutSecretsEncryptionReEncryptReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -91,13 +91,13 @@ func (a *Client) ReEncrypt(params *ReEncryptParams, opts ...ClientOption) (*ReEn
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ReEncryptAccepted)
+	success, ok := result.(*PutSecretsEncryptionReEncryptAccepted)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for reEncrypt: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutSecretsEncryptionReEncrypt: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

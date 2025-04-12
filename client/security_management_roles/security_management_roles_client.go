@@ -56,74 +56,36 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Create(params *CreateParams, opts ...ClientOption) (*CreateOK, error)
+	DeleteSecurityRolesByID(params *DeleteSecurityRolesByIDParams, opts ...ClientOption) error
 
-	Delete(params *DeleteParams, opts ...ClientOption) error
+	GetSecurityRoles(params *GetSecurityRolesParams, opts ...ClientOption) (*GetSecurityRolesOK, error)
 
-	GetRole(params *GetRoleParams, opts ...ClientOption) (*GetRoleOK, error)
+	GetSecurityRolesByID(params *GetSecurityRolesByIDParams, opts ...ClientOption) (*GetSecurityRolesByIDOK, error)
 
-	GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error)
+	PostSecurityRoles(params *PostSecurityRolesParams, opts ...ClientOption) (*PostSecurityRolesOK, error)
 
-	Update1(params *Update1Params, opts ...ClientOption) error
+	PutSecurityRolesByID(params *PutSecurityRolesByIDParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Create creates role
+DeleteSecurityRolesByID deletes role
 */
-func (a *Client) Create(params *CreateParams, opts ...ClientOption) (*CreateOK, error) {
+func (a *Client) DeleteSecurityRolesByID(params *DeleteSecurityRolesByIDParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateParams()
+		params = NewDeleteSecurityRolesByIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "create",
-		Method:             "POST",
-		PathPattern:        "/v1/security/roles",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for create: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-Delete deletes role
-*/
-func (a *Client) Delete(params *DeleteParams, opts ...ClientOption) error {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "delete",
+		ID:                 "DeleteSecurityRolesById",
 		Method:             "DELETE",
 		PathPattern:        "/v1/security/roles/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteReader{formats: a.formats},
+		Reader:             &DeleteSecurityRolesByIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -139,60 +101,22 @@ func (a *Client) Delete(params *DeleteParams, opts ...ClientOption) error {
 }
 
 /*
-GetRole gets role
+GetSecurityRoles lists roles
 */
-func (a *Client) GetRole(params *GetRoleParams, opts ...ClientOption) (*GetRoleOK, error) {
+func (a *Client) GetSecurityRoles(params *GetSecurityRolesParams, opts ...ClientOption) (*GetSecurityRolesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRoleParams()
+		params = NewGetSecurityRolesParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getRole",
-		Method:             "GET",
-		PathPattern:        "/v1/security/roles/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetRoleReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetRoleOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getRole: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetRoles lists roles
-*/
-func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRolesOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetRolesParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getRoles",
+		ID:                 "GetSecurityRoles",
 		Method:             "GET",
 		PathPattern:        "/v1/security/roles",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRolesReader{formats: a.formats},
+		Reader:             &GetSecurityRolesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -204,33 +128,109 @@ func (a *Client) GetRoles(params *GetRolesParams, opts ...ClientOption) (*GetRol
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRolesOK)
+	success, ok := result.(*GetSecurityRolesOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getRoles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityRoles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Update1 updates role
+GetSecurityRolesByID gets role
 */
-func (a *Client) Update1(params *Update1Params, opts ...ClientOption) error {
+func (a *Client) GetSecurityRolesByID(params *GetSecurityRolesByIDParams, opts ...ClientOption) (*GetSecurityRolesByIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdate1Params()
+		params = NewGetSecurityRolesByIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "update_1",
+		ID:                 "GetSecurityRolesById",
+		Method:             "GET",
+		PathPattern:        "/v1/security/roles/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetSecurityRolesByIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSecurityRolesByIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSecurityRolesById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostSecurityRoles creates role
+*/
+func (a *Client) PostSecurityRoles(params *PostSecurityRolesParams, opts ...ClientOption) (*PostSecurityRolesOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostSecurityRolesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostSecurityRoles",
+		Method:             "POST",
+		PathPattern:        "/v1/security/roles",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostSecurityRolesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSecurityRolesOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSecurityRoles: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutSecurityRolesByID updates role
+*/
+func (a *Client) PutSecurityRolesByID(params *PutSecurityRolesByIDParams, opts ...ClientOption) error {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutSecurityRolesByIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutSecurityRolesById",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/roles/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &Update1Reader{formats: a.formats},
+		Reader:             &PutSecurityRolesByIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

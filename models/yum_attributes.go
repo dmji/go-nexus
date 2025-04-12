@@ -29,7 +29,6 @@ type YumAttributes struct {
 	// Example: 5
 	// Required: true
 	// Maximum: 5
-	// Minimum: 0
 	RepodataDepth *int32 `json:"repodataDepth"`
 }
 
@@ -96,10 +95,6 @@ func (m *YumAttributes) validateDeployPolicy(formats strfmt.Registry) error {
 func (m *YumAttributes) validateRepodataDepth(formats strfmt.Registry) error {
 
 	if err := validate.Required("repodataDepth", "body", m.RepodataDepth); err != nil {
-		return err
-	}
-
-	if err := validate.MinimumInt("repodataDepth", "body", int64(*m.RepodataDepth), 0, false); err != nil {
 		return err
 	}
 

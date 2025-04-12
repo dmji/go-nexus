@@ -28,7 +28,6 @@ type HTTPClientAttributes struct {
 	AutoBlock *bool `json:"autoBlock"`
 
 	// Whether to block outbound connections on the repository
-	// Example: false
 	// Required: true
 	Blocked *bool `json:"blocked"`
 

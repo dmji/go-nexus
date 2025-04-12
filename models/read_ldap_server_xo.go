@@ -34,7 +34,6 @@ type ReadLdapServerXo struct {
 
 	// How long to wait before retrying
 	// Required: true
-	// Minimum: 0
 	ConnectionRetryDelaySeconds *int32 `json:"connectionRetryDelaySeconds"`
 
 	// How long to wait before timeout
@@ -50,27 +49,19 @@ type ReadLdapServerXo struct {
 
 	// This field specifies the attribute of the Object class that defines the Group ID. Required if groupType is static
 	// Example: cn
-	// Max Length: 0
-	// Min Length: 0
-	GroupIDAttribute *string `json:"groupIdAttribute,omitempty"`
+	GroupIDAttribute string `json:"groupIdAttribute,omitempty"`
 
 	// LDAP attribute containing the usernames for the group. Required if groupType is static
 	// Example: memberUid
-	// Max Length: 0
-	// Min Length: 0
-	GroupMemberAttribute *string `json:"groupMemberAttribute,omitempty"`
+	GroupMemberAttribute string `json:"groupMemberAttribute,omitempty"`
 
 	// The format of user ID stored in the group member attribute. Required if groupType is static
 	// Example: uid=${username},ou=people,dc=example,dc=com
-	// Max Length: 0
-	// Min Length: 0
-	GroupMemberFormat *string `json:"groupMemberFormat,omitempty"`
+	GroupMemberFormat string `json:"groupMemberFormat,omitempty"`
 
 	// LDAP class for group objects. Required if groupType is static
 	// Example: posixGroup
-	// Max Length: 0
-	// Min Length: 0
-	GroupObjectClass *string `json:"groupObjectClass,omitempty"`
+	GroupObjectClass string `json:"groupObjectClass,omitempty"`
 
 	// Are groups located in structures below the group base DN
 	GroupSubtree bool `json:"groupSubtree,omitempty"`
@@ -92,7 +83,6 @@ type ReadLdapServerXo struct {
 
 	// How many retry attempts
 	// Required: true
-	// Minimum: 0
 	MaxIncidentsCount *int32 `json:"maxIncidentsCount"`
 
 	// LDAP server name
@@ -138,9 +128,7 @@ type ReadLdapServerXo struct {
 
 	// Set this to the attribute used to store the attribute which holds groups DN in the user object. Required if groupType is dynamic
 	// Example: memberOf
-	// Max Length: 0
-	// Min Length: 0
-	UserMemberOfAttribute *string `json:"userMemberOfAttribute,omitempty"`
+	UserMemberOfAttribute string `json:"userMemberOfAttribute,omitempty"`
 
 	// LDAP class for user objects
 	// Example: inetOrgPerson
@@ -173,22 +161,6 @@ func (m *ReadLdapServerXo) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateGroupIDAttribute(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateGroupMemberAttribute(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateGroupMemberFormat(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateGroupObjectClass(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateGroupType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -214,10 +186,6 @@ func (m *ReadLdapServerXo) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSearchBase(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUserMemberOfAttribute(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -282,10 +250,6 @@ func (m *ReadLdapServerXo) validateConnectionRetryDelaySeconds(formats strfmt.Re
 		return err
 	}
 
-	if err := validate.MinimumInt("connectionRetryDelaySeconds", "body", int64(*m.ConnectionRetryDelaySeconds), 0, false); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -300,70 +264,6 @@ func (m *ReadLdapServerXo) validateConnectionTimeoutSeconds(formats strfmt.Regis
 	}
 
 	if err := validate.MaximumInt("connectionTimeoutSeconds", "body", int64(*m.ConnectionTimeoutSeconds), 3600, false); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReadLdapServerXo) validateGroupIDAttribute(formats strfmt.Registry) error {
-	if swag.IsZero(m.GroupIDAttribute) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("groupIdAttribute", "body", *m.GroupIDAttribute, 0); err != nil {
-		return err
-	}
-
-	if err := validate.MaxLength("groupIdAttribute", "body", *m.GroupIDAttribute, 0); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReadLdapServerXo) validateGroupMemberAttribute(formats strfmt.Registry) error {
-	if swag.IsZero(m.GroupMemberAttribute) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("groupMemberAttribute", "body", *m.GroupMemberAttribute, 0); err != nil {
-		return err
-	}
-
-	if err := validate.MaxLength("groupMemberAttribute", "body", *m.GroupMemberAttribute, 0); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReadLdapServerXo) validateGroupMemberFormat(formats strfmt.Registry) error {
-	if swag.IsZero(m.GroupMemberFormat) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("groupMemberFormat", "body", *m.GroupMemberFormat, 0); err != nil {
-		return err
-	}
-
-	if err := validate.MaxLength("groupMemberFormat", "body", *m.GroupMemberFormat, 0); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReadLdapServerXo) validateGroupObjectClass(formats strfmt.Registry) error {
-	if swag.IsZero(m.GroupObjectClass) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("groupObjectClass", "body", *m.GroupObjectClass, 0); err != nil {
-		return err
-	}
-
-	if err := validate.MaxLength("groupObjectClass", "body", *m.GroupObjectClass, 0); err != nil {
 		return err
 	}
 
@@ -425,10 +325,6 @@ func (m *ReadLdapServerXo) validateHost(formats strfmt.Registry) error {
 func (m *ReadLdapServerXo) validateMaxIncidentsCount(formats strfmt.Registry) error {
 
 	if err := validate.Required("maxIncidentsCount", "body", m.MaxIncidentsCount); err != nil {
-		return err
-	}
-
-	if err := validate.MinimumInt("maxIncidentsCount", "body", int64(*m.MaxIncidentsCount), 0, false); err != nil {
 		return err
 	}
 
@@ -499,22 +395,6 @@ func (m *ReadLdapServerXo) validateProtocol(formats strfmt.Registry) error {
 func (m *ReadLdapServerXo) validateSearchBase(formats strfmt.Registry) error {
 
 	if err := validate.Required("searchBase", "body", m.SearchBase); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *ReadLdapServerXo) validateUserMemberOfAttribute(formats strfmt.Registry) error {
-	if swag.IsZero(m.UserMemberOfAttribute) { // not required
-		return nil
-	}
-
-	if err := validate.MinLength("userMemberOfAttribute", "body", *m.UserMemberOfAttribute, 0); err != nil {
-		return err
-	}
-
-	if err := validate.MaxLength("userMemberOfAttribute", "body", *m.UserMemberOfAttribute, 0); err != nil {
 		return err
 	}
 

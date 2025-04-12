@@ -56,32 +56,32 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteAsset(params *DeleteAssetParams, opts ...ClientOption) (*DeleteAssetNoContent, error)
-
-	GetAssetByID(params *GetAssetByIDParams, opts ...ClientOption) (*GetAssetByIDOK, error)
+	DeleteAssetsByID(params *DeleteAssetsByIDParams, opts ...ClientOption) (*DeleteAssetsByIDNoContent, error)
 
 	GetAssets(params *GetAssetsParams, opts ...ClientOption) (*GetAssetsOK, error)
+
+	GetAssetsByID(params *GetAssetsByIDParams, opts ...ClientOption) (*GetAssetsByIDOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeleteAsset deletes a single asset
+DeleteAssetsByID deletes a single asset
 */
-func (a *Client) DeleteAsset(params *DeleteAssetParams, opts ...ClientOption) (*DeleteAssetNoContent, error) {
+func (a *Client) DeleteAssetsByID(params *DeleteAssetsByIDParams, opts ...ClientOption) (*DeleteAssetsByIDNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteAssetParams()
+		params = NewDeleteAssetsByIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "deleteAsset",
+		ID:                 "DeleteAssetsById",
 		Method:             "DELETE",
 		PathPattern:        "/v1/assets/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteAssetReader{formats: a.formats},
+		Reader:             &DeleteAssetsByIDReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -93,51 +93,13 @@ func (a *Client) DeleteAsset(params *DeleteAssetParams, opts ...ClientOption) (*
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteAssetNoContent)
+	success, ok := result.(*DeleteAssetsByIDNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for deleteAsset: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetAssetByID gets a single asset
-*/
-func (a *Client) GetAssetByID(params *GetAssetByIDParams, opts ...ClientOption) (*GetAssetByIDOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetAssetByIDParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getAssetById",
-		Method:             "GET",
-		PathPattern:        "/v1/assets/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetAssetByIDReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetAssetByIDOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getAssetById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteAssetsById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -150,7 +112,7 @@ func (a *Client) GetAssets(params *GetAssetsParams, opts ...ClientOption) (*GetA
 		params = NewGetAssetsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getAssets",
+		ID:                 "GetAssets",
 		Method:             "GET",
 		PathPattern:        "/v1/assets",
 		ProducesMediaTypes: []string{"application/json"},
@@ -175,7 +137,45 @@ func (a *Client) GetAssets(params *GetAssetsParams, opts ...ClientOption) (*GetA
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getAssets: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetAssets: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetAssetsByID gets a single asset
+*/
+func (a *Client) GetAssetsByID(params *GetAssetsByIDParams, opts ...ClientOption) (*GetAssetsByIDOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetAssetsByIDParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetAssetsById",
+		Method:             "GET",
+		PathPattern:        "/v1/assets/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetAssetsByIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetAssetsByIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetAssetsById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

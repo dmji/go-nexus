@@ -43,7 +43,7 @@ func (o *GetComponentsReader) ReadResponse(response runtime.ClientResponse, cons
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /v1/components] getComponents", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /v1/components] GetComponents", response, response.Code())
 	}
 }
 

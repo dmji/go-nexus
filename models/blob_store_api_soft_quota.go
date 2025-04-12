@@ -21,8 +21,7 @@ import (
 type BlobStoreAPISoftQuota struct {
 
 	// The limit in MB.
-	// Minimum: 0
-	Limit *int64 `json:"limit,omitempty"`
+	Limit int64 `json:"limit,omitempty"`
 
 	// The type to use such as spaceRemainingQuota, or spaceUsedQuota
 	// Enum: ["spaceRemainingQuota","spaceUsedQuota"]
@@ -33,10 +32,6 @@ type BlobStoreAPISoftQuota struct {
 func (m *BlobStoreAPISoftQuota) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateLimit(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
@@ -44,18 +39,6 @@ func (m *BlobStoreAPISoftQuota) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *BlobStoreAPISoftQuota) validateLimit(formats strfmt.Registry) error {
-	if swag.IsZero(m.Limit) { // not required
-		return nil
-	}
-
-	if err := validate.MinimumInt("limit", "body", *m.Limit, 0, false); err != nil {
-		return err
-	}
-
 	return nil
 }
 

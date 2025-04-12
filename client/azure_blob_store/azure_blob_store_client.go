@@ -56,28 +56,28 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	VerifyConnection(params *VerifyConnectionParams, opts ...ClientOption) (*VerifyConnectionNoContent, error)
+	PostAzureblobstoreTestConnection(params *PostAzureblobstoreTestConnectionParams, opts ...ClientOption) (*PostAzureblobstoreTestConnectionNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-VerifyConnection verifies connection using supplied azure blob store settings
+PostAzureblobstoreTestConnection verifies connection using supplied azure blob store settings
 */
-func (a *Client) VerifyConnection(params *VerifyConnectionParams, opts ...ClientOption) (*VerifyConnectionNoContent, error) {
+func (a *Client) PostAzureblobstoreTestConnection(params *PostAzureblobstoreTestConnectionParams, opts ...ClientOption) (*PostAzureblobstoreTestConnectionNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewVerifyConnectionParams()
+		params = NewPostAzureblobstoreTestConnectionParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "verifyConnection",
+		ID:                 "PostAzureblobstoreTestConnection",
 		Method:             "POST",
 		PathPattern:        "/v1/azureblobstore/test-connection",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &VerifyConnectionReader{formats: a.formats},
+		Reader:             &PostAzureblobstoreTestConnectionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -89,13 +89,13 @@ func (a *Client) VerifyConnection(params *VerifyConnectionParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*VerifyConnectionNoContent)
+	success, ok := result.(*PostAzureblobstoreTestConnectionNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for verifyConnection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostAzureblobstoreTestConnection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

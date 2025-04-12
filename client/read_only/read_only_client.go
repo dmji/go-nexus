@@ -56,114 +56,34 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ForceRelease(params *ForceReleaseParams, opts ...ClientOption) (*ForceReleaseNoContent, error)
+	GetReadOnly(params *GetReadOnlyParams, opts ...ClientOption) (*GetReadOnlyOK, error)
 
-	Freeze(params *FreezeParams, opts ...ClientOption) (*FreezeNoContent, error)
+	PostReadOnlyForceRelease(params *PostReadOnlyForceReleaseParams, opts ...ClientOption) (*PostReadOnlyForceReleaseNoContent, error)
 
-	Get(params *GetParams, opts ...ClientOption) (*GetOK, error)
+	PostReadOnlyFreeze(params *PostReadOnlyFreezeParams, opts ...ClientOption) (*PostReadOnlyFreezeNoContent, error)
 
-	Release(params *ReleaseParams, opts ...ClientOption) (*ReleaseNoContent, error)
+	PostReadOnlyRelease(params *PostReadOnlyReleaseParams, opts ...ClientOption) (*PostReadOnlyReleaseNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-ForceRelease forciblies release read only and allow changes to embedded orient d b
-
-Forcibly release read-only status, including if caused by system tasks. Warning: may result in data loss.
+GetReadOnly gets read only state
 */
-func (a *Client) ForceRelease(params *ForceReleaseParams, opts ...ClientOption) (*ForceReleaseNoContent, error) {
+func (a *Client) GetReadOnly(params *GetReadOnlyParams, opts ...ClientOption) (*GetReadOnlyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewForceReleaseParams()
+		params = NewGetReadOnlyParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "forceRelease",
-		Method:             "POST",
-		PathPattern:        "/v1/read-only/force-release",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &ForceReleaseReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ForceReleaseNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for forceRelease: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-Freeze prevents changes to embedded orient d b
-
-For low-level system maintenance purposes only; do not use if you want users to still be able to download components.
-*/
-func (a *Client) Freeze(params *FreezeParams, opts ...ClientOption) (*FreezeNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewFreezeParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "freeze",
-		Method:             "POST",
-		PathPattern:        "/v1/read-only/freeze",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &FreezeReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*FreezeNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for freeze: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-Get gets read only state
-*/
-func (a *Client) Get(params *GetParams, opts ...ClientOption) (*GetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "get",
+		ID:                 "GetReadOnly",
 		Method:             "GET",
 		PathPattern:        "/v1/read-only",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetReader{formats: a.formats},
+		Reader:             &GetReadOnlyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -175,35 +95,115 @@ func (a *Client) Get(params *GetParams, opts ...ClientOption) (*GetOK, error) {
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetOK)
+	success, ok := result.(*GetReadOnlyOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for get: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetReadOnly: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Release releases read only and allow changes to embedded orient d b
+PostReadOnlyForceRelease forciblies release read only and allow changes to embedded orient d b
+
+Forcibly release read-only status, including if caused by system tasks. Warning: may result in data loss.
+*/
+func (a *Client) PostReadOnlyForceRelease(params *PostReadOnlyForceReleaseParams, opts ...ClientOption) (*PostReadOnlyForceReleaseNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostReadOnlyForceReleaseParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostReadOnlyForceRelease",
+		Method:             "POST",
+		PathPattern:        "/v1/read-only/force-release",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostReadOnlyForceReleaseReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostReadOnlyForceReleaseNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostReadOnlyForceRelease: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostReadOnlyFreeze prevents changes to embedded orient d b
+
+For low-level system maintenance purposes only; do not use if you want users to still be able to download components.
+*/
+func (a *Client) PostReadOnlyFreeze(params *PostReadOnlyFreezeParams, opts ...ClientOption) (*PostReadOnlyFreezeNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostReadOnlyFreezeParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostReadOnlyFreeze",
+		Method:             "POST",
+		PathPattern:        "/v1/read-only/freeze",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostReadOnlyFreezeReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostReadOnlyFreezeNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostReadOnlyFreeze: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostReadOnlyRelease releases read only and allow changes to embedded orient d b
 
 Releases administrator-initiated read-only status. Will not release read-only status caused by system tasks.
 */
-func (a *Client) Release(params *ReleaseParams, opts ...ClientOption) (*ReleaseNoContent, error) {
+func (a *Client) PostReadOnlyRelease(params *PostReadOnlyReleaseParams, opts ...ClientOption) (*PostReadOnlyReleaseNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewReleaseParams()
+		params = NewPostReadOnlyReleaseParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "release",
+		ID:                 "PostReadOnlyRelease",
 		Method:             "POST",
 		PathPattern:        "/v1/read-only/release",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ReleaseReader{formats: a.formats},
+		Reader:             &PostReadOnlyReleaseReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -215,13 +215,13 @@ func (a *Client) Release(params *ReleaseParams, opts ...ClientOption) (*ReleaseN
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ReleaseNoContent)
+	success, ok := result.(*PostReadOnlyReleaseNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for release: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostReadOnlyRelease: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

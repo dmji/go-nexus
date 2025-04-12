@@ -56,30 +56,30 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Get1(params *Get1Params, opts ...ClientOption) (*Get1OK, error)
+	GetFormatsByFormatUploadSpecs(params *GetFormatsByFormatUploadSpecsParams, opts ...ClientOption) (*GetFormatsByFormatUploadSpecsOK, error)
 
-	Get2(params *Get2Params, opts ...ClientOption) (*Get2OK, error)
+	GetFormatsUploadSpecs(params *GetFormatsUploadSpecsParams, opts ...ClientOption) (*GetFormatsUploadSpecsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Get1 gets upload field requirements for the desired format
+GetFormatsByFormatUploadSpecs gets upload field requirements for the desired format
 */
-func (a *Client) Get1(params *Get1Params, opts ...ClientOption) (*Get1OK, error) {
+func (a *Client) GetFormatsByFormatUploadSpecs(params *GetFormatsByFormatUploadSpecsParams, opts ...ClientOption) (*GetFormatsByFormatUploadSpecsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGet1Params()
+		params = NewGetFormatsByFormatUploadSpecsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "get_1",
+		ID:                 "GetFormatsByFormatUploadSpecs",
 		Method:             "GET",
 		PathPattern:        "/v1/formats/{format}/upload-specs",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &Get1Reader{formats: a.formats},
+		Reader:             &GetFormatsByFormatUploadSpecsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -91,33 +91,33 @@ func (a *Client) Get1(params *Get1Params, opts ...ClientOption) (*Get1OK, error)
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*Get1OK)
+	success, ok := result.(*GetFormatsByFormatUploadSpecsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for get_1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetFormatsByFormatUploadSpecs: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Get2 gets upload field requirements for each supported format
+GetFormatsUploadSpecs gets upload field requirements for each supported format
 */
-func (a *Client) Get2(params *Get2Params, opts ...ClientOption) (*Get2OK, error) {
+func (a *Client) GetFormatsUploadSpecs(params *GetFormatsUploadSpecsParams, opts ...ClientOption) (*GetFormatsUploadSpecsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGet2Params()
+		params = NewGetFormatsUploadSpecsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "get_2",
+		ID:                 "GetFormatsUploadSpecs",
 		Method:             "GET",
 		PathPattern:        "/v1/formats/upload-specs",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &Get2Reader{formats: a.formats},
+		Reader:             &GetFormatsUploadSpecsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -129,13 +129,13 @@ func (a *Client) Get2(params *Get2Params, opts ...ClientOption) (*Get2OK, error)
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*Get2OK)
+	success, ok := result.(*GetFormatsUploadSpecsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for get_2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetFormatsUploadSpecs: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

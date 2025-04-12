@@ -31,7 +31,7 @@ func (o *GetTasksReader) ReadResponse(response runtime.ClientResponse, consumer 
 		}
 		return result, nil
 	default:
-		return nil, runtime.NewAPIError("[GET /v1/tasks] getTasks", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /v1/tasks] GetTasks", response, response.Code())
 	}
 }
 

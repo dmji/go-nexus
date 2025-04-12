@@ -56,114 +56,38 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ChangeOrder(params *ChangeOrderParams, opts ...ClientOption) (*ChangeOrderNoContent, error)
+	DeleteSecurityLdapByName(params *DeleteSecurityLdapByNameParams, opts ...ClientOption) (*DeleteSecurityLdapByNameNoContent, error)
 
-	CreateLdapServer(params *CreateLdapServerParams, opts ...ClientOption) (*CreateLdapServerCreated, error)
+	GetSecurityLdap(params *GetSecurityLdapParams, opts ...ClientOption) (*GetSecurityLdapOK, error)
 
-	DeleteLdapServer(params *DeleteLdapServerParams, opts ...ClientOption) (*DeleteLdapServerNoContent, error)
+	GetSecurityLdapByName(params *GetSecurityLdapByNameParams, opts ...ClientOption) (*GetSecurityLdapByNameOK, error)
 
-	GetLdapServer(params *GetLdapServerParams, opts ...ClientOption) (*GetLdapServerOK, error)
+	PostSecurityLdap(params *PostSecurityLdapParams, opts ...ClientOption) (*PostSecurityLdapCreated, error)
 
-	GetLdapServers(params *GetLdapServersParams, opts ...ClientOption) (*GetLdapServersOK, error)
+	PostSecurityLdapChangeOrder(params *PostSecurityLdapChangeOrderParams, opts ...ClientOption) (*PostSecurityLdapChangeOrderNoContent, error)
 
-	UpdateLdapServer(params *UpdateLdapServerParams, opts ...ClientOption) (*UpdateLdapServerNoContent, error)
+	PutSecurityLdapByName(params *PutSecurityLdapByNameParams, opts ...ClientOption) (*PutSecurityLdapByNameNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-ChangeOrder changes l d a p server order
+DeleteSecurityLdapByName deletes l d a p server
 */
-func (a *Client) ChangeOrder(params *ChangeOrderParams, opts ...ClientOption) (*ChangeOrderNoContent, error) {
+func (a *Client) DeleteSecurityLdapByName(params *DeleteSecurityLdapByNameParams, opts ...ClientOption) (*DeleteSecurityLdapByNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewChangeOrderParams()
+		params = NewDeleteSecurityLdapByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "changeOrder",
-		Method:             "POST",
-		PathPattern:        "/v1/security/ldap/change-order",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &ChangeOrderReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ChangeOrderNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for changeOrder: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateLdapServer creates l d a p server
-*/
-func (a *Client) CreateLdapServer(params *CreateLdapServerParams, opts ...ClientOption) (*CreateLdapServerCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateLdapServerParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createLdapServer",
-		Method:             "POST",
-		PathPattern:        "/v1/security/ldap",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateLdapServerReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateLdapServerCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createLdapServer: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DeleteLdapServer deletes l d a p server
-*/
-func (a *Client) DeleteLdapServer(params *DeleteLdapServerParams, opts ...ClientOption) (*DeleteLdapServerNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteLdapServerParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "deleteLdapServer",
+		ID:                 "DeleteSecurityLdapByName",
 		Method:             "DELETE",
 		PathPattern:        "/v1/security/ldap/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteLdapServerReader{formats: a.formats},
+		Reader:             &DeleteSecurityLdapByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -175,71 +99,33 @@ func (a *Client) DeleteLdapServer(params *DeleteLdapServerParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteLdapServerNoContent)
+	success, ok := result.(*DeleteSecurityLdapByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for deleteLdapServer: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteSecurityLdapByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetLdapServer gets l d a p server
+GetSecurityLdap lists l d a p servers
 */
-func (a *Client) GetLdapServer(params *GetLdapServerParams, opts ...ClientOption) (*GetLdapServerOK, error) {
+func (a *Client) GetSecurityLdap(params *GetSecurityLdapParams, opts ...ClientOption) (*GetSecurityLdapOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetLdapServerParams()
+		params = NewGetSecurityLdapParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getLdapServer",
-		Method:             "GET",
-		PathPattern:        "/v1/security/ldap/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetLdapServerReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetLdapServerOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getLdapServer: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetLdapServers lists l d a p servers
-*/
-func (a *Client) GetLdapServers(params *GetLdapServersParams, opts ...ClientOption) (*GetLdapServersOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetLdapServersParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getLdapServers",
+		ID:                 "GetSecurityLdap",
 		Method:             "GET",
 		PathPattern:        "/v1/security/ldap",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetLdapServersReader{formats: a.formats},
+		Reader:             &GetSecurityLdapReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -251,33 +137,147 @@ func (a *Client) GetLdapServers(params *GetLdapServersParams, opts ...ClientOpti
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetLdapServersOK)
+	success, ok := result.(*GetSecurityLdapOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getLdapServers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityLdap: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateLdapServer updates l d a p server
+GetSecurityLdapByName gets l d a p server
 */
-func (a *Client) UpdateLdapServer(params *UpdateLdapServerParams, opts ...ClientOption) (*UpdateLdapServerNoContent, error) {
+func (a *Client) GetSecurityLdapByName(params *GetSecurityLdapByNameParams, opts ...ClientOption) (*GetSecurityLdapByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateLdapServerParams()
+		params = NewGetSecurityLdapByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateLdapServer",
+		ID:                 "GetSecurityLdapByName",
+		Method:             "GET",
+		PathPattern:        "/v1/security/ldap/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetSecurityLdapByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSecurityLdapByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSecurityLdapByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostSecurityLdap creates l d a p server
+*/
+func (a *Client) PostSecurityLdap(params *PostSecurityLdapParams, opts ...ClientOption) (*PostSecurityLdapCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostSecurityLdapParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostSecurityLdap",
+		Method:             "POST",
+		PathPattern:        "/v1/security/ldap",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostSecurityLdapReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSecurityLdapCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSecurityLdap: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostSecurityLdapChangeOrder changes l d a p server order
+*/
+func (a *Client) PostSecurityLdapChangeOrder(params *PostSecurityLdapChangeOrderParams, opts ...ClientOption) (*PostSecurityLdapChangeOrderNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostSecurityLdapChangeOrderParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostSecurityLdapChangeOrder",
+		Method:             "POST",
+		PathPattern:        "/v1/security/ldap/change-order",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostSecurityLdapChangeOrderReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSecurityLdapChangeOrderNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSecurityLdapChangeOrder: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutSecurityLdapByName updates l d a p server
+*/
+func (a *Client) PutSecurityLdapByName(params *PutSecurityLdapByNameParams, opts ...ClientOption) (*PutSecurityLdapByNameNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutSecurityLdapByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutSecurityLdapByName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/ldap/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateLdapServerReader{formats: a.formats},
+		Reader:             &PutSecurityLdapByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -289,13 +289,13 @@ func (a *Client) UpdateLdapServer(params *UpdateLdapServerParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateLdapServerNoContent)
+	success, ok := result.(*PutSecurityLdapByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateLdapServer: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutSecurityLdapByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

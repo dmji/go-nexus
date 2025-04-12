@@ -56,74 +56,36 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateContentSelector(params *CreateContentSelectorParams, opts ...ClientOption) (*CreateContentSelectorNoContent, error)
+	DeleteSecurityContentSelectorsByName(params *DeleteSecurityContentSelectorsByNameParams, opts ...ClientOption) (*DeleteSecurityContentSelectorsByNameNoContent, error)
 
-	DeleteContentSelector(params *DeleteContentSelectorParams, opts ...ClientOption) (*DeleteContentSelectorNoContent, error)
+	GetSecurityContentSelectors(params *GetSecurityContentSelectorsParams, opts ...ClientOption) (*GetSecurityContentSelectorsOK, error)
 
-	GetContentSelector(params *GetContentSelectorParams, opts ...ClientOption) (*GetContentSelectorOK, error)
+	GetSecurityContentSelectorsByName(params *GetSecurityContentSelectorsByNameParams, opts ...ClientOption) (*GetSecurityContentSelectorsByNameOK, error)
 
-	GetContentSelectors(params *GetContentSelectorsParams, opts ...ClientOption) (*GetContentSelectorsOK, error)
+	PostSecurityContentSelectors(params *PostSecurityContentSelectorsParams, opts ...ClientOption) (*PostSecurityContentSelectorsNoContent, error)
 
-	UpdateContentSelector(params *UpdateContentSelectorParams, opts ...ClientOption) (*UpdateContentSelectorNoContent, error)
+	PutSecurityContentSelectorsByName(params *PutSecurityContentSelectorsByNameParams, opts ...ClientOption) (*PutSecurityContentSelectorsByNameNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CreateContentSelector creates a new content selector
+DeleteSecurityContentSelectorsByName deletes a content selector
 */
-func (a *Client) CreateContentSelector(params *CreateContentSelectorParams, opts ...ClientOption) (*CreateContentSelectorNoContent, error) {
+func (a *Client) DeleteSecurityContentSelectorsByName(params *DeleteSecurityContentSelectorsByNameParams, opts ...ClientOption) (*DeleteSecurityContentSelectorsByNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateContentSelectorParams()
+		params = NewDeleteSecurityContentSelectorsByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "createContentSelector",
-		Method:             "POST",
-		PathPattern:        "/v1/security/content-selectors",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateContentSelectorReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateContentSelectorNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createContentSelector: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DeleteContentSelector deletes a content selector
-*/
-func (a *Client) DeleteContentSelector(params *DeleteContentSelectorParams, opts ...ClientOption) (*DeleteContentSelectorNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteContentSelectorParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "deleteContentSelector",
+		ID:                 "DeleteSecurityContentSelectorsByName",
 		Method:             "DELETE",
 		PathPattern:        "/v1/security/content-selectors/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteContentSelectorReader{formats: a.formats},
+		Reader:             &DeleteSecurityContentSelectorsByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -135,71 +97,33 @@ func (a *Client) DeleteContentSelector(params *DeleteContentSelectorParams, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteContentSelectorNoContent)
+	success, ok := result.(*DeleteSecurityContentSelectorsByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for deleteContentSelector: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteSecurityContentSelectorsByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetContentSelector gets a content selector by name
+GetSecurityContentSelectors lists content selectors
 */
-func (a *Client) GetContentSelector(params *GetContentSelectorParams, opts ...ClientOption) (*GetContentSelectorOK, error) {
+func (a *Client) GetSecurityContentSelectors(params *GetSecurityContentSelectorsParams, opts ...ClientOption) (*GetSecurityContentSelectorsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetContentSelectorParams()
+		params = NewGetSecurityContentSelectorsParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getContentSelector",
-		Method:             "GET",
-		PathPattern:        "/v1/security/content-selectors/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetContentSelectorReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetContentSelectorOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getContentSelector: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetContentSelectors lists content selectors
-*/
-func (a *Client) GetContentSelectors(params *GetContentSelectorsParams, opts ...ClientOption) (*GetContentSelectorsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetContentSelectorsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getContentSelectors",
+		ID:                 "GetSecurityContentSelectors",
 		Method:             "GET",
 		PathPattern:        "/v1/security/content-selectors",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetContentSelectorsReader{formats: a.formats},
+		Reader:             &GetSecurityContentSelectorsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -211,33 +135,109 @@ func (a *Client) GetContentSelectors(params *GetContentSelectorsParams, opts ...
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetContentSelectorsOK)
+	success, ok := result.(*GetSecurityContentSelectorsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getContentSelectors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityContentSelectors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateContentSelector updates a content selector
+GetSecurityContentSelectorsByName gets a content selector by name
 */
-func (a *Client) UpdateContentSelector(params *UpdateContentSelectorParams, opts ...ClientOption) (*UpdateContentSelectorNoContent, error) {
+func (a *Client) GetSecurityContentSelectorsByName(params *GetSecurityContentSelectorsByNameParams, opts ...ClientOption) (*GetSecurityContentSelectorsByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateContentSelectorParams()
+		params = NewGetSecurityContentSelectorsByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateContentSelector",
+		ID:                 "GetSecurityContentSelectorsByName",
+		Method:             "GET",
+		PathPattern:        "/v1/security/content-selectors/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetSecurityContentSelectorsByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSecurityContentSelectorsByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSecurityContentSelectorsByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostSecurityContentSelectors creates a new content selector
+*/
+func (a *Client) PostSecurityContentSelectors(params *PostSecurityContentSelectorsParams, opts ...ClientOption) (*PostSecurityContentSelectorsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostSecurityContentSelectorsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostSecurityContentSelectors",
+		Method:             "POST",
+		PathPattern:        "/v1/security/content-selectors",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostSecurityContentSelectorsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSecurityContentSelectorsNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSecurityContentSelectors: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutSecurityContentSelectorsByName updates a content selector
+*/
+func (a *Client) PutSecurityContentSelectorsByName(params *PutSecurityContentSelectorsByNameParams, opts ...ClientOption) (*PutSecurityContentSelectorsByNameNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutSecurityContentSelectorsByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutSecurityContentSelectorsByName",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/content-selectors/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateContentSelectorReader{formats: a.formats},
+		Reader:             &PutSecurityContentSelectorsByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -249,13 +249,13 @@ func (a *Client) UpdateContentSelector(params *UpdateContentSelectorParams, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateContentSelectorNoContent)
+	success, ok := result.(*PutSecurityContentSelectorsByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateContentSelector: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutSecurityContentSelectorsByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

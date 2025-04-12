@@ -20,18 +20,14 @@ import (
 type HTTPClientConnectionAttributes struct {
 
 	// Whether to enable redirects to the same location (may be required by some servers)
-	// Example: false
 	EnableCircularRedirects bool `json:"enableCircularRedirects,omitempty"`
 
 	// Whether to allow cookies to be stored and used
-	// Example: false
 	EnableCookies bool `json:"enableCookies,omitempty"`
 
 	// Total retries if the initial connection attempt suffers a timeout
-	// Example: 0
 	// Maximum: 10
-	// Minimum: 0
-	Retries *int32 `json:"retries,omitempty"`
+	Retries int32 `json:"retries,omitempty"`
 
 	// Seconds to wait for activity before stopping and retrying the connection
 	// Example: 60
@@ -40,7 +36,6 @@ type HTTPClientConnectionAttributes struct {
 	Timeout int32 `json:"timeout,omitempty"`
 
 	// Use certificates stored in the Nexus Repository Manager truststore to connect to external systems
-	// Example: false
 	UseTrustStore bool `json:"useTrustStore,omitempty"`
 
 	// Custom fragment to append to User-Agent header in HTTP requests
@@ -70,11 +65,7 @@ func (m *HTTPClientConnectionAttributes) validateRetries(formats strfmt.Registry
 		return nil
 	}
 
-	if err := validate.MinimumInt("retries", "body", int64(*m.Retries), 0, false); err != nil {
-		return err
-	}
-
-	if err := validate.MaximumInt("retries", "body", int64(*m.Retries), 10, false); err != nil {
+	if err := validate.MaximumInt("retries", "body", int64(m.Retries), 10, false); err != nil {
 		return err
 	}
 

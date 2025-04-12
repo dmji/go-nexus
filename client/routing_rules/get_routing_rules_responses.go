@@ -37,7 +37,7 @@ func (o *GetRoutingRulesReader) ReadResponse(response runtime.ClientResponse, co
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /v1/routing-rules] getRoutingRules", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /v1/routing-rules] GetRoutingRules", response, response.Code())
 	}
 }
 

@@ -56,53 +56,15 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetTaskByID(params *GetTaskByIDParams, opts ...ClientOption) (*GetTaskByIDOK, error)
-
 	GetTasks(params *GetTasksParams, opts ...ClientOption) (*GetTasksOK, error)
 
-	Run(params *RunParams, opts ...ClientOption) (*RunNoContent, error)
+	GetTasksByID(params *GetTasksByIDParams, opts ...ClientOption) (*GetTasksByIDOK, error)
 
-	Stop(params *StopParams, opts ...ClientOption) (*StopNoContent, error)
+	PostTasksByIDRun(params *PostTasksByIDRunParams, opts ...ClientOption) (*PostTasksByIDRunNoContent, error)
+
+	PostTasksByIDStop(params *PostTasksByIDStopParams, opts ...ClientOption) (*PostTasksByIDStopNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
-}
-
-/*
-GetTaskByID gets a single task by id
-*/
-func (a *Client) GetTaskByID(params *GetTaskByIDParams, opts ...ClientOption) (*GetTaskByIDOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetTaskByIDParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getTaskById",
-		Method:             "GET",
-		PathPattern:        "/v1/tasks/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetTaskByIDReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetTaskByIDOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getTaskById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 /*
@@ -114,7 +76,7 @@ func (a *Client) GetTasks(params *GetTasksParams, opts ...ClientOption) (*GetTas
 		params = NewGetTasksParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getTasks",
+		ID:                 "GetTasks",
 		Method:             "GET",
 		PathPattern:        "/v1/tasks",
 		ProducesMediaTypes: []string{"application/json"},
@@ -139,27 +101,65 @@ func (a *Client) GetTasks(params *GetTasksParams, opts ...ClientOption) (*GetTas
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTasks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Run runs task
+GetTasksByID gets a single task by id
 */
-func (a *Client) Run(params *RunParams, opts ...ClientOption) (*RunNoContent, error) {
+func (a *Client) GetTasksByID(params *GetTasksByIDParams, opts ...ClientOption) (*GetTasksByIDOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewRunParams()
+		params = NewGetTasksByIDParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "run",
+		ID:                 "GetTasksById",
+		Method:             "GET",
+		PathPattern:        "/v1/tasks/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetTasksByIDReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetTasksByIDOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetTasksById: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostTasksByIDRun runs task
+*/
+func (a *Client) PostTasksByIDRun(params *PostTasksByIDRunParams, opts ...ClientOption) (*PostTasksByIDRunNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostTasksByIDRunParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostTasksByIdRun",
 		Method:             "POST",
 		PathPattern:        "/v1/tasks/{id}/run",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &RunReader{formats: a.formats},
+		Reader:             &PostTasksByIDRunReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -171,33 +171,33 @@ func (a *Client) Run(params *RunParams, opts ...ClientOption) (*RunNoContent, er
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*RunNoContent)
+	success, ok := result.(*PostTasksByIDRunNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for run: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostTasksByIdRun: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Stop stops task
+PostTasksByIDStop stops task
 */
-func (a *Client) Stop(params *StopParams, opts ...ClientOption) (*StopNoContent, error) {
+func (a *Client) PostTasksByIDStop(params *PostTasksByIDStopParams, opts ...ClientOption) (*PostTasksByIDStopNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewStopParams()
+		params = NewPostTasksByIDStopParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "stop",
+		ID:                 "PostTasksByIdStop",
 		Method:             "POST",
 		PathPattern:        "/v1/tasks/{id}/stop",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &StopReader{formats: a.formats},
+		Reader:             &PostTasksByIDStopReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -209,13 +209,13 @@ func (a *Client) Stop(params *StopParams, opts ...ClientOption) (*StopNoContent,
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*StopNoContent)
+	success, ok := result.(*PostTasksByIDStopNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for stop: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostTasksByIdStop: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

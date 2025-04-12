@@ -80,30 +80,30 @@ func WithAcceptApplicationOctetStream(r *runtime.ClientOperation) {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Supportzip(params *SupportzipParams, opts ...ClientOption) (*SupportzipOK, error)
+	PostSupportSupportzip(params *PostSupportSupportzipParams, opts ...ClientOption) (*PostSupportSupportzipOK, error)
 
-	Supportzippath(params *SupportzippathParams, opts ...ClientOption) (*SupportzippathOK, error)
+	PostSupportSupportzippath(params *PostSupportSupportzippathParams, opts ...ClientOption) (*PostSupportSupportzippathOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Supportzip creates and downloads a support zip
+PostSupportSupportzip creates and downloads a support zip
 */
-func (a *Client) Supportzip(params *SupportzipParams, opts ...ClientOption) (*SupportzipOK, error) {
+func (a *Client) PostSupportSupportzip(params *PostSupportSupportzipParams, opts ...ClientOption) (*PostSupportSupportzipOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSupportzipParams()
+		params = NewPostSupportSupportzipParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "supportzip",
+		ID:                 "PostSupportSupportzip",
 		Method:             "POST",
 		PathPattern:        "/v1/support/supportzip",
 		ProducesMediaTypes: []string{"application/octet-stream"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SupportzipReader{formats: a.formats},
+		Reader:             &PostSupportSupportzipReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -115,33 +115,33 @@ func (a *Client) Supportzip(params *SupportzipParams, opts ...ClientOption) (*Su
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SupportzipOK)
+	success, ok := result.(*PostSupportSupportzipOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for supportzip: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostSupportSupportzip: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Supportzippath creates a support zip and returns the path
+PostSupportSupportzippath creates a support zip and returns the path
 */
-func (a *Client) Supportzippath(params *SupportzippathParams, opts ...ClientOption) (*SupportzippathOK, error) {
+func (a *Client) PostSupportSupportzippath(params *PostSupportSupportzippathParams, opts ...ClientOption) (*PostSupportSupportzippathOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSupportzippathParams()
+		params = NewPostSupportSupportzippathParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "supportzippath",
+		ID:                 "PostSupportSupportzippath",
 		Method:             "POST",
 		PathPattern:        "/v1/support/supportzippath",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SupportzippathReader{formats: a.formats},
+		Reader:             &PostSupportSupportzippathReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -153,13 +153,13 @@ func (a *Client) Supportzippath(params *SupportzippathParams, opts ...ClientOpti
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SupportzippathOK)
+	success, ok := result.(*PostSupportSupportzippathOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for supportzippath: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostSupportSupportzippath: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

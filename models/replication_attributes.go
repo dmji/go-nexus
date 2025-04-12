@@ -23,7 +23,6 @@ type ReplicationAttributes struct {
 	AssetPathRegex string `json:"assetPathRegex,omitempty"`
 
 	// Whether pre-emptive pull is enabled
-	// Example: false
 	// Required: true
 	PreemptivePullEnabled *bool `json:"preemptivePullEnabled"`
 }

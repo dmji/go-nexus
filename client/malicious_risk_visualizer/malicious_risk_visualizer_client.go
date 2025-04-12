@@ -70,7 +70,7 @@ func (a *Client) GetMaliciousRiskSummary(params *GetMaliciousRiskSummaryParams, 
 		params = NewGetMaliciousRiskSummaryParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getMaliciousRiskSummary",
+		ID:                 "GetMaliciousRiskSummary",
 		Method:             "GET",
 		PathPattern:        "/v1/malicious-risk/summary",
 		ProducesMediaTypes: []string{"application/json"},
@@ -95,7 +95,7 @@ func (a *Client) GetMaliciousRiskSummary(params *GetMaliciousRiskSummaryParams, 
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getMaliciousRiskSummary: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetMaliciousRiskSummary: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

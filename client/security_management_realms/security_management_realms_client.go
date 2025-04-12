@@ -56,32 +56,32 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetActiveRealms(params *GetActiveRealmsParams, opts ...ClientOption) (*GetActiveRealmsOK, error)
+	GetSecurityRealmsActive(params *GetSecurityRealmsActiveParams, opts ...ClientOption) (*GetSecurityRealmsActiveOK, error)
 
-	GetRealms(params *GetRealmsParams, opts ...ClientOption) (*GetRealmsOK, error)
+	GetSecurityRealmsAvailable(params *GetSecurityRealmsAvailableParams, opts ...ClientOption) (*GetSecurityRealmsAvailableOK, error)
 
-	SetActiveRealms(params *SetActiveRealmsParams, opts ...ClientOption) error
+	PutSecurityRealmsActive(params *PutSecurityRealmsActiveParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetActiveRealms lists the active realm i ds in order
+GetSecurityRealmsActive lists the active realm i ds in order
 */
-func (a *Client) GetActiveRealms(params *GetActiveRealmsParams, opts ...ClientOption) (*GetActiveRealmsOK, error) {
+func (a *Client) GetSecurityRealmsActive(params *GetSecurityRealmsActiveParams, opts ...ClientOption) (*GetSecurityRealmsActiveOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetActiveRealmsParams()
+		params = NewGetSecurityRealmsActiveParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getActiveRealms",
+		ID:                 "GetSecurityRealmsActive",
 		Method:             "GET",
 		PathPattern:        "/v1/security/realms/active",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetActiveRealmsReader{formats: a.formats},
+		Reader:             &GetSecurityRealmsActiveReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -93,33 +93,33 @@ func (a *Client) GetActiveRealms(params *GetActiveRealmsParams, opts ...ClientOp
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetActiveRealmsOK)
+	success, ok := result.(*GetSecurityRealmsActiveOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getActiveRealms: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityRealmsActive: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetRealms lists the available realms
+GetSecurityRealmsAvailable lists the available realms
 */
-func (a *Client) GetRealms(params *GetRealmsParams, opts ...ClientOption) (*GetRealmsOK, error) {
+func (a *Client) GetSecurityRealmsAvailable(params *GetSecurityRealmsAvailableParams, opts ...ClientOption) (*GetSecurityRealmsAvailableOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetRealmsParams()
+		params = NewGetSecurityRealmsAvailableParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getRealms",
+		ID:                 "GetSecurityRealmsAvailable",
 		Method:             "GET",
 		PathPattern:        "/v1/security/realms/available",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetRealmsReader{formats: a.formats},
+		Reader:             &GetSecurityRealmsAvailableReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -131,33 +131,33 @@ func (a *Client) GetRealms(params *GetRealmsParams, opts ...ClientOption) (*GetR
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetRealmsOK)
+	success, ok := result.(*GetSecurityRealmsAvailableOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getRealms: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityRealmsAvailable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-SetActiveRealms sets the active security realms in the order they should be used
+PutSecurityRealmsActive sets the active security realms in the order they should be used
 */
-func (a *Client) SetActiveRealms(params *SetActiveRealmsParams, opts ...ClientOption) error {
+func (a *Client) PutSecurityRealmsActive(params *PutSecurityRealmsActiveParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSetActiveRealmsParams()
+		params = NewPutSecurityRealmsActiveParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "setActiveRealms",
+		ID:                 "PutSecurityRealmsActive",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/realms/active",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SetActiveRealmsReader{formats: a.formats},
+		Reader:             &PutSecurityRealmsActiveReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

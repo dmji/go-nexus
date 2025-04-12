@@ -56,30 +56,30 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Read(params *ReadParams, opts ...ClientOption) (*ReadOK, error)
+	GetSecurityAnonymous(params *GetSecurityAnonymousParams, opts ...ClientOption) (*GetSecurityAnonymousOK, error)
 
-	Update(params *UpdateParams, opts ...ClientOption) (*UpdateOK, error)
+	PutSecurityAnonymous(params *PutSecurityAnonymousParams, opts ...ClientOption) (*PutSecurityAnonymousOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Read gets anonymous access settings
+GetSecurityAnonymous gets anonymous access settings
 */
-func (a *Client) Read(params *ReadParams, opts ...ClientOption) (*ReadOK, error) {
+func (a *Client) GetSecurityAnonymous(params *GetSecurityAnonymousParams, opts ...ClientOption) (*GetSecurityAnonymousOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewReadParams()
+		params = NewGetSecurityAnonymousParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "read",
+		ID:                 "GetSecurityAnonymous",
 		Method:             "GET",
 		PathPattern:        "/v1/security/anonymous",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ReadReader{formats: a.formats},
+		Reader:             &GetSecurityAnonymousReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -91,33 +91,33 @@ func (a *Client) Read(params *ReadParams, opts ...ClientOption) (*ReadOK, error)
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ReadOK)
+	success, ok := result.(*GetSecurityAnonymousOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for read: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityAnonymous: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-Update updates anonymous access settings
+PutSecurityAnonymous updates anonymous access settings
 */
-func (a *Client) Update(params *UpdateParams, opts ...ClientOption) (*UpdateOK, error) {
+func (a *Client) PutSecurityAnonymous(params *PutSecurityAnonymousParams, opts ...ClientOption) (*PutSecurityAnonymousOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateParams()
+		params = NewPutSecurityAnonymousParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "update",
+		ID:                 "PutSecurityAnonymous",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/anonymous",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateReader{formats: a.formats},
+		Reader:             &PutSecurityAnonymousReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -129,13 +129,13 @@ func (a *Client) Update(params *UpdateParams, opts ...ClientOption) (*UpdateOK, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateOK)
+	success, ok := result.(*PutSecurityAnonymousOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for update: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutSecurityAnonymous: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

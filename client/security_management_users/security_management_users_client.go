@@ -80,105 +80,36 @@ func WithContentTypeTextPlain(r *runtime.ClientOperation) {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ChangePassword(params *ChangePasswordParams, opts ...ClientOption) error
+	DeleteSecurityUsersByUserid(params *DeleteSecurityUsersByUseridParams, opts ...ClientOption) error
 
-	CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserOK, error)
+	GetSecurityUsers(params *GetSecurityUsersParams, opts ...ClientOption) (*GetSecurityUsersOK, error)
 
-	DeleteUser(params *DeleteUserParams, opts ...ClientOption) error
+	PostSecurityUsers(params *PostSecurityUsersParams, opts ...ClientOption) (*PostSecurityUsersOK, error)
 
-	GetUsers(params *GetUsersParams, opts ...ClientOption) (*GetUsersOK, error)
+	PutSecurityUsersByUserid(params *PutSecurityUsersByUseridParams, opts ...ClientOption) error
 
-	UpdateUser(params *UpdateUserParams, opts ...ClientOption) error
+	PutSecurityUsersByUseridChangePassword(params *PutSecurityUsersByUseridChangePasswordParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-ChangePassword changes a user s password
+DeleteSecurityUsersByUserid deletes a user
 */
-func (a *Client) ChangePassword(params *ChangePasswordParams, opts ...ClientOption) error {
+func (a *Client) DeleteSecurityUsersByUserid(params *DeleteSecurityUsersByUseridParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewChangePasswordParams()
+		params = NewDeleteSecurityUsersByUseridParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "changePassword",
-		Method:             "PUT",
-		PathPattern:        "/v1/security/users/{userId}/change-password",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"text/plain"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &ChangePasswordReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	_, err := a.transport.Submit(op)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-/*
-CreateUser creates a new user in the default source
-*/
-func (a *Client) CreateUser(params *CreateUserParams, opts ...ClientOption) (*CreateUserOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateUserParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createUser",
-		Method:             "POST",
-		PathPattern:        "/v1/security/users",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateUserReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateUserOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createUser: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DeleteUser deletes a user
-*/
-func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) error {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteUserParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "deleteUser",
+		ID:                 "DeleteSecurityUsersByUserid",
 		Method:             "DELETE",
 		PathPattern:        "/v1/security/users/{userId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteUserReader{formats: a.formats},
+		Reader:             &DeleteSecurityUsersByUseridReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -194,22 +125,22 @@ func (a *Client) DeleteUser(params *DeleteUserParams, opts ...ClientOption) erro
 }
 
 /*
-GetUsers retrieves a list of users
+GetSecurityUsers retrieves a list of users
 */
-func (a *Client) GetUsers(params *GetUsersParams, opts ...ClientOption) (*GetUsersOK, error) {
+func (a *Client) GetSecurityUsers(params *GetSecurityUsersParams, opts ...ClientOption) (*GetSecurityUsersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetUsersParams()
+		params = NewGetSecurityUsersParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getUsers",
+		ID:                 "GetSecurityUsers",
 		Method:             "GET",
 		PathPattern:        "/v1/security/users",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetUsersReader{formats: a.formats},
+		Reader:             &GetSecurityUsersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -221,33 +152,102 @@ func (a *Client) GetUsers(params *GetUsersParams, opts ...ClientOption) (*GetUse
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetUsersOK)
+	success, ok := result.(*GetSecurityUsersOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getUsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityUsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateUser updates an existing user
+PostSecurityUsers creates a new user in the default source
 */
-func (a *Client) UpdateUser(params *UpdateUserParams, opts ...ClientOption) error {
+func (a *Client) PostSecurityUsers(params *PostSecurityUsersParams, opts ...ClientOption) (*PostSecurityUsersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateUserParams()
+		params = NewPostSecurityUsersParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateUser",
+		ID:                 "PostSecurityUsers",
+		Method:             "POST",
+		PathPattern:        "/v1/security/users",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostSecurityUsersReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSecurityUsersOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSecurityUsers: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutSecurityUsersByUserid updates an existing user
+*/
+func (a *Client) PutSecurityUsersByUserid(params *PutSecurityUsersByUseridParams, opts ...ClientOption) error {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutSecurityUsersByUseridParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutSecurityUsersByUserid",
 		Method:             "PUT",
 		PathPattern:        "/v1/security/users/{userId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateUserReader{formats: a.formats},
+		Reader:             &PutSecurityUsersByUseridReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	_, err := a.transport.Submit(op)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+/*
+PutSecurityUsersByUseridChangePassword changes a user s password
+*/
+func (a *Client) PutSecurityUsersByUseridChangePassword(params *PutSecurityUsersByUseridChangePasswordParams, opts ...ClientOption) error {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutSecurityUsersByUseridChangePasswordParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutSecurityUsersByUseridChangePassword",
+		Method:             "PUT",
+		PathPattern:        "/v1/security/users/{userId}/change-password",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"text/plain"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PutSecurityUsersByUseridChangePasswordReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

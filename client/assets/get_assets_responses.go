@@ -43,7 +43,7 @@ func (o *GetAssetsReader) ReadResponse(response runtime.ClientResponse, consumer
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /v1/assets] getAssets", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /v1/assets] GetAssets", response, response.Code())
 	}
 }
 

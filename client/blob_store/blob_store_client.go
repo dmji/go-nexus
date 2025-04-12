@@ -56,294 +56,66 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	ConvertBlobStoreToGroup(params *ConvertBlobStoreToGroupParams, opts ...ClientOption) (*ConvertBlobStoreToGroupOK, error)
+	DeleteBlobstoresByName(params *DeleteBlobstoresByNameParams, opts ...ClientOption) error
 
-	CreateBlobStore(params *CreateBlobStoreParams, opts ...ClientOption) (*CreateBlobStoreCreated, error)
+	GetBlobstores(params *GetBlobstoresParams, opts ...ClientOption) (*GetBlobstoresOK, error)
 
-	CreateBlobStore1(params *CreateBlobStore1Params, opts ...ClientOption) (*CreateBlobStore1Created, error)
+	GetBlobstoresAzureByName(params *GetBlobstoresAzureByNameParams, opts ...ClientOption) (*GetBlobstoresAzureByNameOK, error)
 
-	CreateBlobStore2(params *CreateBlobStore2Params, opts ...ClientOption) (*CreateBlobStore2Created, error)
+	GetBlobstoresByNameQuotaStatus(params *GetBlobstoresByNameQuotaStatusParams, opts ...ClientOption) (*GetBlobstoresByNameQuotaStatusOK, error)
 
-	CreateFileBlobStore(params *CreateFileBlobStoreParams, opts ...ClientOption) (*CreateFileBlobStoreNoContent, error)
+	GetBlobstoresFileByName(params *GetBlobstoresFileByNameParams, opts ...ClientOption) (*GetBlobstoresFileByNameOK, error)
 
-	CreateGroupBlobStore(params *CreateGroupBlobStoreParams, opts ...ClientOption) (*CreateGroupBlobStoreNoContent, error)
+	GetBlobstoresGoogleByName(params *GetBlobstoresGoogleByNameParams, opts ...ClientOption) (*GetBlobstoresGoogleByNameOK, error)
 
-	DeleteBlobStore(params *DeleteBlobStoreParams, opts ...ClientOption) error
+	GetBlobstoresGoogleRegionsByProjectid(params *GetBlobstoresGoogleRegionsByProjectidParams, opts ...ClientOption) (*GetBlobstoresGoogleRegionsByProjectidOK, error)
 
-	GetBlobStore(params *GetBlobStoreParams, opts ...ClientOption) (*GetBlobStoreOK, error)
+	GetBlobstoresGroupByName(params *GetBlobstoresGroupByNameParams, opts ...ClientOption) (*GetBlobstoresGroupByNameOK, error)
 
-	GetBlobStore1(params *GetBlobStore1Params, opts ...ClientOption) (*GetBlobStore1OK, error)
+	GetBlobstoresS3ByName(params *GetBlobstoresS3ByNameParams, opts ...ClientOption) (*GetBlobstoresS3ByNameOK, error)
 
-	GetBlobStore2(params *GetBlobStore2Params, opts ...ClientOption) (*GetBlobStore2OK, error)
+	PostBlobstoresAzure(params *PostBlobstoresAzureParams, opts ...ClientOption) (*PostBlobstoresAzureCreated, error)
 
-	GetFileBlobStoreConfiguration(params *GetFileBlobStoreConfigurationParams, opts ...ClientOption) (*GetFileBlobStoreConfigurationOK, error)
+	PostBlobstoresFile(params *PostBlobstoresFileParams, opts ...ClientOption) (*PostBlobstoresFileNoContent, error)
 
-	GetGroupBlobStoreConfiguration(params *GetGroupBlobStoreConfigurationParams, opts ...ClientOption) (*GetGroupBlobStoreConfigurationOK, error)
+	PostBlobstoresGoogle(params *PostBlobstoresGoogleParams, opts ...ClientOption) (*PostBlobstoresGoogleCreated, error)
 
-	GetRegionsByProjectID(params *GetRegionsByProjectIDParams, opts ...ClientOption) (*GetRegionsByProjectIDOK, error)
+	PostBlobstoresGroup(params *PostBlobstoresGroupParams, opts ...ClientOption) (*PostBlobstoresGroupNoContent, error)
 
-	ListBlobStores(params *ListBlobStoresParams, opts ...ClientOption) (*ListBlobStoresOK, error)
+	PostBlobstoresGroupConvertByNameByNewnamefororiginal(params *PostBlobstoresGroupConvertByNameByNewnamefororiginalParams, opts ...ClientOption) (*PostBlobstoresGroupConvertByNameByNewnamefororiginalOK, error)
 
-	QuotaStatus(params *QuotaStatusParams, opts ...ClientOption) (*QuotaStatusOK, error)
+	PostBlobstoresS3(params *PostBlobstoresS3Params, opts ...ClientOption) (*PostBlobstoresS3Created, error)
 
-	UpdateBlobStore(params *UpdateBlobStoreParams, opts ...ClientOption) (*UpdateBlobStoreNoContent, error)
+	PutBlobstoresAzureByName(params *PutBlobstoresAzureByNameParams, opts ...ClientOption) (*PutBlobstoresAzureByNameNoContent, error)
 
-	UpdateBlobStore1(params *UpdateBlobStore1Params, opts ...ClientOption) (*UpdateBlobStore1NoContent, error)
+	PutBlobstoresFileByName(params *PutBlobstoresFileByNameParams, opts ...ClientOption) (*PutBlobstoresFileByNameNoContent, error)
 
-	UpdateBlobStore2(params *UpdateBlobStore2Params, opts ...ClientOption) (*UpdateBlobStore2NoContent, error)
+	PutBlobstoresGoogleByName(params *PutBlobstoresGoogleByNameParams, opts ...ClientOption) (*PutBlobstoresGoogleByNameNoContent, error)
 
-	UpdateFileBlobStore(params *UpdateFileBlobStoreParams, opts ...ClientOption) (*UpdateFileBlobStoreNoContent, error)
+	PutBlobstoresGroupByName(params *PutBlobstoresGroupByNameParams, opts ...ClientOption) (*PutBlobstoresGroupByNameNoContent, error)
 
-	UpdateGroupBlobStore(params *UpdateGroupBlobStoreParams, opts ...ClientOption) (*UpdateGroupBlobStoreNoContent, error)
+	PutBlobstoresS3ByName(params *PutBlobstoresS3ByNameParams, opts ...ClientOption) (*PutBlobstoresS3ByNameNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-ConvertBlobStoreToGroup converts a blob store to a group blob store
+DeleteBlobstoresByName deletes a blob store by name
 */
-func (a *Client) ConvertBlobStoreToGroup(params *ConvertBlobStoreToGroupParams, opts ...ClientOption) (*ConvertBlobStoreToGroupOK, error) {
+func (a *Client) DeleteBlobstoresByName(params *DeleteBlobstoresByNameParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewConvertBlobStoreToGroupParams()
+		params = NewDeleteBlobstoresByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "convertBlobStoreToGroup",
-		Method:             "POST",
-		PathPattern:        "/v1/blobstores/group/convert/{name}/{newNameForOriginal}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &ConvertBlobStoreToGroupReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*ConvertBlobStoreToGroupOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for convertBlobStoreToGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateBlobStore creates an s3 blob store
-*/
-func (a *Client) CreateBlobStore(params *CreateBlobStoreParams, opts ...ClientOption) (*CreateBlobStoreCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateBlobStoreParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createBlobStore",
-		Method:             "POST",
-		PathPattern:        "/v1/blobstores/s3",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateBlobStoreReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateBlobStoreCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateBlobStore1 creates an azure blob store
-*/
-func (a *Client) CreateBlobStore1(params *CreateBlobStore1Params, opts ...ClientOption) (*CreateBlobStore1Created, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateBlobStore1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createBlobStore_1",
-		Method:             "POST",
-		PathPattern:        "/v1/blobstores/azure",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateBlobStore1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateBlobStore1Created)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createBlobStore_1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateBlobStore2 creates a google cloud blob store
-*/
-func (a *Client) CreateBlobStore2(params *CreateBlobStore2Params, opts ...ClientOption) (*CreateBlobStore2Created, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateBlobStore2Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createBlobStore_2",
-		Method:             "POST",
-		PathPattern:        "/v1/blobstores/google",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateBlobStore2Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateBlobStore2Created)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createBlobStore_2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateFileBlobStore creates a file blob store
-*/
-func (a *Client) CreateFileBlobStore(params *CreateFileBlobStoreParams, opts ...ClientOption) (*CreateFileBlobStoreNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateFileBlobStoreParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createFileBlobStore",
-		Method:             "POST",
-		PathPattern:        "/v1/blobstores/file",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateFileBlobStoreReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateFileBlobStoreNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createFileBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-CreateGroupBlobStore creates a group blob store
-*/
-func (a *Client) CreateGroupBlobStore(params *CreateGroupBlobStoreParams, opts ...ClientOption) (*CreateGroupBlobStoreNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCreateGroupBlobStoreParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "createGroupBlobStore",
-		Method:             "POST",
-		PathPattern:        "/v1/blobstores/group",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateGroupBlobStoreReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateGroupBlobStoreNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createGroupBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DeleteBlobStore deletes a blob store by name
-*/
-func (a *Client) DeleteBlobStore(params *DeleteBlobStoreParams, opts ...ClientOption) error {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteBlobStoreParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "deleteBlobStore",
+		ID:                 "DeleteBlobstoresByName",
 		Method:             "DELETE",
 		PathPattern:        "/v1/blobstores/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteBlobStoreReader{formats: a.formats},
+		Reader:             &DeleteBlobstoresByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -359,250 +131,22 @@ func (a *Client) DeleteBlobStore(params *DeleteBlobStoreParams, opts ...ClientOp
 }
 
 /*
-GetBlobStore gets a s3 blob store configuration by name
+GetBlobstores lists the blob stores
 */
-func (a *Client) GetBlobStore(params *GetBlobStoreParams, opts ...ClientOption) (*GetBlobStoreOK, error) {
+func (a *Client) GetBlobstores(params *GetBlobstoresParams, opts ...ClientOption) (*GetBlobstoresOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetBlobStoreParams()
+		params = NewGetBlobstoresParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getBlobStore",
-		Method:             "GET",
-		PathPattern:        "/v1/blobstores/s3/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetBlobStoreReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetBlobStoreOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetBlobStore1 gets an azure blob store configuration by name
-*/
-func (a *Client) GetBlobStore1(params *GetBlobStore1Params, opts ...ClientOption) (*GetBlobStore1OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetBlobStore1Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getBlobStore_1",
-		Method:             "GET",
-		PathPattern:        "/v1/blobstores/azure/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetBlobStore1Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetBlobStore1OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getBlobStore_1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetBlobStore2 gets the configuration for a google cloud blob store
-*/
-func (a *Client) GetBlobStore2(params *GetBlobStore2Params, opts ...ClientOption) (*GetBlobStore2OK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetBlobStore2Params()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getBlobStore_2",
-		Method:             "GET",
-		PathPattern:        "/v1/blobstores/google/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetBlobStore2Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetBlobStore2OK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getBlobStore_2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetFileBlobStoreConfiguration gets a file blob store configuration by name
-*/
-func (a *Client) GetFileBlobStoreConfiguration(params *GetFileBlobStoreConfigurationParams, opts ...ClientOption) (*GetFileBlobStoreConfigurationOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetFileBlobStoreConfigurationParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getFileBlobStoreConfiguration",
-		Method:             "GET",
-		PathPattern:        "/v1/blobstores/file/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetFileBlobStoreConfigurationReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetFileBlobStoreConfigurationOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getFileBlobStoreConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetGroupBlobStoreConfiguration gets a group blob store configuration by name
-*/
-func (a *Client) GetGroupBlobStoreConfiguration(params *GetGroupBlobStoreConfigurationParams, opts ...ClientOption) (*GetGroupBlobStoreConfigurationOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetGroupBlobStoreConfigurationParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getGroupBlobStoreConfiguration",
-		Method:             "GET",
-		PathPattern:        "/v1/blobstores/group/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetGroupBlobStoreConfigurationReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetGroupBlobStoreConfigurationOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getGroupBlobStoreConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetRegionsByProjectID gets the project regions by project s id
-*/
-func (a *Client) GetRegionsByProjectID(params *GetRegionsByProjectIDParams, opts ...ClientOption) (*GetRegionsByProjectIDOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetRegionsByProjectIDParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getRegionsByProjectId",
-		Method:             "GET",
-		PathPattern:        "/v1/blobstores/google/regions/{projectId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetRegionsByProjectIDReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetRegionsByProjectIDOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getRegionsByProjectId: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-ListBlobStores lists the blob stores
-*/
-func (a *Client) ListBlobStores(params *ListBlobStoresParams, opts ...ClientOption) (*ListBlobStoresOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewListBlobStoresParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "listBlobStores",
+		ID:                 "GetBlobstores",
 		Method:             "GET",
 		PathPattern:        "/v1/blobstores",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ListBlobStoresReader{formats: a.formats},
+		Reader:             &GetBlobstoresReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -614,33 +158,71 @@ func (a *Client) ListBlobStores(params *ListBlobStoresParams, opts ...ClientOpti
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ListBlobStoresOK)
+	success, ok := result.(*GetBlobstoresOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for listBlobStores: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetBlobstores: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-QuotaStatus gets quota status for a given blob store
+GetBlobstoresAzureByName gets an azure blob store configuration by name
 */
-func (a *Client) QuotaStatus(params *QuotaStatusParams, opts ...ClientOption) (*QuotaStatusOK, error) {
+func (a *Client) GetBlobstoresAzureByName(params *GetBlobstoresAzureByNameParams, opts ...ClientOption) (*GetBlobstoresAzureByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewQuotaStatusParams()
+		params = NewGetBlobstoresAzureByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "quotaStatus",
+		ID:                 "GetBlobstoresAzureByName",
+		Method:             "GET",
+		PathPattern:        "/v1/blobstores/azure/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetBlobstoresAzureByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetBlobstoresAzureByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresAzureByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetBlobstoresByNameQuotaStatus gets quota status for a given blob store
+*/
+func (a *Client) GetBlobstoresByNameQuotaStatus(params *GetBlobstoresByNameQuotaStatusParams, opts ...ClientOption) (*GetBlobstoresByNameQuotaStatusOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetBlobstoresByNameQuotaStatusParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetBlobstoresByNameQuotaStatus",
 		Method:             "GET",
 		PathPattern:        "/v1/blobstores/{name}/quota-status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &QuotaStatusReader{formats: a.formats},
+		Reader:             &GetBlobstoresByNameQuotaStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -652,33 +234,185 @@ func (a *Client) QuotaStatus(params *QuotaStatusParams, opts ...ClientOption) (*
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*QuotaStatusOK)
+	success, ok := result.(*GetBlobstoresByNameQuotaStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for quotaStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresByNameQuotaStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateBlobStore updates an s3 blob store configuration by name
+GetBlobstoresFileByName gets a file blob store configuration by name
 */
-func (a *Client) UpdateBlobStore(params *UpdateBlobStoreParams, opts ...ClientOption) (*UpdateBlobStoreNoContent, error) {
+func (a *Client) GetBlobstoresFileByName(params *GetBlobstoresFileByNameParams, opts ...ClientOption) (*GetBlobstoresFileByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateBlobStoreParams()
+		params = NewGetBlobstoresFileByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateBlobStore",
-		Method:             "PUT",
+		ID:                 "GetBlobstoresFileByName",
+		Method:             "GET",
+		PathPattern:        "/v1/blobstores/file/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetBlobstoresFileByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetBlobstoresFileByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresFileByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetBlobstoresGoogleByName gets the configuration for a google cloud blob store
+*/
+func (a *Client) GetBlobstoresGoogleByName(params *GetBlobstoresGoogleByNameParams, opts ...ClientOption) (*GetBlobstoresGoogleByNameOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetBlobstoresGoogleByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetBlobstoresGoogleByName",
+		Method:             "GET",
+		PathPattern:        "/v1/blobstores/google/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetBlobstoresGoogleByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetBlobstoresGoogleByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresGoogleByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetBlobstoresGoogleRegionsByProjectid gets the project regions by project s id
+*/
+func (a *Client) GetBlobstoresGoogleRegionsByProjectid(params *GetBlobstoresGoogleRegionsByProjectidParams, opts ...ClientOption) (*GetBlobstoresGoogleRegionsByProjectidOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetBlobstoresGoogleRegionsByProjectidParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetBlobstoresGoogleRegionsByProjectid",
+		Method:             "GET",
+		PathPattern:        "/v1/blobstores/google/regions/{projectId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetBlobstoresGoogleRegionsByProjectidReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetBlobstoresGoogleRegionsByProjectidOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresGoogleRegionsByProjectid: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetBlobstoresGroupByName gets a group blob store configuration by name
+*/
+func (a *Client) GetBlobstoresGroupByName(params *GetBlobstoresGroupByNameParams, opts ...ClientOption) (*GetBlobstoresGroupByNameOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetBlobstoresGroupByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetBlobstoresGroupByName",
+		Method:             "GET",
+		PathPattern:        "/v1/blobstores/group/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetBlobstoresGroupByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetBlobstoresGroupByNameOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresGroupByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetBlobstoresS3ByName gets a s3 blob store configuration by name
+*/
+func (a *Client) GetBlobstoresS3ByName(params *GetBlobstoresS3ByNameParams, opts ...ClientOption) (*GetBlobstoresS3ByNameOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetBlobstoresS3ByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetBlobstoresS3ByName",
+		Method:             "GET",
 		PathPattern:        "/v1/blobstores/s3/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateBlobStoreReader{formats: a.formats},
+		Reader:             &GetBlobstoresS3ByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -690,33 +424,261 @@ func (a *Client) UpdateBlobStore(params *UpdateBlobStoreParams, opts ...ClientOp
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateBlobStoreNoContent)
+	success, ok := result.(*GetBlobstoresS3ByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetBlobstoresS3ByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateBlobStore1 updates an azure blob store configuration by name
+PostBlobstoresAzure creates an azure blob store
 */
-func (a *Client) UpdateBlobStore1(params *UpdateBlobStore1Params, opts ...ClientOption) (*UpdateBlobStore1NoContent, error) {
+func (a *Client) PostBlobstoresAzure(params *PostBlobstoresAzureParams, opts ...ClientOption) (*PostBlobstoresAzureCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateBlobStore1Params()
+		params = NewPostBlobstoresAzureParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateBlobStore_1",
+		ID:                 "PostBlobstoresAzure",
+		Method:             "POST",
+		PathPattern:        "/v1/blobstores/azure",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostBlobstoresAzureReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostBlobstoresAzureCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresAzure: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostBlobstoresFile creates a file blob store
+*/
+func (a *Client) PostBlobstoresFile(params *PostBlobstoresFileParams, opts ...ClientOption) (*PostBlobstoresFileNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostBlobstoresFileParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostBlobstoresFile",
+		Method:             "POST",
+		PathPattern:        "/v1/blobstores/file",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostBlobstoresFileReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostBlobstoresFileNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostBlobstoresGoogle creates a google cloud blob store
+*/
+func (a *Client) PostBlobstoresGoogle(params *PostBlobstoresGoogleParams, opts ...ClientOption) (*PostBlobstoresGoogleCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostBlobstoresGoogleParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostBlobstoresGoogle",
+		Method:             "POST",
+		PathPattern:        "/v1/blobstores/google",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostBlobstoresGoogleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostBlobstoresGoogleCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresGoogle: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostBlobstoresGroup creates a group blob store
+*/
+func (a *Client) PostBlobstoresGroup(params *PostBlobstoresGroupParams, opts ...ClientOption) (*PostBlobstoresGroupNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostBlobstoresGroupParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostBlobstoresGroup",
+		Method:             "POST",
+		PathPattern:        "/v1/blobstores/group",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostBlobstoresGroupReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostBlobstoresGroupNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresGroup: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostBlobstoresGroupConvertByNameByNewnamefororiginal converts a blob store to a group blob store
+*/
+func (a *Client) PostBlobstoresGroupConvertByNameByNewnamefororiginal(params *PostBlobstoresGroupConvertByNameByNewnamefororiginalParams, opts ...ClientOption) (*PostBlobstoresGroupConvertByNameByNewnamefororiginalOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostBlobstoresGroupConvertByNameByNewnamefororiginalParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostBlobstoresGroupConvertByNameByNewnamefororiginal",
+		Method:             "POST",
+		PathPattern:        "/v1/blobstores/group/convert/{name}/{newNameForOriginal}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostBlobstoresGroupConvertByNameByNewnamefororiginalReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostBlobstoresGroupConvertByNameByNewnamefororiginalOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresGroupConvertByNameByNewnamefororiginal: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostBlobstoresS3 creates an s3 blob store
+*/
+func (a *Client) PostBlobstoresS3(params *PostBlobstoresS3Params, opts ...ClientOption) (*PostBlobstoresS3Created, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostBlobstoresS3Params()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostBlobstoresS3",
+		Method:             "POST",
+		PathPattern:        "/v1/blobstores/s3",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostBlobstoresS3Reader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostBlobstoresS3Created)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostBlobstoresS3: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutBlobstoresAzureByName updates an azure blob store configuration by name
+*/
+func (a *Client) PutBlobstoresAzureByName(params *PutBlobstoresAzureByNameParams, opts ...ClientOption) (*PutBlobstoresAzureByNameNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutBlobstoresAzureByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutBlobstoresAzureByName",
 		Method:             "PUT",
 		PathPattern:        "/v1/blobstores/azure/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateBlobStore1Reader{formats: a.formats},
+		Reader:             &PutBlobstoresAzureByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -728,71 +690,33 @@ func (a *Client) UpdateBlobStore1(params *UpdateBlobStore1Params, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateBlobStore1NoContent)
+	success, ok := result.(*PutBlobstoresAzureByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateBlobStore_1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutBlobstoresAzureByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateBlobStore2 updates a google cloud blob store
+PutBlobstoresFileByName updates a file blob store configuration by name
 */
-func (a *Client) UpdateBlobStore2(params *UpdateBlobStore2Params, opts ...ClientOption) (*UpdateBlobStore2NoContent, error) {
+func (a *Client) PutBlobstoresFileByName(params *PutBlobstoresFileByNameParams, opts ...ClientOption) (*PutBlobstoresFileByNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateBlobStore2Params()
+		params = NewPutBlobstoresFileByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateBlobStore_2",
-		Method:             "PUT",
-		PathPattern:        "/v1/blobstores/google/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &UpdateBlobStore2Reader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*UpdateBlobStore2NoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateBlobStore_2: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-UpdateFileBlobStore updates a file blob store configuration by name
-*/
-func (a *Client) UpdateFileBlobStore(params *UpdateFileBlobStoreParams, opts ...ClientOption) (*UpdateFileBlobStoreNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewUpdateFileBlobStoreParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "updateFileBlobStore",
+		ID:                 "PutBlobstoresFileByName",
 		Method:             "PUT",
 		PathPattern:        "/v1/blobstores/file/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateFileBlobStoreReader{formats: a.formats},
+		Reader:             &PutBlobstoresFileByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -804,33 +728,71 @@ func (a *Client) UpdateFileBlobStore(params *UpdateFileBlobStoreParams, opts ...
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateFileBlobStoreNoContent)
+	success, ok := result.(*PutBlobstoresFileByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateFileBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutBlobstoresFileByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateGroupBlobStore updates a group blob store configuration by name
+PutBlobstoresGoogleByName updates a google cloud blob store
 */
-func (a *Client) UpdateGroupBlobStore(params *UpdateGroupBlobStoreParams, opts ...ClientOption) (*UpdateGroupBlobStoreNoContent, error) {
+func (a *Client) PutBlobstoresGoogleByName(params *PutBlobstoresGoogleByNameParams, opts ...ClientOption) (*PutBlobstoresGoogleByNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateGroupBlobStoreParams()
+		params = NewPutBlobstoresGoogleByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateGroupBlobStore",
+		ID:                 "PutBlobstoresGoogleByName",
+		Method:             "PUT",
+		PathPattern:        "/v1/blobstores/google/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PutBlobstoresGoogleByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutBlobstoresGoogleByNameNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutBlobstoresGoogleByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutBlobstoresGroupByName updates a group blob store configuration by name
+*/
+func (a *Client) PutBlobstoresGroupByName(params *PutBlobstoresGroupByNameParams, opts ...ClientOption) (*PutBlobstoresGroupByNameNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutBlobstoresGroupByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutBlobstoresGroupByName",
 		Method:             "PUT",
 		PathPattern:        "/v1/blobstores/group/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateGroupBlobStoreReader{formats: a.formats},
+		Reader:             &PutBlobstoresGroupByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -842,13 +804,51 @@ func (a *Client) UpdateGroupBlobStore(params *UpdateGroupBlobStoreParams, opts .
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateGroupBlobStoreNoContent)
+	success, ok := result.(*PutBlobstoresGroupByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateGroupBlobStore: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PutBlobstoresGroupByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutBlobstoresS3ByName updates an s3 blob store configuration by name
+*/
+func (a *Client) PutBlobstoresS3ByName(params *PutBlobstoresS3ByNameParams, opts ...ClientOption) (*PutBlobstoresS3ByNameNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutBlobstoresS3ByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutBlobstoresS3ByName",
+		Method:             "PUT",
+		PathPattern:        "/v1/blobstores/s3/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PutBlobstoresS3ByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutBlobstoresS3ByNameNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutBlobstoresS3ByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

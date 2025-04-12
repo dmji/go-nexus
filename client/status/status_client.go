@@ -56,70 +56,32 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetSystemStatusChecks(params *GetSystemStatusChecksParams, opts ...ClientOption) (*GetSystemStatusChecksOK, error)
+	GetStatus(params *GetStatusParams, opts ...ClientOption) (*GetStatusOK, error)
 
-	IsAvailable(params *IsAvailableParams, opts ...ClientOption) (*IsAvailableOK, error)
+	GetStatusCheck(params *GetStatusCheckParams, opts ...ClientOption) (*GetStatusCheckOK, error)
 
-	IsWritable(params *IsWritableParams, opts ...ClientOption) (*IsWritableOK, error)
+	GetStatusWritable(params *GetStatusWritableParams, opts ...ClientOption) (*GetStatusWritableOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetSystemStatusChecks healths check endpoint that returns the results of the system status checks
+GetStatus healths check endpoint that validates server can respond to read requests
 */
-func (a *Client) GetSystemStatusChecks(params *GetSystemStatusChecksParams, opts ...ClientOption) (*GetSystemStatusChecksOK, error) {
+func (a *Client) GetStatus(params *GetStatusParams, opts ...ClientOption) (*GetStatusOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetSystemStatusChecksParams()
+		params = NewGetStatusParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getSystemStatusChecks",
-		Method:             "GET",
-		PathPattern:        "/v1/status/check",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetSystemStatusChecksReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetSystemStatusChecksOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getSystemStatusChecks: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-IsAvailable healths check endpoint that validates server can respond to read requests
-*/
-func (a *Client) IsAvailable(params *IsAvailableParams, opts ...ClientOption) (*IsAvailableOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewIsAvailableParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "isAvailable",
+		ID:                 "GetStatus",
 		Method:             "GET",
 		PathPattern:        "/v1/status",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &IsAvailableReader{formats: a.formats},
+		Reader:             &GetStatusReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -131,33 +93,71 @@ func (a *Client) IsAvailable(params *IsAvailableParams, opts ...ClientOption) (*
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*IsAvailableOK)
+	success, ok := result.(*GetStatusOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for isAvailable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-IsWritable healths check endpoint that validates server can respond to read and write requests
+GetStatusCheck healths check endpoint that returns the results of the system status checks
 */
-func (a *Client) IsWritable(params *IsWritableParams, opts ...ClientOption) (*IsWritableOK, error) {
+func (a *Client) GetStatusCheck(params *GetStatusCheckParams, opts ...ClientOption) (*GetStatusCheckOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewIsWritableParams()
+		params = NewGetStatusCheckParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "isWritable",
+		ID:                 "GetStatusCheck",
+		Method:             "GET",
+		PathPattern:        "/v1/status/check",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetStatusCheckReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetStatusCheckOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetStatusCheck: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetStatusWritable healths check endpoint that validates server can respond to read and write requests
+*/
+func (a *Client) GetStatusWritable(params *GetStatusWritableParams, opts ...ClientOption) (*GetStatusWritableOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetStatusWritableParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetStatusWritable",
 		Method:             "GET",
 		PathPattern:        "/v1/status/writable",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &IsWritableReader{formats: a.formats},
+		Reader:             &GetStatusWritableReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -169,13 +169,13 @@ func (a *Client) IsWritable(params *IsWritableParams, opts ...ClientOption) (*Is
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*IsWritableOK)
+	success, ok := result.(*GetStatusWritableOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for isWritable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetStatusWritable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

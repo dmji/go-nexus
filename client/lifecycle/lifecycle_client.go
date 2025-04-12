@@ -100,34 +100,72 @@ func WithAcceptTextPlain(r *runtime.ClientOperation) {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Bounce(params *BounceParams, opts ...ClientOption) error
+	GetLifecyclePhase(params *GetLifecyclePhaseParams, opts ...ClientOption) (*GetLifecyclePhaseOK, error)
 
-	GetPhase(params *GetPhaseParams, opts ...ClientOption) (*GetPhaseOK, error)
+	PutLifecycleBounce(params *PutLifecycleBounceParams, opts ...ClientOption) error
 
-	SetPhase(params *SetPhaseParams, opts ...ClientOption) error
+	PutLifecyclePhase(params *PutLifecyclePhaseParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Bounce bounces lifecycle phase
+GetLifecyclePhase gets current lifecycle phase
+*/
+func (a *Client) GetLifecyclePhase(params *GetLifecyclePhaseParams, opts ...ClientOption) (*GetLifecyclePhaseOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetLifecyclePhaseParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetLifecyclePhase",
+		Method:             "GET",
+		PathPattern:        "/v1/lifecycle/phase",
+		ProducesMediaTypes: []string{"text/plain"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetLifecyclePhaseReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetLifecyclePhaseOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetLifecyclePhase: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutLifecycleBounce bounces lifecycle phase
 
 Re-runs all phases from the given phase to the current phase
 */
-func (a *Client) Bounce(params *BounceParams, opts ...ClientOption) error {
+func (a *Client) PutLifecycleBounce(params *PutLifecycleBounceParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewBounceParams()
+		params = NewPutLifecycleBounceParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "bounce",
+		ID:                 "PutLifecycleBounce",
 		Method:             "PUT",
 		PathPattern:        "/v1/lifecycle/bounce",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"text/plain"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &BounceReader{formats: a.formats},
+		Reader:             &PutLifecycleBounceReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -143,60 +181,22 @@ func (a *Client) Bounce(params *BounceParams, opts ...ClientOption) error {
 }
 
 /*
-GetPhase gets current lifecycle phase
+PutLifecyclePhase moves to new lifecycle phase
 */
-func (a *Client) GetPhase(params *GetPhaseParams, opts ...ClientOption) (*GetPhaseOK, error) {
+func (a *Client) PutLifecyclePhase(params *PutLifecyclePhaseParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetPhaseParams()
+		params = NewPutLifecyclePhaseParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getPhase",
-		Method:             "GET",
-		PathPattern:        "/v1/lifecycle/phase",
-		ProducesMediaTypes: []string{"text/plain"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetPhaseReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetPhaseOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getPhase: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-SetPhase moves to new lifecycle phase
-*/
-func (a *Client) SetPhase(params *SetPhaseParams, opts ...ClientOption) error {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewSetPhaseParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "setPhase",
+		ID:                 "PutLifecyclePhase",
 		Method:             "PUT",
 		PathPattern:        "/v1/lifecycle/phase",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"text/plain"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SetPhaseReader{formats: a.formats},
+		Reader:             &PutLifecyclePhaseReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}

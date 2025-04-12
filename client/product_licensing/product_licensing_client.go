@@ -80,70 +80,32 @@ func WithContentTypeApplicationOctetStream(r *runtime.ClientOperation) {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetLicenseStatus(params *GetLicenseStatusParams, opts ...ClientOption) (*GetLicenseStatusOK, error)
+	DeleteSystemLicense(params *DeleteSystemLicenseParams, opts ...ClientOption) error
 
-	RemoveLicense(params *RemoveLicenseParams, opts ...ClientOption) error
+	GetSystemLicense(params *GetSystemLicenseParams, opts ...ClientOption) (*GetSystemLicenseOK, error)
 
-	SetLicense(params *SetLicenseParams, opts ...ClientOption) (*SetLicenseOK, error)
+	PostSystemLicense(params *PostSystemLicenseParams, opts ...ClientOption) (*PostSystemLicenseOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetLicenseStatus gets the current license status
+DeleteSystemLicense uninstalls license if present
 */
-func (a *Client) GetLicenseStatus(params *GetLicenseStatusParams, opts ...ClientOption) (*GetLicenseStatusOK, error) {
+func (a *Client) DeleteSystemLicense(params *DeleteSystemLicenseParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetLicenseStatusParams()
+		params = NewDeleteSystemLicenseParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getLicenseStatus",
-		Method:             "GET",
-		PathPattern:        "/v1/system/license",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetLicenseStatusReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetLicenseStatusOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getLicenseStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-RemoveLicense uninstalls license if present
-*/
-func (a *Client) RemoveLicense(params *RemoveLicenseParams, opts ...ClientOption) error {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewRemoveLicenseParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "removeLicense",
+		ID:                 "DeleteSystemLicense",
 		Method:             "DELETE",
 		PathPattern:        "/v1/system/license",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &RemoveLicenseReader{formats: a.formats},
+		Reader:             &DeleteSystemLicenseReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -159,24 +121,22 @@ func (a *Client) RemoveLicense(params *RemoveLicenseParams, opts ...ClientOption
 }
 
 /*
-SetLicense uploads a new license file
-
-Server must be restarted to take effect
+GetSystemLicense gets the current license status
 */
-func (a *Client) SetLicense(params *SetLicenseParams, opts ...ClientOption) (*SetLicenseOK, error) {
+func (a *Client) GetSystemLicense(params *GetSystemLicenseParams, opts ...ClientOption) (*GetSystemLicenseOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSetLicenseParams()
+		params = NewGetSystemLicenseParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "setLicense",
-		Method:             "POST",
+		ID:                 "GetSystemLicense",
+		Method:             "GET",
 		PathPattern:        "/v1/system/license",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/octet-stream"},
+		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SetLicenseReader{formats: a.formats},
+		Reader:             &GetSystemLicenseReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -188,13 +148,53 @@ func (a *Client) SetLicense(params *SetLicenseParams, opts ...ClientOption) (*Se
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SetLicenseOK)
+	success, ok := result.(*GetSystemLicenseOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for setLicense: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSystemLicense: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostSystemLicense uploads a new license file
+
+Server must be restarted to take effect
+*/
+func (a *Client) PostSystemLicense(params *PostSystemLicenseParams, opts ...ClientOption) (*PostSystemLicenseOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostSystemLicenseParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostSystemLicense",
+		Method:             "POST",
+		PathPattern:        "/v1/system/license",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/octet-stream"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostSystemLicenseReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostSystemLicenseOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostSystemLicense: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

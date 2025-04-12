@@ -56,32 +56,32 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Clear(params *ClearParams, opts ...ClientOption) error
+	DeleteSystemNode(params *DeleteSystemNodeParams, opts ...ClientOption) error
 
-	GetNodeID(params *GetNodeIDParams, opts ...ClientOption) (*GetNodeIDOK, error)
+	GetBetaSystemInformation(params *GetBetaSystemInformationParams, opts ...ClientOption) (*GetBetaSystemInformationOK, error)
 
-	GetSystemInformation(params *GetSystemInformationParams, opts ...ClientOption) (*GetSystemInformationOK, error)
+	GetSystemNode(params *GetSystemNodeParams, opts ...ClientOption) (*GetSystemNodeOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Clear resets the ID for this node takes effect after restart and should only be used when cloning an instance
+DeleteSystemNode resets the ID for this node takes effect after restart and should only be used when cloning an instance
 */
-func (a *Client) Clear(params *ClearParams, opts ...ClientOption) error {
+func (a *Client) DeleteSystemNode(params *DeleteSystemNodeParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewClearParams()
+		params = NewDeleteSystemNodeParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "clear",
+		ID:                 "DeleteSystemNode",
 		Method:             "DELETE",
 		PathPattern:        "/v1/system/node",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &ClearReader{formats: a.formats},
+		Reader:             &DeleteSystemNodeReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -97,60 +97,22 @@ func (a *Client) Clear(params *ClearParams, opts ...ClientOption) error {
 }
 
 /*
-GetNodeID gets information about this node
+GetBetaSystemInformation gets information about all nodes
 */
-func (a *Client) GetNodeID(params *GetNodeIDParams, opts ...ClientOption) (*GetNodeIDOK, error) {
+func (a *Client) GetBetaSystemInformation(params *GetBetaSystemInformationParams, opts ...ClientOption) (*GetBetaSystemInformationOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetNodeIDParams()
+		params = NewGetBetaSystemInformationParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getNodeId",
-		Method:             "GET",
-		PathPattern:        "/v1/system/node",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetNodeIDReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetNodeIDOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getNodeId: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetSystemInformation gets information about all nodes
-*/
-func (a *Client) GetSystemInformation(params *GetSystemInformationParams, opts ...ClientOption) (*GetSystemInformationOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetSystemInformationParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getSystemInformation",
+		ID:                 "GetBetaSystemInformation",
 		Method:             "GET",
 		PathPattern:        "/beta/system/information",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetSystemInformationReader{formats: a.formats},
+		Reader:             &GetBetaSystemInformationReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -162,13 +124,51 @@ func (a *Client) GetSystemInformation(params *GetSystemInformationParams, opts .
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetSystemInformationOK)
+	success, ok := result.(*GetBetaSystemInformationOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getSystemInformation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetBetaSystemInformation: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSystemNode gets information about this node
+*/
+func (a *Client) GetSystemNode(params *GetSystemNodeParams, opts ...ClientOption) (*GetSystemNodeOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSystemNodeParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSystemNode",
+		Method:             "GET",
+		PathPattern:        "/v1/system/node",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetSystemNodeReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSystemNodeOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSystemNode: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

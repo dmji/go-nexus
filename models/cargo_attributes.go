@@ -18,7 +18,6 @@ import (
 type CargoAttributes struct {
 
 	// Indicates if this repository requires authentication overriding anonymous access.
-	// Example: false
 	RequireAuthentication bool `json:"requireAuthentication,omitempty"`
 }
 

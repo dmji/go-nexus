@@ -39,7 +39,7 @@ func (o *GetMaliciousRiskSummaryReader) ReadResponse(response runtime.ClientResp
 		}
 		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /v1/malicious-risk/summary] getMaliciousRiskSummary", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /v1/malicious-risk/summary] GetMaliciousRiskSummary", response, response.Code())
 	}
 }
 

@@ -37,7 +37,6 @@ type DockerAttributes struct {
 	Subdomain string `json:"subdomain,omitempty"`
 
 	// Whether to allow clients to use the V1 API to interact with this repository
-	// Example: false
 	// Required: true
 	V1Enabled *bool `json:"v1Enabled"`
 }

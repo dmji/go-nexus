@@ -56,28 +56,28 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetUserSources(params *GetUserSourcesParams, opts ...ClientOption) (*GetUserSourcesOK, error)
+	GetSecurityUserSources(params *GetSecurityUserSourcesParams, opts ...ClientOption) (*GetSecurityUserSourcesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetUserSources retrieves a list of the available user sources
+GetSecurityUserSources retrieves a list of the available user sources
 */
-func (a *Client) GetUserSources(params *GetUserSourcesParams, opts ...ClientOption) (*GetUserSourcesOK, error) {
+func (a *Client) GetSecurityUserSources(params *GetSecurityUserSourcesParams, opts ...ClientOption) (*GetSecurityUserSourcesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetUserSourcesParams()
+		params = NewGetSecurityUserSourcesParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getUserSources",
+		ID:                 "GetSecurityUserSources",
 		Method:             "GET",
 		PathPattern:        "/v1/security/user-sources",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetUserSourcesReader{formats: a.formats},
+		Reader:             &GetSecurityUserSourcesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -89,13 +89,13 @@ func (a *Client) GetUserSources(params *GetUserSourcesParams, opts ...ClientOpti
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetUserSourcesOK)
+	success, ok := result.(*GetSecurityUserSourcesOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getUserSources: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSecurityUserSources: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

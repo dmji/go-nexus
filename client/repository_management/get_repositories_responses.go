@@ -30,20 +30,8 @@ func (o *GetRepositoriesReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return result, nil
-	case 401:
-		result := NewGetRepositoriesUnauthorized()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
-	case 403:
-		result := NewGetRepositoriesForbidden()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return nil, result
 	default:
-		return nil, runtime.NewAPIError("[GET /v1/repositorySettings] getRepositories", response, response.Code())
+		return nil, runtime.NewAPIError("[GET /v1/repositories] GetRepositories", response, response.Code())
 	}
 }
 
@@ -55,10 +43,10 @@ func NewGetRepositoriesOK() *GetRepositoriesOK {
 /*
 GetRepositoriesOK describes a response with status code 200, with default header values.
 
-Repositories list returned
+successful operation
 */
 type GetRepositoriesOK struct {
-	Payload []*models.AbstractAPIRepository
+	Payload []*models.RepositoryXO
 }
 
 // IsSuccess returns true when this get repositories o k response has a 2xx status code
@@ -93,15 +81,15 @@ func (o *GetRepositoriesOK) Code() int {
 
 func (o *GetRepositoriesOK) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[GET /v1/repositorySettings][%d] getRepositoriesOK %s", 200, payload)
+	return fmt.Sprintf("[GET /v1/repositories][%d] getRepositoriesOK %s", 200, payload)
 }
 
 func (o *GetRepositoriesOK) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[GET /v1/repositorySettings][%d] getRepositoriesOK %s", 200, payload)
+	return fmt.Sprintf("[GET /v1/repositories][%d] getRepositoriesOK %s", 200, payload)
 }
 
-func (o *GetRepositoriesOK) GetPayload() []*models.AbstractAPIRepository {
+func (o *GetRepositoriesOK) GetPayload() []*models.RepositoryXO {
 	return o.Payload
 }
 
@@ -111,118 +99,6 @@ func (o *GetRepositoriesOK) readResponse(response runtime.ClientResponse, consum
 	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
-
-	return nil
-}
-
-// NewGetRepositoriesUnauthorized creates a GetRepositoriesUnauthorized with default headers values
-func NewGetRepositoriesUnauthorized() *GetRepositoriesUnauthorized {
-	return &GetRepositoriesUnauthorized{}
-}
-
-/*
-GetRepositoriesUnauthorized describes a response with status code 401, with default header values.
-
-Authentication required
-*/
-type GetRepositoriesUnauthorized struct {
-}
-
-// IsSuccess returns true when this get repositories unauthorized response has a 2xx status code
-func (o *GetRepositoriesUnauthorized) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get repositories unauthorized response has a 3xx status code
-func (o *GetRepositoriesUnauthorized) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get repositories unauthorized response has a 4xx status code
-func (o *GetRepositoriesUnauthorized) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get repositories unauthorized response has a 5xx status code
-func (o *GetRepositoriesUnauthorized) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get repositories unauthorized response a status code equal to that given
-func (o *GetRepositoriesUnauthorized) IsCode(code int) bool {
-	return code == 401
-}
-
-// Code gets the status code for the get repositories unauthorized response
-func (o *GetRepositoriesUnauthorized) Code() int {
-	return 401
-}
-
-func (o *GetRepositoriesUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /v1/repositorySettings][%d] getRepositoriesUnauthorized", 401)
-}
-
-func (o *GetRepositoriesUnauthorized) String() string {
-	return fmt.Sprintf("[GET /v1/repositorySettings][%d] getRepositoriesUnauthorized", 401)
-}
-
-func (o *GetRepositoriesUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	return nil
-}
-
-// NewGetRepositoriesForbidden creates a GetRepositoriesForbidden with default headers values
-func NewGetRepositoriesForbidden() *GetRepositoriesForbidden {
-	return &GetRepositoriesForbidden{}
-}
-
-/*
-GetRepositoriesForbidden describes a response with status code 403, with default header values.
-
-Insufficient permissions
-*/
-type GetRepositoriesForbidden struct {
-}
-
-// IsSuccess returns true when this get repositories forbidden response has a 2xx status code
-func (o *GetRepositoriesForbidden) IsSuccess() bool {
-	return false
-}
-
-// IsRedirect returns true when this get repositories forbidden response has a 3xx status code
-func (o *GetRepositoriesForbidden) IsRedirect() bool {
-	return false
-}
-
-// IsClientError returns true when this get repositories forbidden response has a 4xx status code
-func (o *GetRepositoriesForbidden) IsClientError() bool {
-	return true
-}
-
-// IsServerError returns true when this get repositories forbidden response has a 5xx status code
-func (o *GetRepositoriesForbidden) IsServerError() bool {
-	return false
-}
-
-// IsCode returns true when this get repositories forbidden response a status code equal to that given
-func (o *GetRepositoriesForbidden) IsCode(code int) bool {
-	return code == 403
-}
-
-// Code gets the status code for the get repositories forbidden response
-func (o *GetRepositoriesForbidden) Code() int {
-	return 403
-}
-
-func (o *GetRepositoriesForbidden) Error() string {
-	return fmt.Sprintf("[GET /v1/repositorySettings][%d] getRepositoriesForbidden", 403)
-}
-
-func (o *GetRepositoriesForbidden) String() string {
-	return fmt.Sprintf("[GET /v1/repositorySettings][%d] getRepositoriesForbidden", 403)
-}
-
-func (o *GetRepositoriesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	return nil
 }

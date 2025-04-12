@@ -56,32 +56,32 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	Search(params *SearchParams, opts ...ClientOption) (*SearchOK, error)
+	GetSearch(params *GetSearchParams, opts ...ClientOption) (*GetSearchOK, error)
 
-	SearchAndDownloadAssets(params *SearchAndDownloadAssetsParams, opts ...ClientOption) error
+	GetSearchAssets(params *GetSearchAssetsParams, opts ...ClientOption) (*GetSearchAssetsOK, error)
 
-	SearchAssets(params *SearchAssetsParams, opts ...ClientOption) (*SearchAssetsOK, error)
+	GetSearchAssetsDownload(params *GetSearchAssetsDownloadParams, opts ...ClientOption) error
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-Search searches components
+GetSearch searches components
 */
-func (a *Client) Search(params *SearchParams, opts ...ClientOption) (*SearchOK, error) {
+func (a *Client) GetSearch(params *GetSearchParams, opts ...ClientOption) (*GetSearchOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSearchParams()
+		params = NewGetSearchParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "search",
+		ID:                 "GetSearch",
 		Method:             "GET",
 		PathPattern:        "/v1/search",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SearchReader{formats: a.formats},
+		Reader:             &GetSearchReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -93,35 +93,73 @@ func (a *Client) Search(params *SearchParams, opts ...ClientOption) (*SearchOK, 
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SearchOK)
+	success, ok := result.(*GetSearchOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for search: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSearch: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-SearchAndDownloadAssets searches and download asset
+GetSearchAssets searches assets
+*/
+func (a *Client) GetSearchAssets(params *GetSearchAssetsParams, opts ...ClientOption) (*GetSearchAssetsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetSearchAssetsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetSearchAssets",
+		Method:             "GET",
+		PathPattern:        "/v1/search/assets",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetSearchAssetsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetSearchAssetsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetSearchAssets: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+GetSearchAssetsDownload searches and download asset
 
 Returns a 302 Found with location header field set to download URL. Unless a sort parameter is supplied, the search must return a single asset to receive download URL.
 */
-func (a *Client) SearchAndDownloadAssets(params *SearchAndDownloadAssetsParams, opts ...ClientOption) error {
+func (a *Client) GetSearchAssetsDownload(params *GetSearchAssetsDownloadParams, opts ...ClientOption) error {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSearchAndDownloadAssetsParams()
+		params = NewGetSearchAssetsDownloadParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "searchAndDownloadAssets",
+		ID:                 "GetSearchAssetsDownload",
 		Method:             "GET",
 		PathPattern:        "/v1/search/assets/download",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SearchAndDownloadAssetsReader{formats: a.formats},
+		Reader:             &GetSearchAssetsDownloadReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -134,44 +172,6 @@ func (a *Client) SearchAndDownloadAssets(params *SearchAndDownloadAssetsParams, 
 		return err
 	}
 	return nil
-}
-
-/*
-SearchAssets searches assets
-*/
-func (a *Client) SearchAssets(params *SearchAssetsParams, opts ...ClientOption) (*SearchAssetsOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewSearchAssetsParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "searchAssets",
-		Method:             "GET",
-		PathPattern:        "/v1/search/assets",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &SearchAssetsReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*SearchAssetsOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for searchAssets: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
 }
 
 // SetTransport changes the transport on the client

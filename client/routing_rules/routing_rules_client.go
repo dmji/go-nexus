@@ -56,74 +56,36 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	CreateRoutingRule(params *CreateRoutingRuleParams, opts ...ClientOption) (*CreateRoutingRuleNoContent, error)
-
-	DeleteRoutingRule(params *DeleteRoutingRuleParams, opts ...ClientOption) (*DeleteRoutingRuleNoContent, error)
-
-	GetRoutingRule(params *GetRoutingRuleParams, opts ...ClientOption) (*GetRoutingRuleOK, error)
+	DeleteRoutingRulesByName(params *DeleteRoutingRulesByNameParams, opts ...ClientOption) (*DeleteRoutingRulesByNameNoContent, error)
 
 	GetRoutingRules(params *GetRoutingRulesParams, opts ...ClientOption) (*GetRoutingRulesOK, error)
 
-	UpdateRoutingRule(params *UpdateRoutingRuleParams, opts ...ClientOption) (*UpdateRoutingRuleNoContent, error)
+	GetRoutingRulesByName(params *GetRoutingRulesByNameParams, opts ...ClientOption) (*GetRoutingRulesByNameOK, error)
+
+	PostRoutingRules(params *PostRoutingRulesParams, opts ...ClientOption) (*PostRoutingRulesNoContent, error)
+
+	PutRoutingRulesByName(params *PutRoutingRulesByNameParams, opts ...ClientOption) (*PutRoutingRulesByNameNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CreateRoutingRule creates a single routing rule
+DeleteRoutingRulesByName deletes a single routing rule
 */
-func (a *Client) CreateRoutingRule(params *CreateRoutingRuleParams, opts ...ClientOption) (*CreateRoutingRuleNoContent, error) {
+func (a *Client) DeleteRoutingRulesByName(params *DeleteRoutingRulesByNameParams, opts ...ClientOption) (*DeleteRoutingRulesByNameNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCreateRoutingRuleParams()
+		params = NewDeleteRoutingRulesByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "createRoutingRule",
-		Method:             "POST",
-		PathPattern:        "/v1/routing-rules",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &CreateRoutingRuleReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CreateRoutingRuleNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for createRoutingRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-DeleteRoutingRule deletes a single routing rule
-*/
-func (a *Client) DeleteRoutingRule(params *DeleteRoutingRuleParams, opts ...ClientOption) (*DeleteRoutingRuleNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewDeleteRoutingRuleParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "deleteRoutingRule",
+		ID:                 "DeleteRoutingRulesByName",
 		Method:             "DELETE",
 		PathPattern:        "/v1/routing-rules/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteRoutingRuleReader{formats: a.formats},
+		Reader:             &DeleteRoutingRulesByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -135,51 +97,13 @@ func (a *Client) DeleteRoutingRule(params *DeleteRoutingRuleParams, opts ...Clie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteRoutingRuleNoContent)
+	success, ok := result.(*DeleteRoutingRulesByNameNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for deleteRoutingRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetRoutingRule gets a single routing rule
-*/
-func (a *Client) GetRoutingRule(params *GetRoutingRuleParams, opts ...ClientOption) (*GetRoutingRuleOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetRoutingRuleParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getRoutingRule",
-		Method:             "GET",
-		PathPattern:        "/v1/routing-rules/{name}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &GetRoutingRuleReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*GetRoutingRuleOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getRoutingRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteRoutingRulesByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
@@ -192,7 +116,7 @@ func (a *Client) GetRoutingRules(params *GetRoutingRulesParams, opts ...ClientOp
 		params = NewGetRoutingRulesParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getRoutingRules",
+		ID:                 "GetRoutingRules",
 		Method:             "GET",
 		PathPattern:        "/v1/routing-rules",
 		ProducesMediaTypes: []string{"application/json"},
@@ -217,27 +141,27 @@ func (a *Client) GetRoutingRules(params *GetRoutingRulesParams, opts ...ClientOp
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getRoutingRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRoutingRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateRoutingRule updates a single routing rule
+GetRoutingRulesByName gets a single routing rule
 */
-func (a *Client) UpdateRoutingRule(params *UpdateRoutingRuleParams, opts ...ClientOption) (*UpdateRoutingRuleNoContent, error) {
+func (a *Client) GetRoutingRulesByName(params *GetRoutingRulesByNameParams, opts ...ClientOption) (*GetRoutingRulesByNameOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateRoutingRuleParams()
+		params = NewGetRoutingRulesByNameParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateRoutingRule",
-		Method:             "PUT",
+		ID:                 "GetRoutingRulesByName",
+		Method:             "GET",
 		PathPattern:        "/v1/routing-rules/{name}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateRoutingRuleReader{formats: a.formats},
+		Reader:             &GetRoutingRulesByNameReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -249,13 +173,89 @@ func (a *Client) UpdateRoutingRule(params *UpdateRoutingRuleParams, opts ...Clie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateRoutingRuleNoContent)
+	success, ok := result.(*GetRoutingRulesByNameOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateRoutingRule: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetRoutingRulesByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostRoutingRules creates a single routing rule
+*/
+func (a *Client) PostRoutingRules(params *PostRoutingRulesParams, opts ...ClientOption) (*PostRoutingRulesNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostRoutingRulesParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostRoutingRules",
+		Method:             "POST",
+		PathPattern:        "/v1/routing-rules",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostRoutingRulesReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostRoutingRulesNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostRoutingRules: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutRoutingRulesByName updates a single routing rule
+*/
+func (a *Client) PutRoutingRulesByName(params *PutRoutingRulesByNameParams, opts ...ClientOption) (*PutRoutingRulesByNameNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutRoutingRulesByNameParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutRoutingRulesByName",
+		Method:             "PUT",
+		PathPattern:        "/v1/routing-rules/{name}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PutRoutingRulesByNameReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutRoutingRulesByNameNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutRoutingRulesByName: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

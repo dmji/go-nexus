@@ -56,30 +56,30 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetCommunityEulaStatus(params *GetCommunityEulaStatusParams, opts ...ClientOption) (*GetCommunityEulaStatusOK, error)
+	GetSystemEula(params *GetSystemEulaParams, opts ...ClientOption) (*GetSystemEulaOK, error)
 
-	SetEulaAcceptedCE(params *SetEulaAcceptedCEParams, opts ...ClientOption) (*SetEulaAcceptedCENoContent, error)
+	PostSystemEula(params *PostSystemEulaParams, opts ...ClientOption) (*PostSystemEulaNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetCommunityEulaStatus gets the current community eula status
+GetSystemEula gets the current community eula status
 */
-func (a *Client) GetCommunityEulaStatus(params *GetCommunityEulaStatusParams, opts ...ClientOption) (*GetCommunityEulaStatusOK, error) {
+func (a *Client) GetSystemEula(params *GetSystemEulaParams, opts ...ClientOption) (*GetSystemEulaOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetCommunityEulaStatusParams()
+		params = NewGetSystemEulaParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getCommunityEulaStatus",
+		ID:                 "GetSystemEula",
 		Method:             "GET",
 		PathPattern:        "/v1/system/eula",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetCommunityEulaStatusReader{formats: a.formats},
+		Reader:             &GetSystemEulaReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -91,33 +91,33 @@ func (a *Client) GetCommunityEulaStatus(params *GetCommunityEulaStatusParams, op
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetCommunityEulaStatusOK)
+	success, ok := result.(*GetSystemEulaOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getCommunityEulaStatus: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSystemEula: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-SetEulaAcceptedCE sets the community eula status
+PostSystemEula sets the community eula status
 */
-func (a *Client) SetEulaAcceptedCE(params *SetEulaAcceptedCEParams, opts ...ClientOption) (*SetEulaAcceptedCENoContent, error) {
+func (a *Client) PostSystemEula(params *PostSystemEulaParams, opts ...ClientOption) (*PostSystemEulaNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSetEulaAcceptedCEParams()
+		params = NewPostSystemEulaParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "setEulaAcceptedCE",
+		ID:                 "PostSystemEula",
 		Method:             "POST",
 		PathPattern:        "/v1/system/eula",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &SetEulaAcceptedCEReader{formats: a.formats},
+		Reader:             &PostSystemEulaReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -129,13 +129,13 @@ func (a *Client) SetEulaAcceptedCE(params *SetEulaAcceptedCEParams, opts ...Clie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SetEulaAcceptedCENoContent)
+	success, ok := result.(*PostSystemEulaNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for setEulaAcceptedCE: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostSystemEula: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

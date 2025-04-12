@@ -56,34 +56,34 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DeleteEmailConfiguration(params *DeleteEmailConfigurationParams, opts ...ClientOption) (*DeleteEmailConfigurationNoContent, error)
+	DeleteEmail(params *DeleteEmailParams, opts ...ClientOption) (*DeleteEmailNoContent, error)
 
-	GetEmailConfiguration(params *GetEmailConfigurationParams, opts ...ClientOption) (*GetEmailConfigurationOK, error)
+	GetEmail(params *GetEmailParams, opts ...ClientOption) (*GetEmailOK, error)
 
-	SetEmailConfiguration(params *SetEmailConfigurationParams, opts ...ClientOption) (*SetEmailConfigurationNoContent, error)
+	PostEmailVerify(params *PostEmailVerifyParams, opts ...ClientOption) (*PostEmailVerifyOK, error)
 
-	TestEmailConfiguration(params *TestEmailConfigurationParams, opts ...ClientOption) (*TestEmailConfigurationOK, error)
+	PutEmail(params *PutEmailParams, opts ...ClientOption) (*PutEmailNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DeleteEmailConfiguration disables and clear the email configuration
+DeleteEmail disables and clear the email configuration
 */
-func (a *Client) DeleteEmailConfiguration(params *DeleteEmailConfigurationParams, opts ...ClientOption) (*DeleteEmailConfigurationNoContent, error) {
+func (a *Client) DeleteEmail(params *DeleteEmailParams, opts ...ClientOption) (*DeleteEmailNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDeleteEmailConfigurationParams()
+		params = NewDeleteEmailParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "deleteEmailConfiguration",
+		ID:                 "DeleteEmail",
 		Method:             "DELETE",
 		PathPattern:        "/v1/email",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &DeleteEmailConfigurationReader{formats: a.formats},
+		Reader:             &DeleteEmailReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -95,33 +95,33 @@ func (a *Client) DeleteEmailConfiguration(params *DeleteEmailConfigurationParams
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*DeleteEmailConfigurationNoContent)
+	success, ok := result.(*DeleteEmailNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for deleteEmailConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for DeleteEmail: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-GetEmailConfiguration retrieves the current email configuration
+GetEmail retrieves the current email configuration
 */
-func (a *Client) GetEmailConfiguration(params *GetEmailConfigurationParams, opts ...ClientOption) (*GetEmailConfigurationOK, error) {
+func (a *Client) GetEmail(params *GetEmailParams, opts ...ClientOption) (*GetEmailOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetEmailConfigurationParams()
+		params = NewGetEmailParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "getEmailConfiguration",
+		ID:                 "GetEmail",
 		Method:             "GET",
 		PathPattern:        "/v1/email",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetEmailConfigurationReader{formats: a.formats},
+		Reader:             &GetEmailReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -133,71 +133,33 @@ func (a *Client) GetEmailConfiguration(params *GetEmailConfigurationParams, opts
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetEmailConfigurationOK)
+	success, ok := result.(*GetEmailOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getEmailConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetEmail: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-SetEmailConfiguration sets the current email configuration
+PostEmailVerify sends a test email to the email address provided in the request body
 */
-func (a *Client) SetEmailConfiguration(params *SetEmailConfigurationParams, opts ...ClientOption) (*SetEmailConfigurationNoContent, error) {
+func (a *Client) PostEmailVerify(params *PostEmailVerifyParams, opts ...ClientOption) (*PostEmailVerifyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSetEmailConfigurationParams()
+		params = NewPostEmailVerifyParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "setEmailConfiguration",
-		Method:             "PUT",
-		PathPattern:        "/v1/email",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &SetEmailConfigurationReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*SetEmailConfigurationNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for setEmailConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-TestEmailConfiguration sends a test email to the email address provided in the request body
-*/
-func (a *Client) TestEmailConfiguration(params *TestEmailConfigurationParams, opts ...ClientOption) (*TestEmailConfigurationOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewTestEmailConfigurationParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "testEmailConfiguration",
+		ID:                 "PostEmailVerify",
 		Method:             "POST",
 		PathPattern:        "/v1/email/verify",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &TestEmailConfigurationReader{formats: a.formats},
+		Reader:             &PostEmailVerifyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -209,13 +171,51 @@ func (a *Client) TestEmailConfiguration(params *TestEmailConfigurationParams, op
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*TestEmailConfigurationOK)
+	success, ok := result.(*PostEmailVerifyOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for testEmailConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostEmailVerify: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutEmail sets the current email configuration
+*/
+func (a *Client) PutEmail(params *PutEmailParams, opts ...ClientOption) (*PutEmailNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutEmailParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutEmail",
+		Method:             "PUT",
+		PathPattern:        "/v1/email",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PutEmailReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutEmailNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutEmail: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

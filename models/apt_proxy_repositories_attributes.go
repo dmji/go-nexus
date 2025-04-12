@@ -22,7 +22,6 @@ type AptProxyRepositoriesAttributes struct {
 	Distribution string `json:"distribution,omitempty"`
 
 	// Whether this repository is flat
-	// Example: false
 	Flat bool `json:"flat,omitempty"`
 }
 

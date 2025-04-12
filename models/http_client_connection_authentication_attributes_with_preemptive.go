@@ -33,7 +33,6 @@ type HTTPClientConnectionAuthenticationAttributesWithPreemptive struct {
 	Password string `json:"password,omitempty"`
 
 	// Whether to use pre-emptive authentication. Use with caution. Defaults to false.
-	// Example: false
 	Preemptive bool `json:"preemptive,omitempty"`
 
 	// Authentication type

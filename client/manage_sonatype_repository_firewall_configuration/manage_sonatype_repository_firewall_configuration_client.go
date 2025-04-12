@@ -56,112 +56,36 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DisableIq(params *DisableIqParams, opts ...ClientOption) (*DisableIqNoContent, error)
+	GetIq(params *GetIqParams, opts ...ClientOption) (*GetIqOK, error)
 
-	EnableIq(params *EnableIqParams, opts ...ClientOption) (*EnableIqNoContent, error)
+	PostIqDisable(params *PostIqDisableParams, opts ...ClientOption) (*PostIqDisableNoContent, error)
 
-	GetConfiguration(params *GetConfigurationParams, opts ...ClientOption) (*GetConfigurationOK, error)
+	PostIqEnable(params *PostIqEnableParams, opts ...ClientOption) (*PostIqEnableNoContent, error)
 
-	UpdateConfiguration(params *UpdateConfigurationParams, opts ...ClientOption) (*UpdateConfigurationNoContent, error)
+	PostIqVerifyConnection(params *PostIqVerifyConnectionParams, opts ...ClientOption) (*PostIqVerifyConnectionOK, error)
 
-	VerifyConnection1(params *VerifyConnection1Params, opts ...ClientOption) (*VerifyConnection1OK, error)
+	PutIq(params *PutIqParams, opts ...ClientOption) (*PutIqNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-DisableIq disables sonatype repository firewall
+GetIq gets sonatype repository firewall configuration
 */
-func (a *Client) DisableIq(params *DisableIqParams, opts ...ClientOption) (*DisableIqNoContent, error) {
+func (a *Client) GetIq(params *GetIqParams, opts ...ClientOption) (*GetIqOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewDisableIqParams()
+		params = NewGetIqParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "disableIq",
-		Method:             "POST",
-		PathPattern:        "/v1/iq/disable",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &DisableIqReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*DisableIqNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for disableIq: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-EnableIq enables sonatype repository firewall
-*/
-func (a *Client) EnableIq(params *EnableIqParams, opts ...ClientOption) (*EnableIqNoContent, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewEnableIqParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "enableIq",
-		Method:             "POST",
-		PathPattern:        "/v1/iq/enable",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"http"},
-		Params:             params,
-		Reader:             &EnableIqReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	}
-	for _, opt := range opts {
-		opt(op)
-	}
-
-	result, err := a.transport.Submit(op)
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*EnableIqNoContent)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for enableIq: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-GetConfiguration gets sonatype repository firewall configuration
-*/
-func (a *Client) GetConfiguration(params *GetConfigurationParams, opts ...ClientOption) (*GetConfigurationOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewGetConfigurationParams()
-	}
-	op := &runtime.ClientOperation{
-		ID:                 "getConfiguration",
+		ID:                 "GetIq",
 		Method:             "GET",
 		PathPattern:        "/v1/iq",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &GetConfigurationReader{formats: a.formats},
+		Reader:             &GetIqReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -173,33 +97,33 @@ func (a *Client) GetConfiguration(params *GetConfigurationParams, opts ...Client
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*GetConfigurationOK)
+	success, ok := result.(*GetIqOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for getConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetIq: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-UpdateConfiguration updates sonatype repository firewall configuration
+PostIqDisable disables sonatype repository firewall
 */
-func (a *Client) UpdateConfiguration(params *UpdateConfigurationParams, opts ...ClientOption) (*UpdateConfigurationNoContent, error) {
+func (a *Client) PostIqDisable(params *PostIqDisableParams, opts ...ClientOption) (*PostIqDisableNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdateConfigurationParams()
+		params = NewPostIqDisableParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "updateConfiguration",
-		Method:             "PUT",
-		PathPattern:        "/v1/iq",
+		ID:                 "PostIqDisable",
+		Method:             "POST",
+		PathPattern:        "/v1/iq/disable",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &UpdateConfigurationReader{formats: a.formats},
+		Reader:             &PostIqDisableReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -211,33 +135,71 @@ func (a *Client) UpdateConfiguration(params *UpdateConfigurationParams, opts ...
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*UpdateConfigurationNoContent)
+	success, ok := result.(*PostIqDisableNoContent)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for updateConfiguration: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostIqDisable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-VerifyConnection1 verifies sonatype repository firewall connection
+PostIqEnable enables sonatype repository firewall
 */
-func (a *Client) VerifyConnection1(params *VerifyConnection1Params, opts ...ClientOption) (*VerifyConnection1OK, error) {
+func (a *Client) PostIqEnable(params *PostIqEnableParams, opts ...ClientOption) (*PostIqEnableNoContent, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewVerifyConnection1Params()
+		params = NewPostIqEnableParams()
 	}
 	op := &runtime.ClientOperation{
-		ID:                 "verifyConnection_1",
+		ID:                 "PostIqEnable",
+		Method:             "POST",
+		PathPattern:        "/v1/iq/enable",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PostIqEnableReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PostIqEnableNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PostIqEnable: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PostIqVerifyConnection verifies sonatype repository firewall connection
+*/
+func (a *Client) PostIqVerifyConnection(params *PostIqVerifyConnectionParams, opts ...ClientOption) (*PostIqVerifyConnectionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPostIqVerifyConnectionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PostIqVerifyConnection",
 		Method:             "POST",
 		PathPattern:        "/v1/iq/verify-connection",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http"},
 		Params:             params,
-		Reader:             &VerifyConnection1Reader{formats: a.formats},
+		Reader:             &PostIqVerifyConnectionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	}
@@ -249,13 +211,51 @@ func (a *Client) VerifyConnection1(params *VerifyConnection1Params, opts ...Clie
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*VerifyConnection1OK)
+	success, ok := result.(*PostIqVerifyConnectionOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for verifyConnection_1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for PostIqVerifyConnection: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+PutIq updates sonatype repository firewall configuration
+*/
+func (a *Client) PutIq(params *PutIqParams, opts ...ClientOption) (*PutIqNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPutIqParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "PutIq",
+		Method:             "PUT",
+		PathPattern:        "/v1/iq",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &PutIqReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*PutIqNoContent)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for PutIq: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
