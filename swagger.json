@@ -706,6 +706,9 @@
         "responses": {
           "200": {
             "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/EulaStatus"
+            },
             "examples": {
               "application/json": {
                 "disclaimer": "Use of Sonatype Nexus Repository - Community Edition is governed by the End User License Agreement at https://links.sonatype.com/products/nxrm/ce-eula. By returning the value from ‘accepted:false’ to ‘accepted:true’, you acknowledge that you have read and agree to the End User License Agreement at https://links.sonatype.com/products/nxrm/ce-eula."
@@ -737,10 +740,16 @@
         ],
         "responses": {
           "204": {
-            "description": "EULA status set successfully"
+            "description": "EULA status set successfully",
+            "schema": {
+              "$ref": "#/definitions/EulaStatus"
+            }
           },
           "500": {
-            "description": "Incorrect EULA Status"
+            "description": "Incorrect EULA Status",
+            "schema": {
+              "$ref": "#/definitions/EulaStatus"
+            }
           }
         }
       }

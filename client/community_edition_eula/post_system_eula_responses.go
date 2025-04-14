@@ -6,10 +6,14 @@ package community_edition_eula
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/dmji/go-nexus/models"
 )
 
 // PostSystemEulaReader is a Reader for the PostSystemEula structure.
@@ -48,6 +52,7 @@ PostSystemEulaNoContent describes a response with status code 204, with default 
 EULA status set successfully
 */
 type PostSystemEulaNoContent struct {
+	Payload *models.EulaStatus
 }
 
 // IsSuccess returns true when this post system eula no content response has a 2xx status code
@@ -81,14 +86,27 @@ func (o *PostSystemEulaNoContent) Code() int {
 }
 
 func (o *PostSystemEulaNoContent) Error() string {
-	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaNoContent", 204)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaNoContent %s", 204, payload)
 }
 
 func (o *PostSystemEulaNoContent) String() string {
-	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaNoContent", 204)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaNoContent %s", 204, payload)
+}
+
+func (o *PostSystemEulaNoContent) GetPayload() *models.EulaStatus {
+	return o.Payload
 }
 
 func (o *PostSystemEulaNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.EulaStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
@@ -104,6 +122,7 @@ PostSystemEulaInternalServerError describes a response with status code 500, wit
 Incorrect EULA Status
 */
 type PostSystemEulaInternalServerError struct {
+	Payload *models.EulaStatus
 }
 
 // IsSuccess returns true when this post system eula internal server error response has a 2xx status code
@@ -137,14 +156,27 @@ func (o *PostSystemEulaInternalServerError) Code() int {
 }
 
 func (o *PostSystemEulaInternalServerError) Error() string {
-	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaInternalServerError", 500)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaInternalServerError %s", 500, payload)
 }
 
 func (o *PostSystemEulaInternalServerError) String() string {
-	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaInternalServerError", 500)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /v1/system/eula][%d] postSystemEulaInternalServerError %s", 500, payload)
+}
+
+func (o *PostSystemEulaInternalServerError) GetPayload() *models.EulaStatus {
+	return o.Payload
 }
 
 func (o *PostSystemEulaInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.EulaStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }

@@ -6,10 +6,14 @@ package community_edition_eula
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/dmji/go-nexus/models"
 )
 
 // GetSystemEulaReader is a Reader for the GetSystemEula structure.
@@ -42,6 +46,7 @@ GetSystemEulaOK describes a response with status code 200, with default header v
 Successful response
 */
 type GetSystemEulaOK struct {
+	Payload *models.EulaStatus
 }
 
 // IsSuccess returns true when this get system eula o k response has a 2xx status code
@@ -75,14 +80,27 @@ func (o *GetSystemEulaOK) Code() int {
 }
 
 func (o *GetSystemEulaOK) Error() string {
-	return fmt.Sprintf("[GET /v1/system/eula][%d] getSystemEulaOK", 200)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /v1/system/eula][%d] getSystemEulaOK %s", 200, payload)
 }
 
 func (o *GetSystemEulaOK) String() string {
-	return fmt.Sprintf("[GET /v1/system/eula][%d] getSystemEulaOK", 200)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /v1/system/eula][%d] getSystemEulaOK %s", 200, payload)
+}
+
+func (o *GetSystemEulaOK) GetPayload() *models.EulaStatus {
+	return o.Payload
 }
 
 func (o *GetSystemEulaOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.EulaStatus)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
 
 	return nil
 }
